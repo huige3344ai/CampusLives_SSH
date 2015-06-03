@@ -1,0 +1,64 @@
+
+/*body*/
+.loginbody{background:#D6E4FF;}
+body{background:url("../images/login/homebg.png") repeat center top;position:absolute;left:0;top:0;right:0;bottom:0; dispaly:inlie;text-align:center;}
+
+/*∞¥≈•*/
+.login-btn,.login-btn_cancel{display:inline;background:url("../images/login/bg.png") repeat-x;width:130px;height:35px;line-height:35px;color:white;font-size:16px;border-radius:3px;border:1px solid #215A8D;margin-right:auto	;}
+.forget_password{display:inline;;width:140px;height:35px;line-height:35px;margin-left:50px }
+/* login */
+.loginbox,.not-box{width:400px;margin-left:auto; margin-right: auto;}
+.loginbox .logo-a,.not-box .logo-a{height:150px; text-align:center;}
+.loginbox .loginbox-title{background:#FFFFFF;height:70px;border-radius:3px 3px 0 0;}
+.loginbox .loginbox-title .logo{padding:12px 20px;}
+.loginbox .loginbox-title h3{color:#666666;padding:0 20px; line-height:50px;font-size:16px;border-bottom:1px solid #F2F2F2;}
+.loginbox .login-content{border:1px solid #CCCCCC;border-radius:3px;padding-bottom:20px;margin-top:120px;}
+.loginbox .login-content .text{width:330px;margin:0 auto;line-height:25px;}
+.loginbox .login-content .text h5{font-size:14px;}
+.loginbox .login-content{background:#FFFFFF;height:auto!important;min-height:100px;height:100px;font-size:14px;}
+.loginbox .login-content .row{width:330px;margin:0 auto;padding:25px 0;position:relative;}
+
+.row_user{padding:15px 0;width: 300px;margin: auto;}
+.left_side{display:inline;}
+#text_re{margin-left:-22px;}
+#text_user{text-align: left;}
+#text_sex{margin-left:-70px;}
+#text_birthday{margin-left:-52px;}
+
+
+
+
+.loginbox .login-content .row .field,.field2{position:absolute;left:60px;top:20px;height:35px;line-height:35px;pointer-events:none;}
+.loginbox .login-content .tips{padding:5px 0;height:25px;font-size:14px;}
+.loginbox .login-content .tips input{margin-right:5px;}
+.loginbox .login-content .btnArea{padding:0;margin:15px auto 5px auto;}
+.loginbox .login-content .row .noPic{background-image:none;padding:0 15px;width:300px;height:34px;line-height:34px;}
+.loginbox .login-content .tissue{width:200px;color:red; margin:0 auto;}
+.errorMessage{line-height:20px;list-style:none;text-align: left;margin-bottom: 5px;}
+
+.go-regist{text-align:center;height:80px;line-height:80px;}
+.btnArea .abtn{font-size:14px;padding:0 20px;}
+a.link,.go-regist a,.loginbox label a{color:#006DA7; cursor:pointer; line-height:25px;}
+.login-error{display:none;width:330px;margin:0 auto;color:red;}
+.loginbox .autosuggest{position:absolute;left:0;top:54px;z-index:1000;}
+.loginbox .autosuggest li{width:320px;padding:5px 5px;border-bottom:1px solid #CCCCCC;}
+
+
+#text_age{	}
+
+/* regist */
+.registbox{margin-top:20px;}
+.registbox .reg-content{}
+.registbox .reg-content .row{padding:10px 0;}
+.registbox .reg-content .row .field{position:absolute;left:10px;top:13px;height:35px;line-height:35px;}
+.registbox .reg-content .row .noPic{background-image:none;padding:0 15px;}
+.registbox .reg-content .row label.error{position:absolute;left:auto;right:10px;bottom:5px;}
+.registbox .reg-content .tips{padding:0;}
+
+
+/*  ‰»ÎøÚ */
+
+.input-text-user{border:#D8D8D8 1px solid;border-radius:3px;width:290px;padding-left:40px;height:32px;line-height:32px;background:white url(../images/login/img.png) no-repeat 0px top;}
+.input-text-password{border:#D8D8D8 1px solid;border-radius:3px;width:290px;padding-left:40px;height:32px;line-height:32px;background:white url(../images/login/img.png) no-repeat 0px -50px;}
+.input-text-user.error{background:#FFD2D2 url("../images/login/img.png") no-repeat 0px top;border-width:3px;}
+.input-text-password.error{background:#FFD2D2 url("../images/login/img.png") no-repeat 0px -50px;border-width:3px;}

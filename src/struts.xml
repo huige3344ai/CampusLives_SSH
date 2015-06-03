@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+		
+		<package name="LoginAction" extends="struts-default" namespace="/">
+			<action name="userRegister" class="userReg">
+					<result name="login" type="dispatcher">/page/foreground/login.jsp</result>
+					<result name="input" >/page/foreground/register.jsp</result>									
+			 </action>
+			
+			
+			<action name="userLogin" class="userReg" method="login">
+				<result name="success" type="redirect" >page/foreground/main.jsp</result>
+				<result name="login">/page/foreground/login.jsp</result>
+				<result name="input" >/page/foreground/login.jsp</result>				
+			</action>	
+			
+			<action name="userManager" class="userReg" >
+				<result name="updatesuccess" type="redirect">/page/foreground/exchange_msg.jsp</result>
+				<result name="updateabort">/page/foreground/error.jsp</result>			
+				<result name="input">/page/foreground/exchange_msg.jsp</result>	
+			</action>
+		
+			<action name="goTo" class="userReg" >
+				<result name="returnregister" type="redirect">/page/foreground/page/foreground/register.jsp</result>
+				<result name="returnpassword" type="redirect">/page/foreground/page/foreground/return_password.jsp</result>						
+			</action>	
+						
+			<action name="userOut" class="userReg" >
+				<result name="login" type="redirect">/page/foreground/login.jsp</result>						
+			</action>			
+
+			
+			<action name="exPassword" class="userReg"  method="updateLogin">			
+				<result name="update_passwor_abort">/page/foreground/error.jsp</result>			
+				<result name="update_passwor_success">/page/foreground/login.jsp</result>
+				<result name="input">/page/foregroundexchange_password.jsp</result>								
+			</action>	
+			
+			<action name="returnPassword" class="userReg"  method="returnPassword">			
+				<result name="return_password_abort">/page/foreground/error.jsp</result>			
+				<result name="return_password_success">/page/foreground/login.jsp</result>
+				<result name="input">/page/foreground/return_password.jsp</result>								
+			</action>			
+			
+			
+	</package>
+
+</struts>
