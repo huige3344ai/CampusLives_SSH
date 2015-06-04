@@ -26,6 +26,15 @@
 	<bean id="userReg" class="com.zhbit.actions.LoginAction" scope="prototype"/>
 	
 
-	
-
-</beans>
+	<bean id="ActivityApplyDAO"
+		class="com.zhbit.dao.ActivityApplyDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="LoveActivityDAO"
+		class="com.zhbit.dao.LoveActivityDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean></beans>
