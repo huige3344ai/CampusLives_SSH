@@ -14,7 +14,7 @@
 			jdbc:mysql://localhost:3309/campuslives_ssh
 		</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">4567</property>
+		<property name="connection.password">1234</property>
 		<property name="connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>
@@ -23,6 +23,7 @@
 		<mapping resource="com/zhbit/domain/User.hbm.xml" />
 		<mapping resource="com/zhbit/domain/ActivityApply.hbm.xml" />
 		<mapping resource="com/zhbit/domain/LoveActivity.hbm.xml" />
+		<mapping resource="com/zhbit/domain/food/Restaurant.hbm.xml" />
 	</session-factory>
 
 </hibernate-configuration>

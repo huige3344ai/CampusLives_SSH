@@ -44,8 +44,19 @@
 				<result name="return_password_success">/page/foreground/login.jsp</result>
 				<result name="input">/page/foreground/return_password.jsp</result>								
 			</action>			
-			
-			
+			<!-- 庄继辉action配置 -->
+			<action name="getdata" class="reAct">
+					<result name="RT_FOOD">/page/foreground/food/more.jsp</result>						
+			</action>
+			<action name="Rtdata" class="RtAct">
+					<result name="input">/page/foreground/return_password.jsp</result>						
+			</action>
 	</package>
+	
+		
+		
+		
+		
+		
 
 </struts>

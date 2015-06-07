@@ -25,6 +25,11 @@
 	<bean id="userService" class="com.zhbit.services.UserServiceImpl" />		
 	<bean id="userReg" class="com.zhbit.actions.LoginAction" scope="prototype"/>
 	
+	<!-- 庄继辉bean配置：不许说话不许动 -->
+	<bean id="restaurantDao" class="com.zhbit.dao.RestaurantDAOImpl" />		
+	<bean id="restaurantService" class="com.zhbit.services.RestaurantServiceImpl" />
+	<bean id="reAct" class="com.zhbit.actions.RestaurantAction" />
+	<bean id="RtAct" class="com.zhbit.actions.FoodAction" />
 
 	<bean id="ActivityApplyDAO"
 		class="com.zhbit.dao.ActivityApplyDAO">
@@ -37,4 +42,8 @@
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
-	</bean></beans>
+	</bean>
+	
+
+
+	</beans>
