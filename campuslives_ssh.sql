@@ -1,28 +1,52 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost_3309
-Source Server Version : 50045
+Source Server         : localhost_3306
+Source Server Version : 50515
 Source Host           : localhost:3309
 Source Database       : campuslives_ssh
 
 Target Server Type    : MYSQL
-Target Server Version : 50045
+Target Server Version : 50515
 File Encoding         : 65001
 
-Date: 2015-06-22 17:40:09
+Date: 2015-06-07 17:45:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `restaurant`
+-- ----------------------------
+DROP TABLE IF EXISTS `restaurant`;
+CREATE TABLE `restaurant` (
+  `Num` int(11) NOT NULL AUTO_INCREMENT,
+  `Rname` varchar(50) NOT NULL,
+  `images` varchar(100) NOT NULL,
+  `price` float DEFAULT NULL,
+  PRIMARY KEY (`Num`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=gbk;
+
+-- ----------------------------
+-- Records of restaurant
+-- ----------------------------
+INSERT INTO `restaurant` VALUES ('1', 'The Factory工厂餐吧', 'images/food/image/1.jpg', '4.5');
+INSERT INTO `restaurant` VALUES ('2', '肯德基', 'images/food/image/2.jpg', '5');
+INSERT INTO `restaurant` VALUES ('3', '车仔面', 'images/food/image/3.jpg', '4');
+INSERT INTO `restaurant` VALUES ('4', '猪扒包', 'images/food/image/4.jpg', '4');
+INSERT INTO `restaurant` VALUES ('5', '二饭', 'images/food/image/5.jpg', '4.5');
+INSERT INTO `restaurant` VALUES ('6', '京苑', 'images/food/image/6.jpg', '5');
+INSERT INTO `restaurant` VALUES ('7', '豪嘉基', 'images/food/image/7.jpg', '5');
+INSERT INTO `restaurant` VALUES ('8', '一饭', 'images/food/image/6.jpg', '3');
 
 -- ----------------------------
 -- Table structure for `role`
 -- ----------------------------
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
-  `rid` int(11) NOT NULL auto_increment,
+  `rid` int(11) NOT NULL AUTO_INCREMENT,
   `rname` varchar(20) NOT NULL,
-  PRIMARY KEY  (`rid`)
+  PRIMARY KEY (`rid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -37,15 +61,15 @@ INSERT INTO `role` VALUES ('3', '商家');
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `rid` int(11) default '1',
-  `id` int(11) NOT NULL auto_increment,
+  `rid` int(11) DEFAULT '1',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userName` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   `sex` varchar(10) NOT NULL,
   `birthday` date NOT NULL,
   `age` tinyint(3) NOT NULL,
   `email` varchar(30) NOT NULL,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   KEY `rid` (`rid`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`rid`) REFERENCES `role` (`rid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
