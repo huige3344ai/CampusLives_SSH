@@ -44,6 +44,12 @@
 		</property>
 	</bean>
 	
+	<!-- 失物招领配置 -->
+	<bean id="lafDao" class="com.zhbit.dao.lostandfind.LAFDao" />
+	<bean id="lafService" class="com.zhbit.services.lostandfind.LostServiceImpl" />		
+	<bean id="lafact" class="com.zhbit.actions.lostandfind.LostAction"/>
+	
+
 
 
 	</beans>

@@ -51,6 +51,13 @@
 			<action name="Rtdata" class="RtAct">
 					<result name="input">/page/foreground/return_password.jsp</result>						
 			</action>
+			
+			<!-- 失物招领action配置 -->
+			<action name="lost" class="lafact" >
+				<result name="success">/page/foreground/page/foreground/register.jsp</result>
+				<result name="lostadd">/page/foreground/page/foreground/return_password.jsp</result>						
+			</action>
+			
 	</package>
 	
 		
