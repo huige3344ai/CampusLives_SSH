@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<context:annotation-config />
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation" value="classpath:hibernate.cfg.xml">
+		</property>
+	</bean>
+	
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="txManager" />
+	<bean id="userDao" class="com.zhbit.dao.UserDaoImpl" />
+	<bean id="userService" class="com.zhbit.services.UserServiceImpl" />		
+	<bean id="userReg" class="com.zhbit.actions.LoginAction" scope="prototype"/>
+	
+	<!-- 庄继辉bean配置：不许说话不许动 -->
+	<bean id="restaurantDao" class="com.zhbit.dao.RestaurantDAOImpl" />		
+	<bean id="restaurantService" class="com.zhbit.services.RestaurantServiceImpl" />
+	<bean id="reAct" class="com.zhbit.actions.RestaurantAction" />
+	<bean id="RtAct" class="com.zhbit.actions.FoodAction" />
+	<bean id="FoodDao" class="com.zhbit.dao.FoodDAOImpl" />		
+	<bean id="FoodService" class="com.zhbit.services.FoodServiceImpl" />
+	
+	
+	
+	<bean id="ActivityApplyDAO"
+		class="com.zhbit.dao.ActivityApplyDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="LoveActivityDAO"
+		class="com.zhbit.dao.LoveActivityDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 失物招领配置 -->
+	<bean id="lafDao" class="com.zhbit.dao.lostandfind.LAFDao" />
+	<bean id="lafService" class="com.zhbit.services.lostandfind.LostServiceImpl" />		
+	<bean id="lafact" class="com.zhbit.actions.lostandfind.LostAction"/>
+	
+
+
+
+	</beans>

@@ -1,0 +1,99 @@
+
+
+ul,p,h1,h2,h3,h4,dl,dd,form,input,textarea,select
+{padding:0; margin:0; font-family:Arial;color:black;display:inline;}
+li {list-style-type:none; }
+img {border:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+
+#container{height:auto;position:relative;padding-bottom: 60px; min-height: 100%;}
+
+body{background:url("../images/login/homebg.png") repeat center top;position:absolute;left:0;top:0;right:0;bottom:0; dispaly:inlie;text-align:center;}
+
+#header{width:900px;height:60px;position:relative;margin-left:246px;margin-top:10px;}
+
+.header_title{height:20px;width:160px;display:inline	line-height:20px;margin-left:50px;padding-top:0px;font-size: 24px;}
+.header_title span,strong{color:white;}
+
+
+#bys{width:100%;height:auto;position:relative;}
+
+
+.nav {width:800px;height:44px;margin-left:auto; margin-right:auto;position: relative;}
+
+.suggest_nav{width:120px;position:relative; overflow:hidden;display: block;background:red;}
+.suggest_nav,.main_nav{height:44px;background:url("../images/suggest/suggest_banner.png") repeat-x 0 -45px;}
+.suggest_nav_l,.main_nav .suggest_nav_l{height:44px;background:url("../images/suggest/suggest_banner.png")no-repeat;}
+.suggest_nav_r,.main_nav .suggest_nav_r{height:44px;background:url("../images/suggest/suggest_banner.png")no-repeat  right -90px;position:relative;}
+.suggest_nav h3,.main_nav h3{line-height:44px;text-align:center;font:18px;color:#F8F8F8;margin-left:12px;}
+
+.main_nav {width:120px;position:relative;overflow:hidden;display:block;float:left;margin-right: 560px;}
+
+.user ul{z-index:99;width:102px;height:40px;position:relative;margin-right:-200px;line-height;40px;text-align:left;font:18px;float:right;}
+.user ul li {z-index:100;float:left;color:white;text-align:center;width:100px;background:#215A8D;border: 1px solid #215A8D;-webkit-border-radius: 4px;-moz-border-radius:4px;border-radius: 4px;}
+.user li ul{display:none;}
+.user li ul a{color:white;border: solid #fff;}
+.user ul li:HOVER ul{ display:block;position:absolute;}
+.user ul li:HOVER ul li a{display:block;}
+
+
+#suggest,#content,#details{vertical-align:middle;height:auto;width:800px; margin-left:auto; margin-right:auto;margin-top:20px;position:relative;border: 2px solid #38b8da; background:#ffffff;}
+
+#content{margin-left:auto;margin-right:auto}
+#content li{margin-bottom:20px;margin-top:10px;text-align: left;}
+
+.conten_form {width:800px;position:relative;}
+ .note_talbe tr{width: 150px;text-align: left;}
+.content_title{width:auto;height:44px;display: inline;position:relative;margin-left: 0px;}
+.content_note_user{width:auto;height:44px;display: inline;position:relative;margin-left: 20px;}
+.content_note_time{width:auto;height:44px;display: inline;margin-right:20px;}
+
+
+.note_button{background:none;border:none;}
+
+.your_name{height:120px;width:300;margin-left:20px;position:absolute;}
+.name_label,.suggest_label{height:40px;width:100;margin-left:0px; line-height:40px;position:relative;}
+.your_name_input{height:40px;width:200px;background:transparent;border:2px solid #e3e3e1;margin-left:0;margin-top:10px;margin-left: 0;}
+
+.your_suggest{width:480px;height:300px;margin-top:120px;}
+.suggest_label{width:480px;height:40px;margin-top:-80px;}
+.suggest_input{width:480px;height:200px;margin-left:20px;}
+
+.your_answer{height:300px;width:300;position: relative;}
+.answer_input{width:480px;height:100px;margin-left:20px;}
+
+.sumbit_button,.answer_sumbit_button{display:block;background:url("../images/login/bg.png") repeat-x;width:290px;text-align:center;height:35px;line-height:35px;color:white;font-size:16px;border-radius:3px;border:1px solid #215A8D;position:relative;}
+.sumbit_button{position:relative;margin:100px auto;}
+.answer_sumbit_button{margin:40px auto;}
+#suggest .tissue{width:240px;color:red; margin:10px auto ; }
+#tissue_note{color:red;}
+
+.suggestion{height:400px;width:700px;margin-top:20px;}
+.suggestion_talbe td{border:1px solid #38b8da;}
+.suggestion_talbe {margin-left:20px;border:1px solid #38b8da;}
+
+.title{width:800px;height:44px;}
+
+.contents{width:800px;height:44px;}
+
+.note_time{width:800px;height:44px;}
+
+.note_time h3,.contents h3,.title h3{line-height:44px;align:left;font:18px;float:left; margin-left: 20px;}
+
+.answer{width:800px;height:auto;margin: atuo 0; }
+.answer td{padding-bottom: 10px;}
+.your_answer{height:auto;}
+
+
+
+
+#footer{height:60px;bottom:0;position:relative;margin-top: 20px;}
+.footer_title{width:490px;height:auto; margin: 0 auto;}
+.footer_title p{line-height:20px;font-size:12px;color:#656565;} 
+
+
+
+
+
