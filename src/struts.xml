@@ -84,7 +84,7 @@
 			<param name="actionName">add</param>
 			<param name="method">getPoints</param>
 			</result>
-			<result name="list">/P_Manage.jsp</result>
+			<result name="list">/page/foreground/point/P_Manage.jsp</result>
 		</action>
 		
 	</package>
