@@ -71,8 +71,16 @@
 				<result name="lostadd">/page/foreground/lostandfind/lost.jsp</result>						
 			</action>			
 		
+		<!-- Point action配置 -->
+			<action name="add" class="pointAdd">
+			<result type="redirectAction">
+			<param name="namespace">/</param>
+			<param name="actionName">add</param>
+			<param name="method">getPoints</param>
+			</result>
+			<result name="list">/P_Manage.jsp</result>
+		</action>
 		
-			
 	</package>
 
 </struts>

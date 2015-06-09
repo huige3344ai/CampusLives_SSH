@@ -54,7 +54,10 @@
 	<bean id="lafService" class="com.zhbit.services.lostandfind.LostServiceImpl" />		
 	<bean id="lafact" class="com.zhbit.actions.lostandfind.LostAction"/>
 	
-
+	<!-- Point bean配置 -->
+	<bean id="pointDao" class="com.zhbit.dao.point.PointDaoImpl" />
+	<bean id="pointService" class="com.zhbit.services.point.PointServiceImpl" />
+	<bean id="pointAdd" class="com.zhbit.actions.point.PointAction" />
 
 
 	</beans>
