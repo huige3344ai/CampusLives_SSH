@@ -5,6 +5,7 @@
 <struts>
 		
 		<package name="LoginAction" extends="struts-default" namespace="/">
+		<!--用户方面action  -->	
 			<action name="userRegister" class="userReg">
 					<result name="login" type="dispatcher">/page/foreground/login.jsp</result>
 					<result name="input" >/page/foreground/register.jsp</result>									
@@ -24,8 +25,10 @@
 			</action>
 		
 			<action name="goTo" class="userReg" >
-				<result name="returnregister" type="redirect">/page/foreground/page/foreground/register.jsp</result>
-				<result name="returnpassword" type="redirect">/page/foreground/page/foreground/return_password.jsp</result>						
+				<result name="returnregister" type="redirect">/page/foreground/register.jsp</result>
+				<result name="returnpassword" type="redirect">/page/foreground/return_password.jsp</result>
+				<result name="returnsuggest" type="redirect">/page/foreground/suggest_main.jsp</result>		
+									
 			</action>	
 						
 			<action name="userOut" class="userReg" >
@@ -43,8 +46,20 @@
 				<result name="return_password_abort">/page/foreground/error.jsp</result>			
 				<result name="return_password_success">/page/foreground/login.jsp</result>
 				<result name="input">/page/foreground/return_password.jsp</result>								
-			</action>			
+			</action>
+				
+			<!--投诉和建议  -->			
+			<action name="noteManager" class="noteManger" >					
+					<result name="success">/page/foreground/suggest_main.jsp</result>
+					<result name="main">/page/background/note_action.jsp</result>
+					<result name="notego" type="redirect">/page/foreground/details.jsp</result>
+					<result name="answer" type="redirect">/page/foreground/details.jsp</result>
+					<result name="error">/error.jsp</result>
+					<result name="input">/details.jsp</result>	
+			</action>
 			
+		
+		
 			
 	</package>
 

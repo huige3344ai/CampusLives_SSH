@@ -21,20 +21,14 @@
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="txManager" />
+	<!-- 用户 -->
 	<bean id="userDao" class="com.zhbit.dao.UserDaoImpl" />
 	<bean id="userService" class="com.zhbit.services.UserServiceImpl" />		
 	<bean id="userReg" class="com.zhbit.actions.LoginAction" scope="prototype"/>
 	
-
-	<bean id="ActivityApplyDAO"
-		class="com.zhbit.dao.ActivityApplyDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-	<bean id="LoveActivityDAO"
-		class="com.zhbit.dao.LoveActivityDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean></beans>
+	<!-- 投诉和建议-->
+	<bean id="noteDao" class="com.zhbit.dao.NoteDaoImpl" />
+	<bean id="noteService" class="com.zhbit.services.NoteServiceImpl" />	
+	<bean id="noteManger" class="com.zhbit.actions.NotaManagerAction" scope="prototype"/>	
+	
+</beans>
