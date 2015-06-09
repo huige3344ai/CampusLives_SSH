@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #MyEclipse Hibernate Properties
 #Tue Jun 09 08:57:28 CST 2015
 sessionFactoryName=
@@ -22,3 +23,29 @@ reSettingsFile=/CampusLives_SSH/hibernate.reveng.xml
 configFile=/CampusLives_SSH/src/hibernate.cfg.xml
 createConfigFile=false
 addLibs2Classpath=false
+=======
+#MyEclipse Hibernate Properties
+#Tue Jun 09 08:42:21 CST 2015
+sessionFactoryName=
+genBasicCompId=false
+profile=
+daoSFId=
+version=3.0
+jndiPath=
+detectM2M=false
+reStrategyClass=
+detectO2O=false
+springDaoFile=
+useJavaTypes=true
+keyGenerator=native
+libInstallFolder=WebRoot/WEB-INF/lib
+addLibs2Project=false
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+genAnnotations=false
+reSettingsFile=/CampusLives_SSH/hibernate.reveng.xml
+configFile=/CampusLives_SSH/src/hibernate.cfg.xml
+createConfigFile=false
+addLibs2Classpath=false
+>>>>>>> refs/remotes/origin/dev

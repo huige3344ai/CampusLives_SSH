@@ -1,6 +1,7 @@
 package com.zhbit.domain;
 
 import java.util.Date;
+import java.util.Set;
 
 /**
  * User entity. @author MyEclipse Persistence Tools
@@ -8,6 +9,10 @@ import java.util.Date;
 
 public class User implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// Fields
 
 	private Integer id;
@@ -18,6 +23,8 @@ public class User implements java.io.Serializable {
 	private Date birthday;
 	private Short age;
 	private String email;
+	private Set notes;
+	private Set follownotes;
 
 	// Constructors
 
@@ -113,5 +120,25 @@ public class User implements java.io.Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public Set getNotes() {
+		return notes;
+	}
+
+	public void setNotes(Set notes) {
+		this.notes = notes;
+	}
+
+	public Set getFollownotes() {
+		return follownotes;
+	}
+
+	public void setFollownotes(Set follownotes) {
+		this.follownotes = follownotes;
+	}
+
+
+
+
 
 }

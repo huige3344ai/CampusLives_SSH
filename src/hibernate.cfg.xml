@@ -21,12 +21,14 @@
 		<property name="myeclipse.connection.profile">mysql</property>
 		<mapping resource="com/zhbit/domain/Role.hbm.xml" />
 		<mapping resource="com/zhbit/domain/User.hbm.xml" />
+		<mapping resource="com/zhbit/domain/Note.hbm.xml" />
+		<mapping resource="com/zhbit/domain/Follownote.hbm.xml" />
 		<mapping resource="com/zhbit/domain/ActivityApply.hbm.xml" />
 		<mapping resource="com/zhbit/domain/LoveActivity.hbm.xml" />
 		<mapping resource="com/zhbit/domain/food/Restaurant.hbm.xml" />
 		<mapping resource="com/zhbit/domain/lostandfind/Lost.hbm.xml" />
 		<mapping resource="com/zhbit/domain/lostandfind/Find.hbm.xml" />
-
+		<mapping resource="com/zhbit/domain/point/Point.hbm.xml" />
 
 
 	</session-factory>

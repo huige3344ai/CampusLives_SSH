@@ -21,10 +21,15 @@
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="txManager" />
+	
+	<!-- 用户 -->
 	<bean id="userDao" class="com.zhbit.dao.UserDaoImpl" />
 	<bean id="userService" class="com.zhbit.services.UserServiceImpl" />		
 	<bean id="userReg" class="com.zhbit.actions.LoginAction" scope="prototype"/>
-	
+	<!-- 投诉和建议-->
+	<bean id="noteDao" class="com.zhbit.dao.NoteDaoImpl" />
+	<bean id="noteService" class="com.zhbit.services.NoteServiceImpl" />	
+	<bean id="noteManger" class="com.zhbit.actions.NotaManagerAction" scope="prototype"/>		
 	<!-- 庄继辉bean配置：不许说话不许动 -->
 	<bean id="restaurantDao" class="com.zhbit.dao.RestaurantDAOImpl" />		
 	<bean id="restaurantService" class="com.zhbit.services.RestaurantServiceImpl" />
@@ -50,7 +55,10 @@
 	<bean id="lafact" class="com.zhbit.actions.lostandfind.LostAction"/>
 	<bean id="findact" class="com.zhbit.actions.lostandfind.FindAction"/>
 	
-
+	<!-- Point bean配置 -->
+	<bean id="pointDao" class="com.zhbit.dao.point.PointDaoImpl" />
+	<bean id="pointService" class="com.zhbit.services.point.PointServiceImpl" />
+	<bean id="pointAdd" class="com.zhbit.actions.point.PointAction" />
 
 
 	</beans>
