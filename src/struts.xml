@@ -55,7 +55,13 @@
 			<!-- 失物招领action配置 -->
 			<action name="lost" class="lafact" >
 				<result name="success">/page/foreground/lostandfind/lostsuccess.jsp</result>
-				<result name="lostadd">/page/foreground/lostandfind/lost.jsp</result>						
+				<result name="lostadd">/page/foreground/lostandfind/lost.jsp</result>	
+				<result name="list">/page/foreground/lostandfind/searchlost.jsp</result>						
+			</action>
+			<action name="find" class="findact" >
+				<result name="success">/page/foreground/lostandfind/findsuccess.jsp</result>
+				<result name="lostadd">/page/foreground/lostandfind/find.jsp</result>
+				<result name="list">/page/foreground/lostandfind/searchfind.jsp</result>					
 			</action>
 			
 	</package>

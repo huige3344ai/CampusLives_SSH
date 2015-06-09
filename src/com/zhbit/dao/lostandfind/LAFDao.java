@@ -8,6 +8,7 @@ import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 
 
+import com.zhbit.domain.lostandfind.Find;
 import com.zhbit.domain.lostandfind.Lost;
 
 
@@ -38,7 +39,7 @@ public class LAFDao {
 	//查询一个失物
 	public List<Lost> getoneLost(int id) {
 		List<Lost> losts = null;
-		String hql = "from Postlist where id="+id+" ";		
+		String hql = "from Lost where id="+id+" ";		
 		Query query = sessionFactory.getCurrentSession().createQuery(hql); 		
 		losts =  query.list();
 		return losts;
@@ -59,6 +60,50 @@ public class LAFDao {
 			query.executeUpdate();
 	
 		return lost;
+	
+	}
+	
+	
+	//添加拾到物信息
+	public Find insertFind(Find find) {
+		sessionFactory.getCurrentSession().persist(find);
+		return find;
+	}
+	
+	//查询拾到物
+	public List<Find> getFind() {
+		List<Find> finds = null;
+		String hql = "from Find order by id";		
+		Query query = sessionFactory.getCurrentSession().createQuery(hql); 		
+		finds =  query.list();
+		return finds;
+	}
+	
+	
+	//查询一个拾到物
+	public List<Find> getoneFind(int id) {
+		List<Find> finds = null;
+		String hql = "from Find where id="+id+" ";		
+		Query query = sessionFactory.getCurrentSession().createQuery(hql); 		
+		finds =  query.list();
+		return finds;
+	}
+	
+	
+	//更新拾到物信息
+	public Find updateFind(Find find) {		
+			String hql = "update Find find  set find.findname = ? , find.findername = ? , find.findress = ? , find.tel = ? , find.description = ? , find.promulgator = ?where find.id =?";  
+			Query query = sessionFactory.getCurrentSession().createQuery(hql);
+			query.setString(0, find.getFindname());	
+			query.setString(1, find.getFindername());	
+			query.setString(2, find.getAddress());	
+			query.setString(3, find.getTel());			
+			query.setString(4, find.getDescription());
+			query.setString(5, find.getPromulgator());
+			query.setInteger(6, find.getId());
+			query.executeUpdate();
+	
+		return find;
 	
 	}
 }

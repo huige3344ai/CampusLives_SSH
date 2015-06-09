@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.zhbit.dao.lostandfind.LAFDao;
 
+import com.zhbit.domain.lostandfind.Find;
 import com.zhbit.domain.lostandfind.Lost;
 
 
@@ -40,6 +41,31 @@ public class LostServiceImpl  implements LostService{
 	
 	public Lost updateLost(Lost lost){
 		return lafdao.updateLost(lost);
+	}
+	
+	
+	
+	public Find insertFind(Find find) {
+		return lafdao.insertFind(find);	
+	}
+	
+	@SuppressWarnings("rawtypes")
+	@Transactional(propagation=Propagation.NOT_SUPPORTED)
+	public List<Find> getFind() {
+		return lafdao.getFind();
+	
+	}
+	
+	
+	@SuppressWarnings("rawtypes")
+	@Transactional(propagation=Propagation.NOT_SUPPORTED)
+	public List<Find> getoneFind(int id) {
+		return lafdao.getoneFind(id);
+	}
+	
+	
+	public Find updateFind(Find find){
+		return lafdao.updateFind(find);
 	}
 	
 }

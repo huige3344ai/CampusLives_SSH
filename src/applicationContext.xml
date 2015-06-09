@@ -48,6 +48,7 @@
 	<bean id="lafDao" class="com.zhbit.dao.lostandfind.LAFDao" />
 	<bean id="lafService" class="com.zhbit.services.lostandfind.LostServiceImpl" />		
 	<bean id="lafact" class="com.zhbit.actions.lostandfind.LostAction"/>
+	<bean id="findact" class="com.zhbit.actions.lostandfind.FindAction"/>
 	
 
 

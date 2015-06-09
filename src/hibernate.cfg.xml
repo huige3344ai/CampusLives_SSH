@@ -25,6 +25,7 @@
 		<mapping resource="com/zhbit/domain/LoveActivity.hbm.xml" />
 		<mapping resource="com/zhbit/domain/food/Restaurant.hbm.xml" />
 		<mapping resource="com/zhbit/domain/lostandfind/Lost.hbm.xml" />
+		<mapping resource="com/zhbit/domain/lostandfind/Find.hbm.xml" />
 
 
 

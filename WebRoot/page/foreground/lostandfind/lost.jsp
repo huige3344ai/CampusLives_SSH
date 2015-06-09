@@ -89,9 +89,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="拾到物搜寻" name = "searchfind"/></center>
         </form>
         
-       <form action ="page/foreground/lostandfind/searchlost.jsp" method = "post">
+       <s:form action ="lost!lostshow.action" method = "post">
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="失物搜寻" name = "searchlost"/></center>
-        </form>
+        </s:form>
 
        <form action ="page/foreground/lostandfind/personal.jsp" method = "post">
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="个人发布记录" name = "personal"/></center>
