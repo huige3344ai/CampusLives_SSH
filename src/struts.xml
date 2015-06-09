@@ -57,7 +57,19 @@
 					<result name="error">/error.jsp</result>
 					<result name="input">/details.jsp</result>	
 			</action>
+			<!-- 庄继辉action配置 -->
+			<action name="getdata" class="reAct">
+					<result name="RT_FOOD">/page/foreground/food/more.jsp</result>						
+			</action>
+			<action name="Rtdata" class="RtAct">
+					<result name="input">/page/foreground/return_password.jsp</result>						
+			</action>
 			
+			<!-- 失物招领action配置 -->
+			<action name="lost" class="lafact" >
+				<result name="success">/page/foreground/lostandfind/lostsuccess.jsp</result>
+				<result name="lostadd">/page/foreground/lostandfind/lost.jsp</result>						
+			</action>			
 		
 		
 			

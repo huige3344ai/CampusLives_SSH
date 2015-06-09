@@ -21,14 +21,40 @@
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="txManager" />
+	
 	<!-- 用户 -->
 	<bean id="userDao" class="com.zhbit.dao.UserDaoImpl" />
 	<bean id="userService" class="com.zhbit.services.UserServiceImpl" />		
 	<bean id="userReg" class="com.zhbit.actions.LoginAction" scope="prototype"/>
-	
 	<!-- 投诉和建议-->
 	<bean id="noteDao" class="com.zhbit.dao.NoteDaoImpl" />
 	<bean id="noteService" class="com.zhbit.services.NoteServiceImpl" />	
-	<bean id="noteManger" class="com.zhbit.actions.NotaManagerAction" scope="prototype"/>	
+	<bean id="noteManger" class="com.zhbit.actions.NotaManagerAction" scope="prototype"/>		
+	<!-- 庄继辉bean配置：不许说话不许动 -->
+	<bean id="restaurantDao" class="com.zhbit.dao.RestaurantDAOImpl" />		
+	<bean id="restaurantService" class="com.zhbit.services.RestaurantServiceImpl" />
+	<bean id="reAct" class="com.zhbit.actions.RestaurantAction" />
+	<bean id="RtAct" class="com.zhbit.actions.FoodAction" />
+
+	<bean id="ActivityApplyDAO"
+		class="com.zhbit.dao.ActivityApplyDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="LoveActivityDAO"
+		class="com.zhbit.dao.LoveActivityDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 	
-</beans>
+	<!-- 失物招领配置 --> 
+	<bean id="lafDao" class="com.zhbit.dao.lostandfind.LAFDao" />
+	<bean id="lafService" class="com.zhbit.services.lostandfind.LostServiceImpl" />		
+	<bean id="lafact" class="com.zhbit.actions.lostandfind.LostAction"/>
+	
+
+
+
+	</beans>
