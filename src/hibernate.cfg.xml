@@ -27,6 +27,7 @@
 		<mapping resource="com/zhbit/domain/lostandfind/Lost.hbm.xml" />
 
 
+
 	</session-factory>
 
 </hibernate-configuration>

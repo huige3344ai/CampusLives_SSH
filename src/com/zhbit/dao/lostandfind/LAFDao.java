@@ -21,7 +21,6 @@ public class LAFDao {
 	
 	//添加失物信息
 	public Lost insertLost(Lost lost) {
-	
 		sessionFactory.getCurrentSession().persist(lost);
 		return lost;
 	}

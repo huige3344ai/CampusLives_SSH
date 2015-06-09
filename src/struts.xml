@@ -54,8 +54,8 @@
 			
 			<!-- 失物招领action配置 -->
 			<action name="lost" class="lafact" >
-				<result name="success">/page/foreground/page/foreground/register.jsp</result>
-				<result name="lostadd">/page/foreground/page/foreground/return_password.jsp</result>						
+				<result name="success">/page/foreground/lostandfind/lostsuccess.jsp</result>
+				<result name="lostadd">/page/foreground/lostandfind/lost.jsp</result>						
 			</action>
 			
 	</package>

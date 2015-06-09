@@ -20,7 +20,6 @@ public class LostServiceImpl  implements LostService{
 	private LAFDao lafdao ;
 	
 	public Lost insertLost(Lost lost) {
-	
 		return lafdao.insertLost(lost);	
 	}
 	

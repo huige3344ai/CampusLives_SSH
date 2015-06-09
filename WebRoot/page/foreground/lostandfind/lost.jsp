@@ -103,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <br>
           <fieldset >
 <legend align="center" ><h2>失物登记</h2></legend>
-<s:form action ="lost"  namespace="/"  method="post"> 
+<s:form action ="lost!addlost.action" method="post"> 
 <h3>失物名称：<input type = "text" name="lost.lostname" style="width:300px;height:30px;"/> </h3>
 <br>
 <br>
