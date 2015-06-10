@@ -85,6 +85,8 @@ public class LoginAction extends ActionSupport {
 	
 		
 		}	
+
+		
 		//’“ªÿ√‹¬Î
 		public String returnPassword(){
 			HttpServletRequest request = ServletActionContext.getRequest();	
@@ -128,6 +130,12 @@ public class LoginAction extends ActionSupport {
 	    public String goToRegister(){
 			return "returnregister";   	
 	    }	
+	    
+	    public String goToSuggestion(){
+			return "returnsuggest";   	
+	    }		    
+	    
+
 	
 	public User getUser() {
 		return user;

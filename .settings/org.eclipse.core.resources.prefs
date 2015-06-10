@@ -1,2 +1,6 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=refs/remotes/origin/dev
 eclipse.preferences.version=1
+encoding//WebRoot/js/imageflow.js=UTF-8
 encoding//WebRoot/page/background/error404.jsp=UTF-8

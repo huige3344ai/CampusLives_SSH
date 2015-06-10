@@ -5,6 +5,7 @@
 <struts>
 		
 		<package name="LoginAction" extends="struts-default" namespace="/">
+
 			<action name="userRegister" class="userReg">
 					<result name="login" type="dispatcher">/page/foreground/login.jsp</result>
 					<result name="input" >/page/foreground/register.jsp</result>									

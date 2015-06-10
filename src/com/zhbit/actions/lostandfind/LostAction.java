@@ -1,5 +1,7 @@
 package com.zhbit.actions.lostandfind;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -16,6 +18,7 @@ public class LostAction extends ActionSupport{
 	private String description;
 	private String promulgator;
 	private Lost lost;
+	private List<Lost> lostlist;
 
 	
 	@Resource
@@ -78,8 +81,21 @@ public class LostAction extends ActionSupport{
 			return "lostadd";
 		}
 	}
+	
+	public String lostshow(){
+		lostlist=lostser.getLost();
+		return "list";
+	}
+	
+	public List<Lost> getLostlist() {
+		return lostlist;
+	}
+	public void setLostlist(List<Lost> lostlist) {
+		this.lostlist = lostlist;
+	}
 
 
 	
 
 }
+

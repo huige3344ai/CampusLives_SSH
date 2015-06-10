@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 ul,p,h1,h2,h3,h4,dl,dd,form,input,textarea,select
@@ -96,4 +97,63 @@ body{background:url("../images/login/homebg.png") repeat center top;position:abs
 
 
 
+=======
+body,ul,p,h1,h2,h3,h4,dl,dd,form,input,textarea,select
+{padding:0; margin:0; font-family:Arial;color:black;display:inline;}
+li {list-style-type:none; }
+img {border:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+
+#container{width:100%;height:900px;background:url("../images/main_bg.png") repeat-x;position:absolute;overflow: hidden;}
+
+#header{width:900px;height:60px;position:relative;margin-left:246px;margin-top:10px;background:url("../images/header_band.png") no-repeat;	}
+
+
+
+.header_band {height:14px;width:134px;margin-left:50px;display:inline}
+.header_band span{height:20px;line-height:20px;font-size:12px;color:white;}
+
+.header_title{height:20px;width:160px;line-height:20px;margin-left:50px;padding-top:0px;}
+.header_title span,strong{color:white;}
+
+#bdys{width:100%;position:absolute;top:100px;height:auto;}
+
+#nav{ width:800px;height:40px;float:left;top:-42px;margin-left:220px;line-height:40px;text-align:center;font:18px;position:absolute;}
+#nav ul{width:900px;float:left;}
+#nav ul li{width:100px;height:40px;float:left;position:relative;line-height:40px;  text-align:center;}	
+#nav ul li a{color:black;}		
+#nav ul li a:hover{background:white;}	
+	
+.user{width:100px;height:40px;position:absolute;right:200px;top: -33px;}
+.user ul{width:102px;height:40px;ine-height;40px;font:18px;text-decoration: underline; }
+.user ul li {float:left;color:black;text-align:center;width:100px;background:white;border: 1px solid #cccccc;-webkit-border-radius: 4px;-moz-border-radius:4px;border-radius: 4px;}
+.user li ul{display:none;}
+.user li ul a{color:black;border: solid #fff;}
+.user ul li:HOVER ul{ display:block;}
+.user ul li:HOVER ul li a{display:block;}
+
+
+#body_footer {height:50px;margin-top:-250px;}
+#body_footer h5{line-height:40px;text-align:center;}
+#body_footer ul{border-bottom:2px solid #777}
+#body_footer li{border-bottom:2px solid #ccc}
+
+#footer{width:100%;height:50px;position:absolute;bottom:0px;}
+.footer_title{width:490px;height:50px;margin: 0 auto;}
+.footer_title p{line-height:20px;font-size:12px;color:#656565;}
+
+
+.clearfix{
+*zoom:1;
+}
+.clearfix:after {
+clear: both;
+content: ".";
+display: block;
+height: 0;
+visibility: hidden;
+}
+>>>>>>> refs/remotes/origin/dev
 
