@@ -6,6 +6,7 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import com.zhbit.domain.ActivityApply;
 
@@ -20,6 +21,7 @@ import com.zhbit.domain.ActivityApply;
  * @see com.zhbit.domain.ActivityApply
  * @author MyEclipse Persistence Tools
  */
+@Repository("activityApplyDao")
 public class ActivityApplyDAO extends HibernateDaoSupport {
 	private static final Log log = LogFactory.getLog(ActivityApplyDAO.class);
 	// property constants

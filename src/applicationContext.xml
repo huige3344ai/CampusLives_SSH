@@ -34,20 +34,28 @@
 	<bean id="FoodDao" class="com.zhbit.dao.FoodDAOImpl" />		
 	<bean id="FoodService" class="com.zhbit.services.FoodServiceImpl" />
 	
-	
-	
-	<bean id="ActivityApplyDAO"
-		class="com.zhbit.dao.ActivityApplyDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
+	<!-- 爱心活动配置 -->
+	<!--HibernateTemplate 用于完成数据库操作(loveActivity)-->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    
+    <bean id="activityApplyDao" class="com.zhbit.dao.ActivityApplyDAO">
+		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
+		<property name="hibernateTemplate"><ref bean="hibernateTemplate"/></property>
 	</bean>
-	<bean id="LoveActivityDAO"
-		class="com.zhbit.dao.LoveActivityDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
+	
+	<bean id="loveActivityDao" class="com.zhbit.dao.LoveActivityDAO">
+		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
+		<property name="hibernateTemplate"><ref bean="hibernateTemplate"/></property>
 	</bean>
+	
+	<bean id="acService" class="com.zhbit.services.AcServiceImpl"></bean>
+	<bean id="apService" class="com.zhbit.services.ApServiceImpl"></bean>
+	<bean id="LoveActivityAction" class="com.zhbit.actions.LoveActivityAction"></bean>
+	<!-- 爱心活动的配置 -->
+	
+	 
 	
 	<!-- 失物招领配置 -->
 	<bean id="lafDao" class="com.zhbit.dao.lostandfind.LAFDao" />

@@ -11,10 +11,10 @@
 			org.hibernate.dialect.MySQLDialect
 		</property>
 		<property name="connection.url">
-			jdbc:mysql://localhost:3309/campuslives_ssh
+			jdbc:mysql://localhost:3306/campuslives_ssh
 		</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">1234</property>
+		<property name="connection.password"></property>
 		<property name="connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>

@@ -59,6 +59,13 @@
 				<result name="lostadd">/page/foreground/page/foreground/return_password.jsp</result>						
 			</action>
 			
+			<!-- 爱心活动的配置 -->
+			<action name="loveActivityAction" class="LoveActivityAction">
+			        <result name="love_activity">/page/foreground/love_activity.jsp</result>
+			        <result name="add_AC_fail">/page/background/error404.jsp</result>  
+			        
+			</action>
+			
 	</package>
 	
 		
