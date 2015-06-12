@@ -21,6 +21,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 
   <link rel="stylesheet" href="css/text.css" type="text/css"></link>
+  <link rel="stylesheet" href="css/button.css" type="text/css"></link>
+  
   <script type="text/javascript" src="js/main_scrol.js"></script>
 	<style>
 	
@@ -32,6 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	line-height:1.2;
 	margin-top:5px;
 }
+
 
 
 </style>
@@ -111,7 +114,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	
     	<p style="font-size:14px;float:left">¥¥ | 美国, 晚餐, 吧, 炸鱼薯条 </p><br>
         </div>
-				<div id ="part1" style= "background:white">
+        		
+				<div style= "width:1045px; margin:0 auto;clear:both;overflow:auto;">
         	        	<hr style="height:10px;border:none;border-top:10px groove skyblue;" />
         	        	
 					<div id="scroll_list" >
@@ -188,28 +192,107 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									</tr>
 									
 								</s:iterator>
-
+								
 
 
 							</table>
-        	        		
+							<div style = "width:762px;background:#f3f3f3;text-align:right; padding:3px;">
+								
+									<a class="button white small" href="getdata!ChangePage.action?pageNo=1">首页</a>
+									<a class="button white small" href="getdata!ChangePage.action?pageNo=<s:property value = "pageNo-1"/>">上一页</a>
+									<a class="button white small" href="getdata!ChangePage.action?pageNo=<s:property value = "pageNo+1"/>">下一页</a>
+									<a class="button white small"href="getdata!ChangePage.action?pageNo=<s:property value = "totalPages"/>">末页</a>
+									(<s:property value = "pageNo"/>/<s:property value = "totalPages"/>)
+							</div>
+							
+        	        		<form action="getdata!savecomment.action" method="post" class="basic-grey" namespace="/" id = "myform_food" >
+							<h1>Contact Form
+							<span>Please fill all the texts in the fields.</span>
+							</h1>
+						
+							
+							<div class="grade_warp">
+							
+								<div class="User_ratings User_grade" id="div_fraction0">
+									<div class="ratings_title01"><p><span>评分</span>-你觉得这个餐厅在各个方面上优秀吗？<i>分数越高表示越优秀。</i></p></div>
+									<div class="ratings_bars">
+										<span id="title0">0</span> 
+										<span class="bars_10">0</span>
+										<input type="hidden" name="score" id="aaa"/>
+										
+										<div class="scale" id="bar0">
+											<div></div>
+											<span id="btn0"></span>
+										</div>
+										<span class="bars_10">5</span>
+									</div>
+								</div>
+							</div>	
+							
+							<label>
+							<span>Message :</span>
+							<textarea id="message" name="com" placeholder="Your Message to Us"></textarea>
+							</label>
+							
+							<label>
+							<span>&nbsp;</span>
+							<input type="submit" class="button" value="Send" />
+							</label>
+							</form>
         	        		
         	        		
 
         	        		
         	        	</div>
-            
+            				
+            				
+            		</div>		
         	
 			</div>
          
            
         </div>
-         <div id="footer">
+         
          	<div class="footer_title">
          	<p>Copyright 2014 ZFSOFT All Rights Reserved. 标准版V1.0.0E-mail：888888@gmail.com</p>
 			<p>地址：广东省珠海市唐家湾金凤路6号 北京理工大学珠海学院 联系电话：13800138000</p>
          	</div>
          </div>
-    
+    <script type="text/javascript">
+scale = function (btn, bar, title) {
+	this.btn = document.getElementById(btn);
+	this.bar = document.getElementById(bar);
+	this.aaa = document.getElementById("aaa");
+	this.title = document.getElementById(title);
+	this.step = this.bar.getElementsByTagName("DIV")[0];
+	this.init();
+};
+scale.prototype = {
+	init: function () {
+		var f = this, g = document, m = Math;
+		f.btn.onmousedown = function (e) {
+			var x = (e || b.event).clientX;
+			var l = this.offsetLeft;
+			var max = f.bar.offsetWidth - this.offsetWidth;
+			g.onmousemove = function (e) {
+				var thisX = (e || b.event).clientX;
+				var to = m.min(max, m.max(-2, l + (thisX - x)));
+				f.btn.style.left = to + 'px';
+				f.ondrag(m.round(m.max(0, to / max) * 100), to);
+			
+			};
+			g.onmouseup = new Function('this.onmousemove=null');
+		};
+	},
+	ondrag: function (pos, x) {
+		this.step.style.width = Math.max(0, x) + 'px';
+		this.title.innerHTML = pos / 20 + '';
+		this.aaa.value = pos / 20 + '';
+		
+	}
+}
+new scale('btn0', 'bar0', 'title0');
+
+</script>
   </body>
 </html>

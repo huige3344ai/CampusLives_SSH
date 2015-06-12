@@ -1,7 +1,6 @@
 package com.zhbit.domain;
 
 import java.util.Date;
-
 import java.util.Set;
 
 /**
@@ -21,6 +20,7 @@ public class User implements java.io.Serializable {
 	private String userName;
 	private String password;
 	private String sex;
+	private String imgsrc;
 	private Date birthday;
 	private Short age;
 	private String email;
@@ -136,6 +136,14 @@ public class User implements java.io.Serializable {
 
 	public void setFollownotes(Set follownotes) {
 		this.follownotes = follownotes;
+	}
+
+	public String getImgsrc() {
+		return imgsrc;
+	}
+
+	public void setImgsrc(String imgsrc) {
+		this.imgsrc = imgsrc;
 	}
 
 

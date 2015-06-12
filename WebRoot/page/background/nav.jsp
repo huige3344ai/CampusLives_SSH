@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        				
                        		</li>
                        		<li>
-                       				<a href="">校园美食</a>
+                       				<a href="page/foreground/food/FoodNetwork.jsp">校园美食</a>
                        				
                        		</li>
                        		<li>

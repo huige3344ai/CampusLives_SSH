@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.opensymphony.xwork2.ActionContext;
+import com.sun.org.apache.bcel.internal.generic.FDIV;
+import com.zhbit.domain.User;
 import com.zhbit.domain.food.Comments;
 import com.zhbit.domain.food.Restaurant;
 
@@ -23,24 +24,32 @@ public class RestaurantAction {
 		private FoodService fs;
 		
 		
+		final int pageSize = 5;
 		public List<Restaurant> relist;
 		public List<Comments> ctlist ;
 		
 
 		public Restaurant re;
 		public float width ;
-		int num;
-		int px;
-
-		public int getPx() {
-			return px;
-		}
+		
+	
 
 
 
-		public void setPx(int px) {
-			this.px = px;
-		}
+		String com;	//评论
+		String  score; //用户评分
+		int num; //餐厅ID
+		int px; //显示星数
+		int totalPages;//总页数
+		int pageNo = 1;//当前页
+		
+		
+		
+
+		
+
+
+		
 
 
 
@@ -57,13 +66,54 @@ public class RestaurantAction {
 		public String Rt_Restaurant(){
 			
 			re = rs.findid(num);
-			ctlist = fs.findR_id(re.getNum());
-		
+			//ctlist = fs.findR_id(re.getNum());	
+			ctlist = fs.findByPage(totalPages, pageSize, re.getNum());
+			totalPages = fs.gettotalPages(re.getNum(),pageSize);
 			return "RT_FOOD";
 		}
 		
+			public String savecomment(){
+				//获取session("user");
+				User user =new User();
+				HttpServletRequest request = ServletActionContext.getRequest();
+				user=(User) request.getSession().getAttribute("user");
+			/*	控制每个用户评论次数
+				if(fs.findComment(re.getNum(), user.getId())!=null){
+					return Rt_Restaurant();
+				}else{
+					
+				}*/
+					/*保存评论*/
+					Comments comment = new Comments();
+					float sc = Float.parseFloat(score);
+					comment.setScore(sc);
+					comment.setComment(com);
+					comment.setUser(user);
+					comment.setRestaurant(re);
+					fs.saveComment(comment);
+					return Rt_Restaurant();
+					
+				
+				
+				
+					
+					
+					
+			
+				
+				
+		}
 		
-		
+			public String ChangePage(){
+				if(pageNo>totalPages){
+					pageNo = totalPages;
+				}else if(pageNo<1){
+					pageNo = 1;
+				}
+				ctlist = fs.findByPage(pageNo, pageSize, re.getNum());
+				totalPages = fs.gettotalPages(re.getNum(),pageSize);
+				return "RT_FOOD";
+			}
 		
 		
 		
@@ -112,13 +162,65 @@ public class RestaurantAction {
 			this.num = num;
 		}
 		
-		
+		public int getPx() {
+			return px;
+		}
+
+
+
+		public void setPx(int px) {
+			this.px = px;
+		}
 		
 		
 		
 
 
-	
+
+
+		
+		public String getCom() {
+			return com;
+		}
+
+
+
+		public void setCom(String com) {
+			this.com = com;
+		}
+
+
+
+		public String getScore() {
+			return score;
+		}
+
+
+
+		public void setScore(String score) {
+			this.score = score;
+		}
+
+		public int getTotalPages() {
+			return totalPages;
+		}
+
+
+
+		public void setTotalPages(int totalPages) {
+			this.totalPages = totalPages;
+		}
+
+		public int getPageNo() {
+			return pageNo;
+		}
+
+
+
+		public void setPageNo(int pageNo) {
+			this.pageNo = pageNo;
+		}
+
 	
 	
 }
