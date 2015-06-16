@@ -11,9 +11,11 @@ public interface PointDao {
 
 	public Point updatePoint(Point point);
 
-	public void deletePoint(Point point);
+	public void deletePoint(int pid);
 
 	public List searchPoint(String whereSql);
 	
 	public List<Point> getPoints();
+	
+	public List<Point> getSPoint(int pid);
 }

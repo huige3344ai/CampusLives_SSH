@@ -28,13 +28,17 @@ a:hover { text-decoration:underline; }
 #nav ul li a{/*  一级导航 */width:80px;height:20px;color:black;}		
 #nav ul li a:hover{background:white;}	
 	
-#contents{width:900px;height:700px;position: relative;margin-left:220px}
+#contents{width:900px;height:700px;position: relative;margin:0 auto;}
 
 #leftbody{width:25%;height:500px;position: absolute;top: 0px;margin-left: 0px;background-color:#F5F5DC}
-#point{width:75%;position: absolute;height: 700px;right: 0px;background-color:#F0F8FF}
-
+#point{width:75%;position: absolute;height: 700px;top:10px;left:250px;right: 0px}
+#po{width:900px;height:auto;margin:0px auto;position:absolute;}
+#po_a{width:270px;height:240px;display:inline;}
+#po_b{width:270px;height:auto;display:inline;}
+#mainbody{width:900px;margin:0px auto;position:absolute;top:50px;}
 
 #body{width:100%;height:750px;position:absolute;left:0px;top:100px;}
+
 
 #footer{width:100%;height:50px;position:absolute;bottom:0px;}
 .footer_title{width:490px;height:50px;margin: 0 auto;}

@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        				
                        		</li>
                        		<li>
-                       				<a href="">校园美景</a>
+                       				<s:a href="get!getPoints.action">校园美景</s:a>
                        				
                        		</li>
                        		<li>

@@ -62,7 +62,11 @@
 	<bean id="lafService" class="com.zhbit.services.lostandfind.LostServiceImpl" />		
 	<bean id="lafact" class="com.zhbit.actions.lostandfind.LostAction"/>
 	
-
+	<!-- 肖剑锋Point bean配置 -->
+	<bean id="pointDao" class="com.zhbit.dao.point.PointDaoImpl" />
+	<bean id="pointService" class="com.zhbit.services.point.PointServiceImpl" />
+	<bean id="pointAct" class="com.zhbit.actions.point.PointAction" />
+	<!-- 肖剑锋Point end -->
 
 
 	</beans>

@@ -15,9 +15,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
 		    <title>校园服务网站</title>
 	
-	
 
 		<link rel="stylesheet" href="css/point_main.css" type="text/css"></link>
+		<link href="css/lrtk.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/point/jquery.js"></script>
+		<script type="text/javascript" src="js/point/lrtk.js"></script>
+		
+		
 	</head>
 	<body>
 	<div id="container" >
@@ -35,39 +39,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="body">
 			<jsp:include page="/page/background/nav.jsp"/>
 			<div id="contents">               
-				<div id ="leftbody">
-					<fieldset>
-						<legend align="center" >景观导航选项</legend>
-						<s:form action="/add!getPoints.action" method= "post" >
-     						<center>  
-     							<s:submit value=" 景观一览 " style="width:200px;height:40px;"  />
-							</center>
-						</s:form>
-						<form action ="page/foreground/point/point.jsp" method = "post">
-     						<center>  
-     							<input type = "submit" style="width:200px;height:40px;"  value ="景观添加" />
-							</center>
-						</form>
-					</fieldset>
-				</div>   
-                <div id ="point">
-                	<fieldset>
-						<legend>景观添加界面</legend>
-							<div>
-								<s:form action="/add!add.action" method= "post" >
-								<s:textfield name="point.pname" style="font-size:12px;width: 200px;"label="景观名称" />
-								<s:textfield name="point.pinformation" style="font-size:12px;width:400px;height:400px;"label="景观简介" />
-								<s:textfield name="point.pimages" style="font-size:12px;width: 200px;"label="景观图片链接地址" />
-								<s:textfield name="point.pimages2" style="font-size:12px;width: 200px;"label="景观图片链接地址" />
-								<s:submit value=" 添加 " />
-								</s:form>
-							</div>
-					</fieldset>
-                
-                
-				</div>       
+				
+					<div class="slide-main" id="touchMain">
+						<a class="prev" href="javascript:;" stat="prev1001">	
+						<img src="images/point/l-btn.png" />
+						</a>
+					<div class="slide-box" id="slideContent">
+					<framework>
+						<s:iterator value="pointlist" var="point">
+						<div class="slide" id="bgstylec">
+							<a href="search!getSPoint.action?pid=<s:property value="#point.pid"/>">
+                			<img src=  " <s:property value = "#point.pimages"/> "
+                			alt=" <s:property value = "#point.pname"/>"/>
+							</a>
+						</div>
+						</s:iterator>
+					</framework>
+					</div>
+					<a class="next" href="javascript:;" stat="next1002"><img src="images/point/r-btn.png" /></a>
+						<div class="item">
+						<a class="cur" stat="item1001" href="javascript:;"></a><a href="javascript:;" stat="item1002"></a><a href="javascript:;" stat="item1003"></a>
+						</div>
+					</div>
+					
+					
      				
 			</div>
+			
+	
          </div>
             
          
@@ -78,6 +77,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<p>地址：广东省珠海市唐家湾金凤路6号 北京理工大学珠海学院 联系电话：13800138000</p>
 				</div>
 			</div>
-	</div>
+		</div>
 	</body>
 </html>

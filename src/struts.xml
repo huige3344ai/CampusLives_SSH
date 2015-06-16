@@ -66,6 +66,42 @@
 			        
 			</action>
 			
+			<!-- 肖剑锋Point action配置 -->
+			<action name="add" class="pointAct">
+			<result type="redirectAction">
+			<param name="namespace">/</param>
+			<param name="actionName">add</param>
+			<param name="method">getPoints</param>
+			</result>
+			<result name="list">/page/foreground/point/P_Manage.jsp</result>
+		</action>
+		<action name="delete" class="pointAct">
+			<result type="redirectAction">
+			<param name="namespace">/</param>
+			<param name="actionName">delete</param>
+			<param name="method">getPoints</param>
+			</result>
+			<result name="list">/page/foreground/point/P_Manage.jsp</result>
+		</action>
+			<action name="get" class="pointAct">
+			<result type="redirectAction">
+			<param name="namespace">/</param>
+			<param name="actionName">get</param>
+			<param name="method">getPoints</param>
+			</result>
+			<result name="list">/page/foreground/point/P_Nagative.jsp</result>
+		</action>
+		<action name="search" class="pointAct">
+			<result type="redirectAction">
+			<param name="namespace">/</param>
+			<param name="actionName">search</param>
+			<param name="method">getSPoint</param>
+			</result>
+			<result name="list">/page/foreground/point/P_Show.jsp</result>
+		</action>
+		<!-- 肖剑锋Point end -->
+			
+			
 	</package>
 	
 		
