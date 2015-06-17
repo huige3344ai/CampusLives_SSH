@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.hibernate.SessionFactory;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import com.zhbit.domain.food.Restaurant;

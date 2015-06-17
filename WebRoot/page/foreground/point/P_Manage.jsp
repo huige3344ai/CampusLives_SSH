@@ -33,43 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div> 
  
 		<div id="body">
-			<div id="nav">
-                       <ul>
-                       		<li>
-                       				<a href="#">主页 </a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="#">校园美景</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="#">校园美食</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="#">失物招领</a>
-                       				
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="#">爱心活动</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="#">修改密码</a>
-                       				 
-                       		</li>
-                       		
-                        	<li>
-                       				<a href="#">投诉建议</a>
-                       				 
-                       		</li>                      		
-                       		
-                       		
-                       </ul>
-              
-                </div>
+			<jsp:include page="/page/background/nav.jsp"/>
 			<div id="contents">               
 				<div id ="leftbody">
 					<fieldset>
@@ -84,38 +48,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      							<input type = "submit" style="width:200px;height:40px;"  value ="景观添加" />
 							</center>
 						</form>
-						<form action ="page/foreground/point/point.jsp" method = "post">
-     						<center>  
-     							<input type = "submit" style="width:200px;height:40px;"  value ="景观删除" />
-							</center>
-						</form>
 					</fieldset>
 				</div>   
                 <div id ="point">
-                	<table>
+                	<table width="auto" border="1" style="border-collapse: collapse; border-color: blue;">
+                		<tr>
+                			<td width="80px">景观编号
+                			</td>
+                			<td width="80px">景观名称
+                			</td>
+                			<td width="280px">景观简介
+                			</td>
+                			<td width="140px">景观名称图片地址
+                			</td>
+                			<td width="140px">景观名称图片地址
+                			</td>
+                			<td width="80px">景观管理
+                			</td>
+                		</tr>
                 		<s:iterator value="pointlist" var="point">
                 		<tr>
-                			<td>
-                				<table table width="200" border="1" cellspacing="1" cellpadding="1">
-                					<tr>
-                						<td>
-                							<s:property value="#point.pid"/>
-                						</td>
-                					</tr>
-                					<tr>
-                						<td>
-                							<s:property value="#point.pname"/>
-                						</td>
-                					</tr>
-                					<tr>
-                						<td>
-                							<s:property value="#point.pinformation"/>
-                						</td>
-                					</tr>
-								</table>
+	                		<td width="80px">
+                				<s:property value="#point.pid"/>
                 			</td>
-                			<td>
-                				<img src="#point.pimage"  alt= " #point.pname" />
+                			<td width="80px">
+                				<s:property value="#point.pname"/>
+                			</td>
+                			<td  width="280px">
+                				<s:property value="#point.pinformation"/>
+                			</td>
+                			<td width="140px">
+                				<s:property value = "#point.pimages"/>
+                			</td>
+                			<td width="140px">
+                				<s:property value = "#point.pimages2"/>
+                			</td>
+                			<td width="80px">
+                				<a href = "delete!deletePoint.action?pid=<s:property value="#point.pid"/>">
+                				删除
+                				</a>
                 			</td>
                 		</tr>
                 		</s:iterator>
@@ -124,11 +95,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 
 				</div>       
      				
-			</div>
-         
-            
-         
-			<div id="footer">
+            </div>
+         </div>
+			<div id="footer" align="center">
          		<div class="footer_title">
          	<p>Copyright 2014 ZFSOFT All Rights Reserved. 标准版V1.0.0E-mail：888888@gmail.com</p>
          	<br/>

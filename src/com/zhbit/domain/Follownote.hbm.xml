@@ -19,8 +19,8 @@
         <property name="followcontent" type="java.lang.String">
             <column name="followcontent" length="200" not-null="true" />
         </property>
-        <property name="ftime" type="java.util.Date">
-            <column name="ftime" length="10" not-null="true" />
+        <property name="ftime" type="java.sql.Timestamp">
+            <column name="ftime" length="10" not-null="false" />
         </property>
     </class>
 </hibernate-mapping>

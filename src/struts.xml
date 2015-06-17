@@ -6,45 +6,82 @@
 		
 		<package name="LoginAction" extends="struts-default" namespace="/">
 
+			<!--吴松辉   ACTION  -->	
+			<!-- 用户自定义发表拦截器 -->
+			<interceptors>
+				<interceptor name="usertp" class="answertp"></interceptor>
+			</interceptors>
+			
 			<action name="userRegister" class="userReg">
 					<result name="login" type="dispatcher">/page/foreground/login.jsp</result>
 					<result name="input" >/page/foreground/register.jsp</result>									
-			 </action>
+			</action>
 			
-			
+			<!-- 用户登录 -->
 			<action name="userLogin" class="userReg" method="login">
 				<result name="success" type="redirect" >page/foreground/main.jsp</result>
 				<result name="login">/page/foreground/login.jsp</result>
 				<result name="input" >/page/foreground/login.jsp</result>				
 			</action>	
 			
+			<!-- 修改用户信息-->
 			<action name="userManager" class="userReg" >
-				<result name="updatesuccess" type="redirect">/page/foreground/exchange_msg.jsp</result>
+				<result name="updatesuccess" >/page/foreground/exchange_msg.jsp</result>
 				<result name="updateabort">/page/foreground/error.jsp</result>			
 				<result name="input">/page/foreground/exchange_msg.jsp</result>	
 			</action>
 		
+			<!-- 用户信息操作跳转 -->
 			<action name="goTo" class="userReg" >
-				<result name="returnregister" type="redirect">/page/foreground/page/foreground/register.jsp</result>
-				<result name="returnpassword" type="redirect">/page/foreground/page/foreground/return_password.jsp</result>						
+				<result name="returnregister" type="redirect">/page/foreground/register.jsp</result>
+				<result name="returnpassword" type="redirect">/page/foreground/return_password.jsp</result>
+				<result name="returnsuggest" type="redirect">/page/foreground/suggest_main.jsp</result>											
 			</action>	
-						
+			
+			<!-- 用户注销 -->			
 			<action name="userOut" class="userReg" >
 				<result name="login" type="redirect">/page/foreground/login.jsp</result>						
 			</action>			
 
-			
+			<!-- 修改密码 -->
 			<action name="exPassword" class="userReg"  method="updateLogin">			
 				<result name="update_passwor_abort">/page/foreground/error.jsp</result>			
 				<result name="update_passwor_success">/page/foreground/login.jsp</result>
-				<result name="input">/page/foregroundexchange_password.jsp</result>								
+				<result name="input">/page/foreground/exchange_password.jsp</result>								
 			</action>	
 			
+			<!-- 用户找回密码 -->
 			<action name="returnPassword" class="userReg"  method="returnPassword">			
-				<result name="return_password_abort">/page/foreground/error.jsp</result>			
+				<result name="return_password_abort">/page/foreground/return_password.jsp</result>			
 				<result name="return_password_success">/page/foreground/login.jsp</result>
 				<result name="input">/page/foreground/return_password.jsp</result>								
+			</action>
+			
+			<!-- 用户上传头像 -->
+			<action name="upload" class="userReg"  method="uploadPic">			
+				<result name="upload_success">/page/foreground/person_pic.jsp</result>			
+				<result name="error">/page/foreground/person_pic.jsp</result>	
 			</action>			
+				
+		<!--吴松辉  投诉和建议  -->			
+		<action name="noteManager" class="noteManger" >
+				<result name="success">/page/foreground/suggest_main.jsp</result>
+				<result name="main">/page/background/note_action.jsp</result>
+				<result name="notego" type="redirect">/page/foreground/details.jsp</result>
+				<result name="answer" type="redirect">/page/foreground/details.jsp</result>
+				<result name="error">/page/background/error.jsp</result>
+				<result name="input">/page/foreground/details.jsp</result>
+				<result name="login">/page/foreground/login.jsp</result>	
+		</action>
+		<action name="sendNote" class="noteManger" >
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="usertp"></interceptor-ref>
+				<result name="success">/page/foreground/suggest_main.jsp</result>
+				<result name="answer" type="redirect">/page/foreground/details.jsp</result>
+				<result name="error">/page/background/error.jsp</result>
+				<result name="login">/page/foreground/login.jsp</result>	
+		</action>		
+		<!-- 吴松辉  END -->			
 			<!-- 庄继辉action配置 -->
 			<action name="getdata" class="reAct">
 					<result name="RT_FOOD">/page/foreground/food/more.jsp</result>
@@ -66,6 +103,42 @@
 			        <result name="add_AC_fail">/page/background/error404.jsp</result>  
 			        
 			</action>
+			
+			<!-- 肖剑锋Point action配置 -->
+			<action name="add" class="pointAct">
+			<result type="redirectAction">
+			<param name="namespace">/</param>
+			<param name="actionName">add</param>
+			<param name="method">getPoints</param>
+			</result>
+			<result name="list">/page/foreground/point/P_Manage.jsp</result>
+		</action>
+		<action name="delete" class="pointAct">
+			<result type="redirectAction">
+			<param name="namespace">/</param>
+			<param name="actionName">delete</param>
+			<param name="method">getPoints</param>
+			</result>
+			<result name="list">/page/foreground/point/P_Manage.jsp</result>
+		</action>
+			<action name="get" class="pointAct">
+			<result type="redirectAction">
+			<param name="namespace">/</param>
+			<param name="actionName">get</param>
+			<param name="method">getPoints</param>
+			</result>
+			<result name="list">/page/foreground/point/P_Nagative.jsp</result>
+		</action>
+		<action name="search" class="pointAct">
+			<result type="redirectAction">
+			<param name="namespace">/</param>
+			<param name="actionName">search</param>
+			<param name="method">getSPoint</param>
+			</result>
+			<result name="list">/page/foreground/point/P_Show.jsp</result>
+		</action>
+		<!-- 肖剑锋Point end -->
+			
 			
 	</package>
 	

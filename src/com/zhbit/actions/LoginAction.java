@@ -1,14 +1,26 @@
 package com.zhbit.actions;
 
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
+import sun.misc.BASE64Decoder;
+
 import com.opensymphony.xwork2.ActionSupport;
+import com.zhbit.domain.Role;
 import com.zhbit.domain.User;
 import com.zhbit.services.UserService;
 /**
@@ -21,26 +33,45 @@ public class LoginAction extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private User user;
-	private String repassword;
+	private User user;//用户表
+	private Role role;//角色表
+	private String repassword;//重复密码
 	private String newpassword;//获取输入的新密码
 	private String oldpassword;//获取 输入的旧密码
 	private String user_oldpassword;//用于救命检验判断
 	private String tissue;//检验结果
 	private boolean jude ;//检验结果
 	
+	private File file;//封装上传文件属性
+	private String base64;//jq base64编码
+	private String fileFileName;//封装上传文件的名称属性
+	private String targetName;//保存文件名称属性
+	private String dir;//保存文件路径属性
+
+	
 	@Resource
 	private UserService userser;
 
 	
 		//注册用户	
-		public String register(){		
+		public String register(){			
+			if(userser.searchUser(user.getUserName()).isEmpty()){//判断用户名是否存在
+			user.setRole(role);
 			User num = userser.insertUser(user);//保存用户
-			if(num!=null){
-				return LOGIN;				
-			}else{
-				return INPUT;
+				if(num!=null){
+					return LOGIN;				
+				}else{
+					tissue	= "注册失败请重新尝试！！！";	
+					return INPUT;
+				}
 			}
+			else{	
+			tissue	= "用户名已存在，请更换其他用户名！！！";
+			return INPUT;
+			}
+			
+
+			
 		}
 	
 
@@ -65,9 +96,11 @@ public class LoginAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();		
 		User user_ex = userser.updateUser(user);
 		if(user_ex!=null){	
-			request.getSession().setAttribute("user",user_ex);					
+			request.getSession().setAttribute("user",user_ex);
+			tissue = "更新用户信息成功";
 			return "updatesuccess";	
 		}else{
+			tissue = "更新失败，请重试！！！";
 			return "updateabort";	
 		}
 		
@@ -80,6 +113,7 @@ public class LoginAction extends ActionSupport {
 				loginOut();
 				return  "update_passwor_success";	
 			}else{	
+				tissue = "更新失败，请重试！！！";
 				return  "update_passwor_abort";
 				}
 	
@@ -88,9 +122,7 @@ public class LoginAction extends ActionSupport {
 
 		
 		//找回密码
-		public String returnPassword(){
-			HttpServletRequest request = ServletActionContext.getRequest();	
-																	
+		public String returnPassword(){																	
 			User num = null;
 			List userEmail = userser.searchUser(user.getUserName());
 			if(userEmail==null){
@@ -122,6 +154,100 @@ public class LoginAction extends ActionSupport {
 			request.getSession().invalidate();
 			return LOGIN;
 		}
+		
+		
+
+
+	    //base64转换成图片文件
+	    public static boolean base64ToImage(String base64, File path) {// 对字节数组字符串进行Base64解码并生成图片
+	    	if (base64 == null){ // 图像数据为空
+	    		return false;
+	    	}
+	    	BASE64Decoder decoder = new BASE64Decoder();
+	    	try {
+	    		// Base64解码
+	    		byte[] bytes = decoder.decodeBuffer(base64);
+	    		for (int i = 0; i < bytes.length; ++i) {
+	    			if (bytes[i] < 0) {// 调整异常数据
+	    				bytes[i] += 256;
+	    			}
+	    		}
+	    		// 生成jpeg图片
+	    		OutputStream out = new FileOutputStream(path);
+	    		out.write(bytes);
+	    		out.flush();
+	    		out.close();
+	    		return true;
+	    	} catch (Exception e) {
+	    		e.printStackTrace();	
+	    		return false;
+	    	}	
+	    }
+	    
+		//上传头像
+		public String uploadPic() throws IOException {
+			HttpServletRequest request = ServletActionContext.getRequest();
+			int position  ;//获取"."的位置
+			String  extendstion  = null;//获取当前文件的后缀名
+			User user_pic = (User) request.getSession().getAttribute("user");
+			int user_id = user_pic.getId();
+			boolean num = false;//判断是否更新成功
+			int isSuccess = 1 ;
+			String path_pic = null;//图片相对路径;
+			String resultName = null;			
+			String realpath = request.getSession().getServletContext().getRealPath("/images/upload/");
+			if(fileFileName==null||(fileFileName.trim().equals(""))){	
+				this.addFieldError("file", "文件不能为空");
+				resultName ="error";
+				num=false;
+			}else{
+				position = fileFileName.lastIndexOf(".");
+				extendstion  = fileFileName.substring(position+1);
+				if(extendstion.equalsIgnoreCase("png")||extendstion.equalsIgnoreCase("jpeg")||extendstion.equalsIgnoreCase("jpg")){
+				base64 = base64.substring(22);	
+				targetName = generateFileName(fileFileName);
+				path_pic = "images\\upload\\"+user_id+"\\"+targetName;					
+				File parentDir = new File(realpath+"/"+user_id,targetName);
+				 //  先创建文件所在的目录
+				parentDir.getParentFile().mkdirs();
+	            try {
+	             // 创建新文件
+	            	parentDir.createNewFile();
+	            } catch (IOException e) {
+	            	tissue="由于网络原因上传失败";
+	                e.printStackTrace();
+	            }				
+				num  = base64ToImage(base64, parentDir);
+					if(num){				
+						isSuccess = userser.uploadPic(user_id,path_pic);
+						resultName = "upload_success";	
+						tissue="上传成功";
+					}else if(isSuccess==0){
+						tissue="由于网络原因上传失败";
+						resultName = "error";				
+					}	
+				}else{
+					tissue="仅支持JPEG,PNG格式的图片";
+					resultName = "error";	 				
+	 			} 			
+			}
+	
+			
+			return resultName;
+
+		}
+		//变换文件名称
+		public String generateFileName(String fileName){
+			DateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+			String formatdate = format.format(new Date());
+			int random = new Random().nextInt(10000);
+			int position = fileName.lastIndexOf(".");
+			String  extendstion  = fileName.substring(position);//后缀名		
+			String newfileNmae = formatdate+random+extendstion;
+			return newfileNmae;			
+		}
+		
+		
 		
 	    public String goToReturnPassword(){
 			return "returnpassword";   	
@@ -200,6 +326,76 @@ public class LoginAction extends ActionSupport {
 
 	public void setJude(boolean jude) {
 		this.jude = jude;
+	}
+
+
+	public File getFile() {
+		return file;
+	}
+
+
+	public void setFile(File file) {
+		this.file = file;
+	}
+
+
+	public String getFileFileName() {
+		return fileFileName;
+	}
+
+
+	public void setFileFileName(String fileFileName) {
+		this.fileFileName = fileFileName;
+	}
+
+
+	public String getTargetName() {
+		return targetName;
+	}
+
+
+	public void setTargetName(String targetName) {
+		this.targetName = targetName;
+	}
+
+
+	public String getDir() {
+		return dir;
+	}
+
+
+	public void setDir(String dir) {
+		this.dir = dir;
+	}
+
+
+	public UserService getUserser() {
+		return userser;
+	}
+
+
+	public void setUserser(UserService userser) {
+		this.userser = userser;
+	}
+
+
+	public String getBase64() {
+		return base64;
+	}
+
+
+	public void setBase64(String base64) {
+		this.base64 = base64;
+	}
+
+
+	public Role getRole() {
+		return role;
+	}
+
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 

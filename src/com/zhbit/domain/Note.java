@@ -1,5 +1,6 @@
 package com.zhbit.domain;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,7 +19,7 @@ public class Note  implements java.io.Serializable {
      private User user;
      private String title;
      private String content;
-     private Date ntime;
+     private Timestamp ntime;
      private Set follownotes = new HashSet(0);
 
 
@@ -29,7 +30,7 @@ public class Note  implements java.io.Serializable {
     }
 
 	/** minimal constructor */
-    public Note(User user, String title, String content, Date ntime) {
+    public Note(User user, String title, String content, Timestamp ntime) {
         this.user = user;
         this.title = title;
         this.content = content;
@@ -37,7 +38,7 @@ public class Note  implements java.io.Serializable {
     }
     
     /** full constructor */
-    public Note(User user, String title, String content, Date ntime, Set follownotes) {
+    public Note(User user, String title, String content, Timestamp ntime, Set follownotes) {
         this.user = user;
         this.title = title;
         this.content = content;
@@ -80,11 +81,11 @@ public class Note  implements java.io.Serializable {
         this.content = content;
     }
 
-    public Date getNtime() {
+    public Timestamp getNtime() {
         return this.ntime;
     }
     
-    public void setNtime(Date ntime) {
+    public void setNtime(Timestamp ntime) {
         this.ntime = ntime;
     }
 

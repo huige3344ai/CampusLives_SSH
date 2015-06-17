@@ -38,9 +38,9 @@ public class PointServiceImpl implements PointService {
 	}
 
 	
-	public void deletePoint(Point point) {
+	public void deletePoint(int pid) {
 		// TODO Auto-generated method stub
-		pointDao.deletePoint(point);
+		pointDao.deletePoint(pid);
 
 	}
 
@@ -53,4 +53,8 @@ public class PointServiceImpl implements PointService {
 	public List<Point> getPoints(){
 		return pointDao.getPoints();
 		}
+	
+	public List<Point> getSPoint(int pid){
+		return pointDao.getSPoint(pid);
+	}
 }

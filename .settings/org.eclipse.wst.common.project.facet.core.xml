@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8"?>
-<faceted-project>
-  <runtime name="MyEclipse JEE 6.0 Runtime"/>
-</faceted-project>
-=======
 <?xml version="1.0" encoding="UTF-8"?>
 <faceted-project>
   <fixed facet="wst.jsdt.web"/>
@@ -11,4 +5,4 @@
   <installed facet="jst.web" version="3.0"/>
   <installed facet="wst.jsdt.web" version="1.0"/>
 </faceted-project>
->>>>>>> refs/remotes/origin/dev
+

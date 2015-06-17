@@ -9,19 +9,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
- 	 <link rel="stylesheet" href="css/main.css" type="text/css"></link>
 
+  <link rel="stylesheet" href="css/nav.css" type="text/css"></link>
   </head>
   
   <body>
       	         <div id="nav">
                        <ul>
                        		<li>
-                       				<a href="">主页 </a>
+                       				<a href="page/foreground/main.jsp">主页 </a>
                        				
                        		</li>
                        		<li>
-                       				<a href="">校园美景</a>
+                       				<s:a href="get!getPoints.action">校园美景</s:a>
                        				
                        		</li>
                        		<li>
@@ -42,20 +42,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        				<a href="goTo!goToSuggestion.action">投诉建议</a>
                        				 
                        		</li> 
-
+                       		<s:if test="#session.user!=null">
+							<li style="margin-left:60px;">
+									<a href="userOut!loginOut.action" >退出登录</a>
+							</li>                       		
+							</s:if>
+							<s:else>
+							<li style="margin-left:50px;">
+								<a href="page/foreground/login.jsp" style="color:green;">登录</a>	
+							</li>  							
+							</s:else>
                        		
                        </ul>  
                 </div>
                  <div class = "user">
+                 <s:if test="#session.user!=null">                 
+                 
 		                    <ul>
 		                    <li><s:property value="#session.user.userName"/>
 		                    	<ul class= "clearfix">
+		                    	<li><a href="page/foreground/person_pic.jsp">上传头像</a></li>
 		                    	<li><a href="page/foreground/exchange_msg.jsp">修改信息</a></li>
 		                    	<li><a href="page/foreground/exchange_password.jsp">修改密码</a></li>
 		                    	<li><a href="userOut!loginOut.action" >退出登录</a></li>                   	
 		                    	</ul>
 		                    </li>	
-		                    </ul>                 
+		                    </ul>      
+				</s:if>	
+				
+				<s:else>
+				<p style="font-size: 14px;">还没有帐号？<a href="goTo!goToRegister.action" style="color:green;">戳这里</a></p>
+				</s:else>	                               
 		       </div>                
   </body>
 </html>

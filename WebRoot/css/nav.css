@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+#nav{ width:840px;height:40px;top:-42px;margin:0 auto;line-height:40px;text-align:center;font:18px;position:relative;overflow:hidden;}
+#nav ul{width:900px;float:left;}
+#nav ul li{width:100px;height:40px;float:left;position:relative;line-height:40px;  text-align:center;}	
+#nav ul li a{color:black;}		
+#nav ul li a:hover{background:white;text-decoration: none; font-size: 12px;}
+
+.user{width:160px;height:40px;position:absolute;right:0px;top: -33px; z-index: 9999;}
+.user ul{width:102px;height:40px;ine-height;40px;font:18px;text-decoration: underline; }
+.user ul li {float:left;color:black;text-align:center;width:100px;background:white;border: 1px solid #cccccc;-webkit-border-radius: 4px;-moz-border-radius:4px;border-radius: 4px;}
+.user li ul{display:none;}
+.user li ul a{color:black; border: solid #fff;}
+.user ul li:HOVER ul{ display:block;}
+.user ul li:HOVER ul li a{display:block;}

@@ -30,7 +30,10 @@ public class NoteDaoImpl implements NoteDao {
 			HttpServletRequest request = ServletActionContext.getRequest();				
 			User user = (User) request.getSession().getAttribute("user");
 			note.setUser(user);			
-			sessionFactory.getCurrentSession().persist(note);
+			note.setTitle(note.getTitle());
+			note.setContent(note.getContent());
+			note.setNtime(note.getNtime());
+			sessionFactory.getCurrentSession().save(note);
 		return note;
 	}
 	

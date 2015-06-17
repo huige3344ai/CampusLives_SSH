@@ -70,21 +70,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 
                
                 <div id ="suggest">
-				<%
-				java.util.Date currentTime = new java.util.Date();//得到当前系统时间  
-				
-				java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				
-				String date = formatter.format(currentTime);
-				%>
-                <form action="noteManager!sendNote.action" method="post" name="note_form" >
-                <input type="hidden" name="note.ntime" value="<%=date%>"/>
+
+                <form action="sendNote!sendNote.action" method="post" name="note_form" >
                 <div class="your_name">
-                <label class="name_label">主题</label><br/>
+                <label class="name_label">意见</label><br/>
                 
                 <input  class="your_name_input" type="text" name="note.title" id="title"></input>
                 </div>
-                
+               
                 <div class="your_suggest">
                 <label class="suggest_label">内容</label>
                  <textarea  class="suggest_input"  name="note.content" id="context"></textarea>

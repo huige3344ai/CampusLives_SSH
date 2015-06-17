@@ -1,5 +1,6 @@
 package com.zhbit.domain;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Set;
 
@@ -21,8 +22,8 @@ public class User implements java.io.Serializable {
 	private String password;
 	private String sex;
 	private String imgsrc;
-	private Date birthday;
-	private Short age;
+	private Timestamp regiset_time;
+	private int age;
 	private String email;
 	private Set notes;
 	private Set follownotes;
@@ -34,24 +35,24 @@ public class User implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public User(String userName, String password, String sex, Date birthday,
+	public User(String userName, String password, String sex, Timestamp regiset_time,
 			Short age, String email) {
 		this.userName = userName;
 		this.password = password;
 		this.sex = sex;
-		this.birthday = birthday;
+		this.regiset_time = regiset_time;
 		this.age = age;
 		this.email = email;
 	}
 
 	/** full constructor */
 	public User(Role role, String userName, String password, String sex,
-			Date birthday, Short age, String email) {
+			Timestamp regiset_time, Short age, String email) {
 		this.role = role;
 		this.userName = userName;
 		this.password = password;
 		this.sex = sex;
-		this.birthday = birthday;
+		this.regiset_time = regiset_time;
 		this.age = age;
 		this.email = email;
 	}
@@ -98,21 +99,11 @@ public class User implements java.io.Serializable {
 		this.sex = sex;
 	}
 
-	public Date getBirthday() {
-		return this.birthday;
-	}
 
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
 
-	public Short getAge() {
-		return this.age;
-	}
 
-	public void setAge(Short age) {
-		this.age = age;
-	}
+
+
 
 	public String getEmail() {
 		return this.email;
@@ -146,8 +137,23 @@ public class User implements java.io.Serializable {
 		this.imgsrc = imgsrc;
 	}
 
+	public int getAge() {
+		return age;
+	}
 
+	public void setAge(int age) {
+		this.age = age;
+	}
 
+	public Timestamp getRegiset_time() {
+		return regiset_time;
+	}
 
+	public void setRegiset_time(Timestamp regiset_time) {
+		this.regiset_time = regiset_time;
+	}
 
 }
+
+
+

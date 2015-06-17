@@ -1,6 +1,13 @@
+<<<<<<< HEAD
+eclipse.preferences.version=1
+encoding//WebRoot/css/banner.css=UTF-8
+encoding//WebRoot/page/background/error404.jsp=UTF-8
+encoding//WebRoot/page/foreground/person_pic.jsp=UTF-8
+=======
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
 >>>>>>>=refs/remotes/origin/dev
 eclipse.preferences.version=1
 encoding//WebRoot/js/imageflow.js=UTF-8
 encoding//WebRoot/page/background/error404.jsp=UTF-8
+>>>>>>> refs/remotes/origin/dev

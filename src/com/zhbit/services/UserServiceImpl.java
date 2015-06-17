@@ -48,4 +48,10 @@ public class UserServiceImpl implements UserService {
 		return userdao.updatePassword(user);
 	}
 
+	@Override
+	public int uploadPic(int user_id, String photoPath) {
+		// TODO Auto-generated method stub
+		return userdao.uploadPic(user_id, photoPath);
+	}
+
 }

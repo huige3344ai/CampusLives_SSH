@@ -1,0 +1,119 @@
+body,p,ul,li{
+	padding:0;margin:0;
+}
+/*涓诲浘*/
+#ifocus{
+	width:1000px;
+	overflow:hidden;
+	margin:1px auto
+}
+#ifocus_pic{
+	overflow:hidden;
+	width:1000px;
+	height:240px;
+	margin:5px auto 0 auto;	
+	position:relative;
+}
+#ifocus_piclist{
+	position:absolute;
+	display:block;
+	left:0;
+	top:0;
+}
+#ifocus_piclist li{
+	width:1000px;
+	height:240px;
+	float:left;
+	overflow:hidden;
+}
+#ifocus_piclist li a{
+	display:block;
+	height:240px;
+	overflow:hidden;
+}
+#ifocus_piclist li a img{
+	width:1000px;
+}
+
+/*鍥剧墖鎮诞璇存槑-妗�/
+#ifocus_opdiv {
+	background: #666; 
+	filter: alpha(opacity=50); 
+	position:absolute;
+	left:0;
+	bottom:0;
+	opacity: 0.5; 
+	moz-opacity: 0.5;
+	width:1000px;
+	height:32px;
+}
+/*鍥剧墖鎮诞璇存槑-鏂囧瓧*/
+#ifocus_tx {
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:1000px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+}
+#ifocus_tx A {
+	color: #fff
+}
+#ifocus_tx a:hover {
+	color: #f27900
+}
+#ifocus_tx .normal {
+	display: none
+}
+#ifocus_btn{
+	height: 40px;
+	overflow: hidden;
+	margin-top: 1px;
+	margin-right: 0px;
+	margin-bottom: 0;
+	margin-left: 0px;
+}
+/*棰勮鎸夐挳-榧犳爣绂诲紑*/
+#ifocus_btn li {
+	FILTER: alpha(opacity=80);
+	WIDTH: 333px;
+	HEIGHT: 40px;
+	CURSOR: pointer;  
+	opacity: 0.5;
+	moz-opacity: 0.5;
+	float:left;
+	text-align:center;
+	padding-top:0px;
+	background-color:#c9cacc;
+	margin-left:0px;
+	list-style:none;
+	}
+#ifocus_btn li a{
+	float:left
+}
+#ifocus_btn li img{
+	border:0px;
+	width:165px;
+	height:40px;
+}
+#ifocus_btn li span{
+	font-size:12px;
+}
+/*棰勮鎸夐挳-榧犳爣缁忚繃*/
+#ifocus_btn .current {
+	background-color:#005b30;
+	FILTER: alpha(opacity=100); 
+	opacity: 1; 
+	moz-opacity: 1;
+	padding:0px;
+	list-style:none;
+}
+#ifocus_btn .current a{
+	float:left;
+}
+#ifocus_btn .current span{
+	font-size:12px;
+	color:#FFF;
+	BORDER:0px;
+}
