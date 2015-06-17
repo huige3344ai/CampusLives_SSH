@@ -22,6 +22,7 @@
 	
 	<tx:annotation-driven transaction-manager="txManager" />
 
+
 	<bean id="userDao" class="com.zhbit.dao.UserDaoImpl" />
 	<bean id="userService" class="com.zhbit.services.UserServiceImpl" />		
 	<bean id="userReg" class="com.zhbit.actions.LoginAction" scope="prototype"/>

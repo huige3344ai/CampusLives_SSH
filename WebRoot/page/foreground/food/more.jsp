@@ -197,11 +197,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 							</table>
 							<div style = "width:762px;background:#f3f3f3;text-align:right; padding:3px;">
-								
+									<s:if test="pageNo>1">
 									<a class="button white small" href="getdata!ChangePage.action?pageNo=1">首页</a>
 									<a class="button white small" href="getdata!ChangePage.action?pageNo=<s:property value = "pageNo-1"/>">上一页</a>
+									</s:if>
+									<s:if test="pageNo<totalPages">
 									<a class="button white small" href="getdata!ChangePage.action?pageNo=<s:property value = "pageNo+1"/>">下一页</a>
 									<a class="button white small"href="getdata!ChangePage.action?pageNo=<s:property value = "totalPages"/>">末页</a>
+									</s:if>
 									(<s:property value = "pageNo"/>/<s:property value = "totalPages"/>)
 							</div>
 							

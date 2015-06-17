@@ -1,6 +1,7 @@
 
 package com.zhbit.actions;
 
+
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -8,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.sun.org.apache.bcel.internal.generic.FDIV;
+
 import com.zhbit.domain.User;
 import com.zhbit.domain.food.Comments;
 import com.zhbit.domain.food.Restaurant;
@@ -42,7 +43,7 @@ public class RestaurantAction {
 		int px; //显示星数
 		int totalPages;//总页数
 		int pageNo = 1;//当前页
-		
+
 		
 		
 
@@ -51,6 +52,9 @@ public class RestaurantAction {
 
 		
 
+
+
+	
 
 
 		public String execute() throws Exception{
@@ -92,16 +96,7 @@ public class RestaurantAction {
 					comment.setRestaurant(re);
 					fs.saveComment(comment);
 					return Rt_Restaurant();
-					
-				
-				
-				
-					
-					
-					
-			
-				
-				
+						
 		}
 		
 			public String ChangePage(){
@@ -116,7 +111,26 @@ public class RestaurantAction {
 			}
 		
 		
+			public String Rt_Myrestaurants(){
+				User user =new User();
+				HttpServletRequest request = ServletActionContext.getRequest();
+				user=(User) request.getSession().getAttribute("user");
+				relist = rs.finduid(user.getId());
+				return "Personal_center";
+			}
+			
+			
+			public String Delete_Messages(){
+				rs.Delete(num);
+				return Rt_Myrestaurants();
+			}
+			
 		
+			
+			
+			
+			
+			
 		
 		
 		
@@ -221,6 +235,7 @@ public class RestaurantAction {
 			this.pageNo = pageNo;
 		}
 
-	
+
+
 	
 }

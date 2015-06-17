@@ -10,6 +10,8 @@ public interface RestaurantDAO  {
 	 
 	 public List<Restaurant> findid();
 	 
-	
+	 public List<Restaurant> finduid(int user_id);
+	 
+	 public void Delete(int r_id);
 	
 }

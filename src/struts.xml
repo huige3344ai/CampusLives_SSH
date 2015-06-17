@@ -47,7 +47,8 @@
 			</action>			
 			<!-- 庄继辉action配置 -->
 			<action name="getdata" class="reAct">
-					<result name="RT_FOOD">/page/foreground/food/more.jsp</result>						
+					<result name="RT_FOOD">/page/foreground/food/more.jsp</result>
+					<result name="Personal_center">/page/foreground/food/Business_nformation_center.jsp</result>						
 			</action>
 			<action name="Rtdata" class="RtAct">
 					<result name="input">/page/foreground/return_password.jsp</result>						
