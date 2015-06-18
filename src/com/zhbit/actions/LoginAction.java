@@ -119,6 +119,7 @@ public class LoginAction extends ActionSupport {
 	
 		
 		}	
+
 		
 		//’“ªÿ√‹¬Î
 		public String returnPassword(){																	
@@ -260,6 +261,7 @@ public class LoginAction extends ActionSupport {
 			return "returnsuggest";   	
 	    }		    
 	    
+
 	
 	public User getUser() {
 		return user;

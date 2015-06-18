@@ -21,6 +21,7 @@
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="txManager" />
+
 	<!-- 吴松辉 -->
 	<!--吴松辉 用户 -->
 	<bean id="userDao" class="com.zhbit.dao.UserDaoImpl" />
@@ -32,33 +33,49 @@
 	<bean id="noteDao" class="com.zhbit.dao.NoteDaoImpl" />
 	<bean id="noteService" class="com.zhbit.services.NoteServiceImpl" />	
 	<bean id="noteManger" class="com.zhbit.actions.NotaManagerAction" scope="prototype"/>
-	<!-- 吴松辉 END -->	
-		
+	<!-- 吴松辉 END -->
+	
 	<!-- 庄继辉bean配置：不许说话不许动 -->
 	<bean id="restaurantDao" class="com.zhbit.dao.RestaurantDAOImpl" />		
 	<bean id="restaurantService" class="com.zhbit.services.RestaurantServiceImpl" />
 	<bean id="reAct" class="com.zhbit.actions.RestaurantAction" />
 	<bean id="RtAct" class="com.zhbit.actions.FoodAction" />
-
-	<bean id="ActivityApplyDAO"
-		class="com.zhbit.dao.ActivityApplyDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-	<bean id="LoveActivityDAO"
-		class="com.zhbit.dao.LoveActivityDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
+	<bean id="FoodDao" class="com.zhbit.dao.FoodDAOImpl" />		
+	<bean id="FoodService" class="com.zhbit.services.FoodServiceImpl" />
+	
+	<!-- 爱心活动配置 -->
+	<!--HibernateTemplate 用于完成数据库操作(loveActivity)-->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    
+    <bean id="activityApplyDao" class="com.zhbit.dao.ActivityApplyDAO">
+		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
+		<property name="hibernateTemplate"><ref bean="hibernateTemplate"/></property>
 	</bean>
 	
-	<!-- 失物招领配置 --> 
+	<bean id="loveActivityDao" class="com.zhbit.dao.LoveActivityDAO">
+		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
+		<property name="hibernateTemplate"><ref bean="hibernateTemplate"/></property>
+	</bean>
+	
+	<bean id="acService" class="com.zhbit.services.AcServiceImpl"></bean>
+	<bean id="apService" class="com.zhbit.services.ApServiceImpl"></bean>
+	<bean id="LoveActivityAction" class="com.zhbit.actions.LoveActivityAction"></bean>
+	<!-- 爱心活动的配置 -->
+	
+	 
+	
+	<!-- 失物招领配置 -->
 	<bean id="lafDao" class="com.zhbit.dao.lostandfind.LAFDao" />
 	<bean id="lafService" class="com.zhbit.services.lostandfind.LostServiceImpl" />		
 	<bean id="lafact" class="com.zhbit.actions.lostandfind.LostAction"/>
 	
-
+	<!-- 肖剑锋Point bean配置 -->
+	<bean id="pointDao" class="com.zhbit.dao.point.PointDaoImpl" />
+	<bean id="pointService" class="com.zhbit.services.point.PointServiceImpl" />
+	<bean id="pointAct" class="com.zhbit.actions.point.PointAction" />
+	<!-- 肖剑锋Point end -->
 
 
 	</beans>

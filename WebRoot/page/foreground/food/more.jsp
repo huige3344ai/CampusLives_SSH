@@ -1,3 +1,4 @@
+
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%
@@ -20,6 +21,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 
   <link rel="stylesheet" href="css/text.css" type="text/css"></link>
+  <link rel="stylesheet" href="css/button.css" type="text/css"></link>
+  
   <script type="text/javascript" src="js/main_scrol.js"></script>
 	<style>
 	
@@ -27,6 +30,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 .fivestars{padding:0; position:relative; line-height:28px;display:inline-block;}
 .fivestars div{background-position:bottom center; text-indent:-9999px;}
 .fivestars div{background-position:left top; width:0px;}
+.p{
+	line-height:1.2;
+	margin-top:5px;
+}
 
 
 
@@ -107,7 +114,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	
     	<p style="font-size:14px;float:left">¥¥ | 美国, 晚餐, 吧, 炸鱼薯条 </p><br>
         </div>
-				<div id ="part1" style= "background:white">
+        		
+				<div style= "width:1045px; margin:0 auto;clear:both;overflow:auto;">
         	        	<hr style="height:10px;border:none;border-top:10px groove skyblue;" />
         	        	
 					<div id="scroll_list" >
@@ -159,43 +167,132 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	        	</div>
         	        	
         	        	
-        	        	 <div class="messager" style = "float:left;border:1px solid #ccc; width:770px; height:550px;border-radius:10px">
-        	        			<h4 style = "margin-left:20px;margin-top:10px">小编推荐：</h4>
-        	        			<p style="font-size:14px;margin-left:80px;">
-        	        			<b>
-								1、泡吧小脆，“薯”于我的滋味。<br>
-								2、薯片选小脆，对味。<br>
-								3、精于脆，美于味——泡吧小脆薯片。<br>
-								4、有滋有味，泡吧小脆。<br>
-								5、泡吧小脆，出类拔脆。<br>
-								6、片片美味，口口香脆。<br>
-								7、泡吧小脆——我脆，我够味。<br>
-								8、泡吧小脆，我们的口味。<br>
-								9、一口香，两口脆，三口会陶醉。<br>
-								10、就是小，就是脆，就是小脆。<br>
-								11、泡吧小脆，青春就是这个味。<br>
-								12、泡吧小脆，诱惑你的胃。<br>
-								13、泡吧小脆，片片有滋味。<br>
-								14、“食”尚新贵，“薯” 我小脆。<br>
-								15、年轻你够味，薯片有小脆。<br>
-        	        		</b>	</p>
+        	        	 <div class="messager" style = "float:left;border:1px solid #ccc; width:770px;border-radius:10px">
+        	        		
+							
+							
+							<TABLE align=center border=0  bordercolor=#cccccc cellSpacing=0 cellPadding=16  rules="rows"
+									style="width:770px;"
+								>
+
+
+									<s:iterator value = "ctlist" id = "ct">
+								
+								
+									<tr style="vertical-align:top" >
+									<td style = "width:130px;background:#F3F3F3">
+									 <img src="images/head_pic/default.jpeg" style = "width:100%"></img>
+									 <p class = "p">用户名:</p>
+									 <p class = "p">权限:</p>
+									 <p class = "p">发表日期:</p>
+									 </td>
+									<td>
+									<s:property value = "comment"/></td>
+									
+									</tr>
+									
+								</s:iterator>
+								
+
+
+							</table>
+							<div style = "width:762px;background:#f3f3f3;text-align:right; padding:3px;">
+								
+									<a class="button white small" href="getdata!ChangePage.action?pageNo=1">首页</a>
+									<a class="button white small" href="getdata!ChangePage.action?pageNo=<s:property value = "pageNo-1"/>">上一页</a>
+									<a class="button white small" href="getdata!ChangePage.action?pageNo=<s:property value = "pageNo+1"/>">下一页</a>
+									<a class="button white small"href="getdata!ChangePage.action?pageNo=<s:property value = "totalPages"/>">末页</a>
+									(<s:property value = "pageNo"/>/<s:property value = "totalPages"/>)
+							</div>
+							
+        	        		<form action="getdata!savecomment.action" method="post" class="basic-grey" namespace="/" id = "myform_food" >
+							<h1>Contact Form
+							<span>Please fill all the texts in the fields.</span>
+							</h1>
+						
+							
+							<div class="grade_warp">
+							
+								<div class="User_ratings User_grade" id="div_fraction0">
+									<div class="ratings_title01"><p><span>评分</span>-你觉得这个餐厅在各个方面上优秀吗？<i>分数越高表示越优秀。</i></p></div>
+									<div class="ratings_bars">
+										<span id="title0">0</span> 
+										<span class="bars_10">0</span>
+										<input type="hidden" name="score" id="aaa"/>
+										
+										<div class="scale" id="bar0">
+											<div></div>
+											<span id="btn0"></span>
+										</div>
+										<span class="bars_10">5</span>
+									</div>
+								</div>
+							</div>	
+							
+							<label>
+							<span>Message :</span>
+							<textarea id="message" name="com" placeholder="Your Message to Us"></textarea>
+							</label>
+							
+							<label>
+							<span>&nbsp;</span>
+							<input type="submit" class="button" value="Send" />
+							</label>
+							</form>
         	        		
         	        		
 
         	        		
         	        	</div>
-            
+            				
+            				
+            		</div>		
         	
 			</div>
          
            
         </div>
-         <div id="footer">
+         
          	<div class="footer_title">
          	<p>Copyright 2014 ZFSOFT All Rights Reserved. 标准版V1.0.0E-mail：888888@gmail.com</p>
 			<p>地址：广东省珠海市唐家湾金凤路6号 北京理工大学珠海学院 联系电话：13800138000</p>
          	</div>
          </div>
-    
+    <script type="text/javascript">
+scale = function (btn, bar, title) {
+	this.btn = document.getElementById(btn);
+	this.bar = document.getElementById(bar);
+	this.aaa = document.getElementById("aaa");
+	this.title = document.getElementById(title);
+	this.step = this.bar.getElementsByTagName("DIV")[0];
+	this.init();
+};
+scale.prototype = {
+	init: function () {
+		var f = this, g = document, m = Math;
+		f.btn.onmousedown = function (e) {
+			var x = (e || b.event).clientX;
+			var l = this.offsetLeft;
+			var max = f.bar.offsetWidth - this.offsetWidth;
+			g.onmousemove = function (e) {
+				var thisX = (e || b.event).clientX;
+				var to = m.min(max, m.max(-2, l + (thisX - x)));
+				f.btn.style.left = to + 'px';
+				f.ondrag(m.round(m.max(0, to / max) * 100), to);
+			
+			};
+			g.onmouseup = new Function('this.onmousemove=null');
+		};
+	},
+	ondrag: function (pos, x) {
+		this.step.style.width = Math.max(0, x) + 'px';
+		this.title.innerHTML = pos / 20 + '';
+		this.aaa.value = pos / 20 + '';
+		
+	}
+}
+new scale('btn0', 'bar0', 'title0');
+
+</script>
   </body>
 </html>

@@ -1,6 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %> <!--导入Struts 2 标签库-->
-
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -33,43 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div> 
  
          <div id="body">
-    	         <div id="nav">
-                       <ul>
-                       		<li>
-                       				<a href="#">主页 </a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="#">校园美景</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="#">校园美食</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="#">失物招领</a>
-                       				
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="#">爱心活动</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="#">修改密码</a>
-                       				 
-                       		</li>
-                       		
-                        	<li>
-                       				<a href="#">投诉建议</a>
-                       				 
-                       		</li>                      		
-                       		
-                       		
-                       </ul>
-              
-                </div>
+    	  <jsp:include page="/page/background/nav.jsp"/>
  <div id="contents">               
         <div id="usermessage"> 
         <div id = "headphoto"><img src="images/head sculpture.jpg"></div>
@@ -89,9 +52,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="拾到物搜寻" name = "searchfind"/></center>
         </form>
         
-       <form action ="page/foreground/lostandfind/searchlost.jsp" method = "post">
+       <s:form action ="lost!lostshow.action" method = "post">
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="失物搜寻" name = "searchlost"/></center>
-        </form>
+        </s:form>
 
        <form action ="page/foreground/lostandfind/personal.jsp" method = "post">
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="个人发布记录" name = "personal"/></center>
@@ -146,11 +109,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
          
          <div id="footer">
-         	<div class="footer_title">
-         	<p>Copyright 2014 ZFSOFT All Rights Reserved. 标准版V1.0.0E-mail：888888@gmail.com</p>
-         	<br/>
-			<p>地址：广东省珠海市唐家湾金凤路6号 北京理工大学珠海学院 联系电话：13800138000</p>
-         	</div>
+<jsp:include page="/page/background/footer.jsp" />
          </div>
   </div>
   </body>

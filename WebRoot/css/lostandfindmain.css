@@ -25,7 +25,7 @@ a:hover { text-decoration:underline; }
 #nav{width:900px;height:40px;float:left;top:-42px;margin-left:220px;line-height:40px;     text-align:center;font:18px ;position:absolute;}
 #nav ul{width:700px;overflow:hidden;float:left;}
 #nav ul li{width:100px;height:40px;float:left;position:relative;line-height:40px;  text-align:center;}	
-#nav ul li a{/*  一级导航 */width:80px;height:20px;color:black;}		
+#nav ul li a{/*  涓�骇瀵艰埅 */width:80px;height:20px;color:black;}		
 #nav ul li a:hover{background:white;}	
 	
 #contents{width:900px;height:700px;position: relative;margin-left:220px}

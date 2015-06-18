@@ -5,7 +5,8 @@
 <struts>
 		
 		<package name="LoginAction" extends="struts-default" namespace="/">
-		<!--吴松辉   ACTION  -->	
+
+			<!--吴松辉   ACTION  -->	
 			<!-- 用户自定义发表拦截器 -->
 			<interceptors>
 				<interceptor name="usertp" class="answertp"></interceptor>
@@ -80,8 +81,7 @@
 				<result name="error">/page/background/error.jsp</result>
 				<result name="login">/page/foreground/login.jsp</result>	
 		</action>		
-		<!-- 吴松辉  END -->
-			
+		<!-- 吴松辉  END -->			
 			<!-- 庄继辉action配置 -->
 			<action name="getdata" class="reAct">
 					<result name="RT_FOOD">/page/foreground/food/more.jsp</result>						
@@ -92,12 +92,59 @@
 			
 			<!-- 失物招领action配置 -->
 			<action name="lost" class="lafact" >
-				<result name="success">/page/foreground/lostandfind/lostsuccess.jsp</result>
-				<result name="lostadd">/page/foreground/lostandfind/lost.jsp</result>						
-			</action>			
-		
-		
+				<result name="success">/page/foreground/page/foreground/register.jsp</result>
+				<result name="lostadd">/page/foreground/page/foreground/return_password.jsp</result>						
+			</action>
+			
+			<!-- 爱心活动的配置 -->
+			<action name="loveActivityAction" class="LoveActivityAction">
+			        <result name="love_activity">/page/foreground/love_activity.jsp</result>
+			        <result name="add_AC_fail">/page/background/error404.jsp</result>  
+			        
+			</action>
+			
+			<!-- 肖剑锋Point action配置 -->
+			<action name="add" class="pointAct">
+			<result type="redirectAction">
+			<param name="namespace">/</param>
+			<param name="actionName">add</param>
+			<param name="method">getPoints</param>
+			</result>
+			<result name="list">/page/foreground/point/P_Manage.jsp</result>
+		</action>
+		<action name="delete" class="pointAct">
+			<result type="redirectAction">
+			<param name="namespace">/</param>
+			<param name="actionName">delete</param>
+			<param name="method">getPoints</param>
+			</result>
+			<result name="list">/page/foreground/point/P_Manage.jsp</result>
+		</action>
+			<action name="get" class="pointAct">
+			<result type="redirectAction">
+			<param name="namespace">/</param>
+			<param name="actionName">get</param>
+			<param name="method">getPoints</param>
+			</result>
+			<result name="list">/page/foreground/point/P_Nagative.jsp</result>
+		</action>
+		<action name="search" class="pointAct">
+			<result type="redirectAction">
+			<param name="namespace">/</param>
+			<param name="actionName">search</param>
+			<param name="method">getSPoint</param>
+			</result>
+			<result name="list">/page/foreground/point/P_Show.jsp</result>
+		</action>
+		<!-- 肖剑锋Point end -->
+			
 			
 	</package>
+	
+		
+		
+		
+		
+		
 
 </struts>

@@ -153,8 +153,7 @@ public class User implements java.io.Serializable {
 		this.regiset_time = regiset_time;
 	}
 
-
-
-
-
 }
+
+
+

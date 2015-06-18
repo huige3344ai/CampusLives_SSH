@@ -1,4 +1,3 @@
-﻿/* ImageFlow constructor */
 function ImageFlow() {
     /* Setting option defaults */
     this.defaults =
@@ -11,11 +10,11 @@ function ImageFlow() {
 	    imageCursor: 'pointer',      /* Cursor type for all images - default is 'default' */
 	    ImageFlowID: 'imageflow',    /* Default id of the ImageFlow container */
 	    imageFocusM: 1.0,            /* Multiplicator for the focussed image size in percent */
-	    imageFocusMax: 1,              /* 左右二侧图片数量 */
+	    imageFocusMax: 1,              /* 宸﹀彸浜屼晶鍥剧墖鏁伴噺 */
 	    imagePath: '',             /* Path to the images relative to the reflect_.php script */
 	    imageScaling: true,           /* Toggle image scaling */
-	    imagesHeight: 0.65,           /* 高宽比例 */
-	    imagesM: 1.2,            /* 图片深度 */
+	    imagesHeight: 0.65,           /* 楂樺姣斾緥 */
+	    imagesM: 1.2,            /* 鍥剧墖娣卞害 */
 	    onClick: function () { document.location = this.url; },   /* Onclick behaviour */
 	    opacity: false,          /* Toggle image opacity */
 	    opacityArray: [10, 8, 6, 4, 2],   /* Image opacity (range: 0 to 10) first value is for the focussed image */
@@ -292,7 +291,7 @@ function ImageFlow() {
         }
 
         var loadingP = document.getElementById(my.ImageFlowID + '_loading_txt');
-        var loadingTxt = document.createTextNode('正在加载,请稍候 ' + completed + '/' + i);
+        var loadingTxt = document.createTextNode('姝ｅ湪鍔犺浇,璇风◢鍊�' + completed + '/' + i);
         loadingP.replaceChild(loadingTxt, loadingP.firstChild);
         return finished;
     };
@@ -1070,7 +1069,7 @@ function ImageFlow() {
 	        else if (obj.detachEvent) {
 	            /* The IE breaks if you're trying to detach an unattached event /msdn.microsoft.com/en-us/library/ms536411(VS.85).aspx */
 	            if (obj[type + fn] === undefined) {
-	                alert('Helper.removeEvent » Pointer to detach event is undefined - perhaps you are trying to detach an unattached event?');
+	                alert('Helper.removeEvent 禄 Pointer to detach event is undefined - perhaps you are trying to detach an unattached event?');
 	            }
 	            obj.detachEvent('on' + type, obj[type + fn]);
 	            obj[type + fn] = null;

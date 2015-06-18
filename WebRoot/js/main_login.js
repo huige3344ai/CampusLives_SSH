@@ -77,11 +77,6 @@ mv.app.toTip = function() {
     }
    }	
   
-
-  function pageScroll() {
-	  window.scrollBy(0,-10);
-	  scrolldelay = setTimeout('pageScroll()',100);
-	  } 
 	
 
 	
