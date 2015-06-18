@@ -4,9 +4,12 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
+import org.hibernate.classic.Session;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.sun.faces.lifecycle.ApplyRequestValuesPhase;
+import com.zhbit.domain.ActivityApply;
 import com.zhbit.domain.LoveActivity;
 
 /**
@@ -23,6 +26,7 @@ import com.zhbit.domain.LoveActivity;
 public class LoveActivityDAO extends HibernateDaoSupport {
 	private static final Log log = LogFactory.getLog(LoveActivityDAO.class);
 	// property constants
+	public static final String AC_NO = "acNo";//活动代号，String 类型
 	public static final String AC_NAME = "acName";
 	public static final String AC_TIME = "acTime";
 	public static final String AC_PLACE = "acPlace";
@@ -34,6 +38,7 @@ public class LoveActivityDAO extends HibernateDaoSupport {
 		// do nothing
 	}
 
+	//增加活动
 	public void save(LoveActivity transientInstance) {
 		log.debug("saving LoveActivity instance");
 		try {
@@ -45,6 +50,20 @@ public class LoveActivityDAO extends HibernateDaoSupport {
 		}
 	}
 
+	//通过活动id删除活动
+		public void deleteAcByID(Short id){
+			log.debug("delete LoveActivity instance");
+			try {
+				LoveActivity la=findById(id);//通过id找到对象
+				delete(la);//删除这个对象
+				log.debug("delete successful");
+			} catch (RuntimeException re) {
+				log.error("delete failed", re);
+				throw re;
+			}
+			
+		}
+	//删除活动，被上面的deleteAcByID调用
 	public void delete(LoveActivity persistentInstance) {
 		log.debug("deleting LoveActivity instance");
 		try {
@@ -56,6 +75,20 @@ public class LoveActivityDAO extends HibernateDaoSupport {
 		}
 	}
 
+	//查找全部活动
+	public List findAll(){
+		log.debug("finding all LoveActivity instances");
+		try {
+			String queryString = "from LoveActivity";
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
+	
+	
+	//查找活动，被上面的deleteAcByID调用
 	public LoveActivity findById(java.lang.Short id) {
 		log.debug("getting LoveActivity instance with id: " + id);
 		try {
@@ -68,6 +101,28 @@ public class LoveActivityDAO extends HibernateDaoSupport {
 		}
 	}
 
+
+	//更该活动信息--方法2（通过调用attachDirty（）方法实现）
+	public void updateActivity2(LoveActivity la){
+		log.debug("attaching dirty LoveActivity instance");
+		try {
+			attachDirty(la);
+			System.out.println("update well 2 \n");
+			log.debug("attach successful");
+		} catch (RuntimeException re) {
+			log.error("attach failed", re);
+			System.out.println("update fail 2 \n");
+			throw re;
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	public List findByExample(LoveActivity instance) {
 		log.debug("finding LoveActivity instance by example");
 		try {
@@ -94,6 +149,9 @@ public class LoveActivityDAO extends HibernateDaoSupport {
 		}
 	}
 
+	public List findByAcNo(Object acNo) {
+		return findByProperty(AC_NO, acNo);
+	}
 	public List findByAcName(Object acName) {
 		return findByProperty(AC_NAME, acName);
 	}
@@ -118,16 +176,7 @@ public class LoveActivityDAO extends HibernateDaoSupport {
 		return findByProperty(AC_CONTENT, acContent);
 	}
 
-	public List findAll() {
-		log.debug("finding all LoveActivity instances");
-		try {
-			String queryString = "from LoveActivity";
-			return getHibernateTemplate().find(queryString);
-		} catch (RuntimeException re) {
-			log.error("find all failed", re);
-			throw re;
-		}
-	}
+	
 
 	public LoveActivity merge(LoveActivity detachedInstance) {
 		log.debug("merging LoveActivity instance");
@@ -142,10 +191,12 @@ public class LoveActivityDAO extends HibernateDaoSupport {
 		}
 	}
 
+	
 	public void attachDirty(LoveActivity instance) {
 		log.debug("attaching dirty LoveActivity instance");
 		try {
 			getHibernateTemplate().saveOrUpdate(instance);
+			System.out.println("update well\n");
 			log.debug("attach successful");
 		} catch (RuntimeException re) {
 			log.error("attach failed", re);
@@ -153,6 +204,39 @@ public class LoveActivityDAO extends HibernateDaoSupport {
 		}
 	}
 
+	//更该活动信息--方法1，(暂时没用到)
+	public void updateActivity(Short id,LoveActivity la){
+		log.debug("attaching dirty LoveActivity instance");
+		try {
+			/*
+			LoveActivity instance=findById(id);
+			getHibernateTemplate().saveOrUpdate(instance);*/
+			String hql="update LoveActivity  set acNo="+la.getAcNo()
+			            +" acName="+la.getAcName()
+			            +" acTime="+la.getAcTime()
+			            +" acPlace="+la.getAcPlace()
+			            +" PName="+la.getPName()
+			            +" PTel= "+la.getPTel()
+			            +" acContent="+la.getAcContent()
+			            +" where acId="+id;
+			Session session=this.getHibernateTemplate().getSessionFactory().openSession();
+			
+			 
+			session.createQuery(hql).executeUpdate();
+			
+			System.out.println("update well 1 \n");
+			
+			log.debug("attach successful");
+		} catch (RuntimeException re) {
+			log.error("attach failed", re);
+			System.out.println("update fail 1 \n");
+			throw re;
+		}
+		
+	}
+	
+	
+	
 	public void attachClean(LoveActivity instance) {
 		log.debug("attaching clean LoveActivity instance");
 		try {

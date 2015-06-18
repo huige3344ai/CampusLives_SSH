@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        				
                        		</li>
                        		<li>
-                       				<a href="">爱心活动</a>
+                       				<a href="loveActivityAction!toLoveActivity">爱心活动</a>
                        				
                        		</li>
                        		

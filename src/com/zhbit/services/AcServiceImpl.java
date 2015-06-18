@@ -21,29 +21,52 @@ public class AcServiceImpl implements AcService {
 	LoveActivityDAO loveActivityDao;
 	
 	@Override
-	public void save(LoveActivity transientInstance) {
+	public void save(LoveActivity transientInstance) {//增加活动
 		// TODO Auto-generated method stub
 		loveActivityDao.save(transientInstance);
 	}
 
 	@Override
-	public void delete(LoveActivity persistentInstance) {
+	public void delete(LoveActivity persistentInstance) {//删除活动
 		// TODO Auto-generated method stub
 		loveActivityDao.delete(persistentInstance);
 	}
 
+	
 	@Override
 	@Transactional(propagation=Propagation.NOT_SUPPORTED)
-	public LoveActivity findById(Short id) {
+	public LoveActivity findById(Short id) {//通过Id找活动
 		// TODO Auto-generated method stub
 		return loveActivityDao.findById(id);
 	}
 
 	@Override
 	@Transactional(propagation=Propagation.NOT_SUPPORTED)
-	public List findAll() {
+	public List findAll() {//查找全部活动
 		// TODO Auto-generated method stub
 		return loveActivityDao.findAll();
 	}
+
+	@Override
+	public void deleteAcByID(Short id) {
+		// TODO Auto-generated method stub
+		loveActivityDao.deleteAcByID(id);//删除活动
+	}
+
+	@Override
+	public void updateActivity(Short id,LoveActivity la) {//更新活动--1
+		// TODO Auto-generated method stub
+		  //loveActivityDao.updateACByID(id);
+		loveActivityDao.updateActivity(id,la);
+	}
+
+	@Override
+	public void updateActivity2(LoveActivity la) {//更新活动--2
+		// TODO Auto-generated method stub
+		  //loveActivityDao.updateACByID(id);
+		loveActivityDao.updateActivity2(la);
+	}
+
+	 
 
 }

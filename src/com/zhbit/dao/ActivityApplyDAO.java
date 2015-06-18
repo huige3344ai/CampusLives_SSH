@@ -34,7 +34,7 @@ public class ActivityApplyDAO extends HibernateDaoSupport {
 	protected void initDao() {
 		// do nothing
 	}
-
+//报名活动
 	public void save(ActivityApply transientInstance) {
 		log.debug("saving ActivityApply instance");
 		try {
@@ -45,7 +45,7 @@ public class ActivityApplyDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-
+//取消报名
 	public void delete(ActivityApply persistentInstance) {
 		log.debug("deleting ActivityApply instance");
 		try {
@@ -57,6 +57,52 @@ public class ActivityApplyDAO extends HibernateDaoSupport {
 		}
 	}
 
+//取消具体某条报名记录
+		public void deleteByApNo(Short apno){
+			log.debug("deleting ActivityApply instance");
+			try { 
+				ActivityApply aa=findById(apno); //根据申请号Apno(唯一的),找到对应的持久化对象
+				getHibernateTemplate().delete(aa);//再删除它。
+				log.debug("delete successful");
+			} catch (RuntimeException re) {
+				log.error("delete failed", re);
+				throw re;
+			}
+		}
+	
+//查看所有人的所有报名
+	public List findAll() {
+		log.debug("finding all ActivityApply instances");
+		try {
+			String queryString = "from ActivityApply order by UId asc";
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
+	
+	public List findAPById(Short u_id) {
+		log.debug("finding all ActivityApply instances");
+		try {
+			String queryString = "from ActivityApply where UId="+u_id;
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
+	
+	public List findAPByAcId(Short ac_id){//通过活动id，在报名表中找该活动，看是否存在
+		log.debug("finding all ActivityApply instances");
+		try {
+			String queryString = "from ActivityApply where ac_id="+ac_id;
+			return getHibernateTemplate().find(queryString);
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
 	public ActivityApply findById(java.lang.Short id) {
 		log.debug("getting ActivityApply instance with id: " + id);
 		try {
@@ -115,16 +161,7 @@ public class ActivityApplyDAO extends HibernateDaoSupport {
 		return findByProperty(_UTEL, UTel);
 	}
 
-	public List findAll() {
-		log.debug("finding all ActivityApply instances");
-		try {
-			String queryString = "from ActivityApply";
-			return getHibernateTemplate().find(queryString);
-		} catch (RuntimeException re) {
-			log.error("find all failed", re);
-			throw re;
-		}
-	}
+	
 
 	public ActivityApply merge(ActivityApply detachedInstance) {
 		log.debug("merging ActivityApply instance");

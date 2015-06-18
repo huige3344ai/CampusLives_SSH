@@ -154,7 +154,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				</ul>
 			</div>	
-			<div class="title_2"><h3>爱心活动</h3><span><a href="http://www.zhbit.com/meitiguanzhu/" target="_self">more+</a></span></div>
+			<div class="title_2"><h3>爱心活动</h3><span><a href="loveActivityAction!toLoveActivity" target="_self">more+</a></span></div>
 						<!------------首页新闻列表标签----------------->
 			<div class="news_list">
 				<ul>
