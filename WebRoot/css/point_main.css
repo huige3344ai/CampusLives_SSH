@@ -22,22 +22,18 @@ a:hover { text-decoration:underline; }
 .header_title span,strong{color:white;}
 
 
-#nav{width:900px;height:40px;float:left;top:-42px;margin-left:220px;line-height:40px;     text-align:center;font:18px ;position:absolute;}
-#nav ul{width:700px;overflow:hidden;float:left;}
-#nav ul li{width:100px;height:40px;float:left;position:relative;line-height:40px;  text-align:center;}	
-#nav ul li a{/*  一级导航 */width:80px;height:20px;color:black;}		
-#nav ul li a:hover{background:white;}	
-	
-#contents{width:900px;height:700px;position: relative;margin:0 auto;}
 
-#leftbody{width:25%;height:500px;position: absolute;top: 0px;margin-left: 0px;background-color:#F5F5DC}
-#point{width:75%;position: absolute;height: 700px;top:10px;left:250px;right: 0px}
+	
+#contents{width:900px;height:700px;}
+
+#leftbody{width:25%;height:700px;float:left;background-color:#F5F5DC}
+#point{width:75%;height: 700px;float:right;display:inline;}
 #po{width:900px;height:auto;margin:0px auto;position:absolute;}
 #po_a{width:270px;height:240px;display:inline;}
 #po_b{width:270px;height:auto;display:inline;}
-#mainbody{width:900px;margin:0px auto;position:absolute;top:50px;}
+#mainbody{width:atuo;height:atuo;}
 
-#body{width:100%;height:750px;position:absolute;left:0px;top:100px;}
+#body{width:100%;height:750px;position:absolute;left:0px;top:100px;margin:0 auto;}
 
 
 #footer{width:100%;height:50px;position:absolute;bottom:0px;}

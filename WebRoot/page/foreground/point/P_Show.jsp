@@ -32,7 +32,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          	</div>         	
 		</div> 
  
-		<div id="body">
+		<div id="body" >
+		<center>
 			<jsp:include page="/page/background/nav.jsp"/>
 			<div id="contents">               
 				
@@ -68,7 +69,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</s:iterator>
                 </div> 
      		</div>
-         </div>
+     	</center>
+		</div>
             
          
 			<div id="footer" align="center">
