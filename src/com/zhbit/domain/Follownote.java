@@ -1,5 +1,6 @@
 package com.zhbit.domain;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 
@@ -16,7 +17,7 @@ public class Follownote  implements java.io.Serializable {
      private Note note;
      private User user;
      private String followcontent;
-     private Date ftime;
+     private Timestamp ftime;
 
 
     // Constructors
@@ -27,7 +28,7 @@ public class Follownote  implements java.io.Serializable {
 
     
     /** full constructor */
-    public Follownote(Note note, User user, String followcontent, Date ftime) {
+    public Follownote(Note note, User user, String followcontent, Timestamp ftime) {
         this.note = note;
         this.user = user;
         this.followcontent = followcontent;
@@ -69,11 +70,11 @@ public class Follownote  implements java.io.Serializable {
         this.followcontent = followcontent;
     }
 
-    public Date getFtime() {
+    public Timestamp getFtime() {
         return this.ftime;
     }
     
-    public void setFtime(Date ftime) {
+    public void setFtime(Timestamp ftime) {
         this.ftime = ftime;
     }
    

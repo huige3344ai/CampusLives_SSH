@@ -21,15 +21,19 @@
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="txManager" />
-	
-	<!-- 用户 -->
+	<!-- 吴松辉 -->
+	<!--吴松辉 用户 -->
 	<bean id="userDao" class="com.zhbit.dao.UserDaoImpl" />
 	<bean id="userService" class="com.zhbit.services.UserServiceImpl" />		
 	<bean id="userReg" class="com.zhbit.actions.LoginAction" scope="prototype"/>
-	<!-- 投诉和建议-->
+	<bean id="answertp" class="com.zhbit.actions.AnswerInterceptor" />
+	
+	<!--吴松辉 投诉和建议-->
 	<bean id="noteDao" class="com.zhbit.dao.NoteDaoImpl" />
 	<bean id="noteService" class="com.zhbit.services.NoteServiceImpl" />	
-	<bean id="noteManger" class="com.zhbit.actions.NotaManagerAction" scope="prototype"/>		
+	<bean id="noteManger" class="com.zhbit.actions.NotaManagerAction" scope="prototype"/>
+	<!-- 吴松辉 END -->	
+		
 	<!-- 庄继辉bean配置：不许说话不许动 -->
 	<bean id="restaurantDao" class="com.zhbit.dao.RestaurantDAOImpl" />		
 	<bean id="restaurantService" class="com.zhbit.services.RestaurantServiceImpl" />

@@ -29,8 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<%
 			User user = (User)session.getAttribute("user");			
 			 %>
-			<form id="signupForm" action="exPassword" method="post">
-			
+			<form id="signupForm" action="exPassword" method="post">			
 			<div class="login-error"></div>
 			<div class="row">
 				<label class="field" id="text_user"></label>

@@ -3,8 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%
 String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-	
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";	
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -46,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				                 <div class=main_nav>                
 			                	<div class="suggest_nav_l">
 			                		<div class="suggest_nav_r">
-			                		<a  href="<%=basePath%>/page/foreground/main.jsp"><h3>首页</h3></a>
+			                		<a  href="<%=basePath%>page/foreground/main.jsp"><h3>首页</h3></a>
 			                		</div>
 			                	</div>
 			                </div>	  
@@ -54,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			                <div class=suggest_nav>                
 			                	<div class="suggest_nav_l">
 			                		<div class="suggest_nav_r">
-			                			<a  href="<%=basePath%>/page/foreground/send_note.jsp"><h3>发表</h3></a>
+			                			<a  href="<%=basePath%>page/foreground/send_note.jsp"><h3>发表</h3></a>
 			                		</div>
 			                	</div>
 			                </div>	           
@@ -77,39 +76,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<h3 >发表时间：<s:property value="ntime"/></h3>                		
                 		</div>
                 		</s:iterator>
-                			<table class="answer" >		
-					<s:iterator value="#session.answers">
-                				<tr>
-                				<td>楼猪：<s:property value="user.userName"/></td>
-                				<td>回复时间：<s:property value="ftime"/></td>               				
-                				</tr>
-                				<tr style="line-height:44px;">
-                				<td colspan="2"  class=td_answer>
-                					<s:property value="followcontent"/>
-                				</td>                				
-                				</tr> 
-              		</s:iterator>		
+                			<table class="answer" >
+                	<s:if test="#session.answers!=null">				
+						<s:iterator value="#session.answers">
+	                				<tr>
+	                				<td>楼猪：<s:property value="user.userName"/></td>
+	                				<td>回复时间：<s:property value="ftime"/></td>               				
+	                				</tr>
+	                				<tr style="line-height:44px;">
+	                				<td colspan="2"  class=td_answer>
+	                					<s:property value="followcontent"/>
+	                				</td>                				
+	                				</tr> 
+	              		</s:iterator>
+              		</s:if>				                
+	                <s:else>
+	                	<p style="height:44px;line-height:44px; width:150px;margin:auto; color: red">什么都没有，请点击右下方的按钮返还首页</p>
+	                </s:else>	             			
                 			</table>
                			
-		               <div class="your_answer">
-		               <%
-		        java.util.Date currentTime = new java.util.Date();//得到当前系统时间  
-				java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String date = formatter.format(currentTime);	
-	                   %>
-	                   		
-			                <form action="noteManager!sendAnswer.action" method="post">
+		               <div class="your_answer">                  		
+			                <form action="sendNote!sendAnswer.action" method="post">
 			                <h4>回复内容：</h4>                
 			                 <textarea  class="answer_input"  name="answer.followcontent" id="answer_input"></textarea>
-			                 <input type="hidden" name="answer.ftime" value="<%=date%>"/>
 			                 <input class="answer_sumbit_button" type="submit" value="提交" onclick="return validation()"/>	
-			                </form>		
+			                </form>
+	
 		                </div> 
-                 <div class="tissue" style="height:44px; width:150px; ">
+                 <div class="tissue" style="height:44px;line-height:44px; width:150px;margin:auto;">
                				<ul>
-               					<li id="tissue_note" ></li>
+               					<li id="tissue_note"></li>
                				</ul>
-				</div> 
+               				<s:if test="#session.user==null">
+								<p><s:property value="#session.tissue"/></p>	               				
+               				</s:if>
+				 </div> 
                 
                 		                									
              </div> 
@@ -124,8 +125,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <a style="display: block;" id="site_hot_btn" class="gb-operation-button hot-msg" href="page/foreground/suggest_main.jsp">
                     <i class="gb-operation-icon"></i>
                     <span class="gb-operation-text">返还</span>
-                    </a>
-                    
+                    </a>                    
                     </div>
                 </div>              
        	

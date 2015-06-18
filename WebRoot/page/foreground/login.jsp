@@ -44,8 +44,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			</s:form>
 				还没有帐号？<a href="goTo!goToRegister.action">戳这里</a>
-			<div class="tissue" > 			
-			<p id = "tissue"><s:property value="tissue"/></p>
+				
+				<div class="tissue" > 			
+					<p id = "tissue"><s:property value="tissue"/></p>
+	            <s:if test="#session.tissue!=null">
+					<p id = "tissue"><s:property value="#session.tissue"/></p>	               				
+	             </s:if>			
 			<s:fielderror></s:fielderror>
 			</div>
 		</div>

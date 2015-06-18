@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50541
 File Encoding         : 65001
 
-Date: 2015-06-09 14:07:12
+Date: 2015-06-11 08:49:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,11 +30,12 @@ CREATE TABLE `follownote` (
   KEY `nid` (`nid`),
   CONSTRAINT `follownote_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`id`),
   CONSTRAINT `follownote_ibfk_2` FOREIGN KEY (`nid`) REFERENCES `note` (`nid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of follownote
 -- ----------------------------
+INSERT INTO `follownote` VALUES ('1', '6', '19', '你才有病把', '2015-06-09 14:16:49');
 
 -- ----------------------------
 -- Table structure for `lost`
@@ -49,7 +50,7 @@ CREATE TABLE `lost` (
   `description` varchar(250) NOT NULL,
   `promulgator` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of lost
@@ -68,7 +69,7 @@ CREATE TABLE `note` (
   PRIMARY KEY (`nid`),
   KEY `uid` (`uid`),
   CONSTRAINT `note_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of note
@@ -84,6 +85,7 @@ INSERT INTO `note` VALUES ('15', '6', '好垃圾的网站', '日~~~', '2015-06-0
 INSERT INTO `note` VALUES ('16', '6', '垃圾', '法大赛复赛', '2015-06-06 14:18:21');
 INSERT INTO `note` VALUES ('17', '6', '垃圾', '法大赛复赛', '2015-06-06 14:18:21');
 INSERT INTO `note` VALUES ('18', '6', '什么垃圾啊', '垃圾', '2015-06-06 14:19:56');
+INSERT INTO `note` VALUES ('19', '6', '有机蔬菜', '谁吃谁有病！！！！！', '2015-06-09 14:16:28');
 
 -- ----------------------------
 -- Table structure for `restaurant`
@@ -131,7 +133,7 @@ INSERT INTO `role` VALUES ('3', '商家');
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `rid` int(11) DEFAULT '1',
+  `rid` int(11) DEFAULT '1' COMMENT '角色id',
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userName` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
@@ -139,6 +141,7 @@ CREATE TABLE `user` (
   `birthday` date NOT NULL,
   `age` tinyint(3) NOT NULL,
   `email` varchar(30) NOT NULL,
+  `imgsrc` varchar(200) DEFAULT 'd:/image/defualt.jpg',
   PRIMARY KEY (`id`),
   KEY `rid` (`rid`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`rid`) REFERENCES `role` (`rid`)
@@ -147,10 +150,10 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '3', 'huigse334', '123456', '1', '2015-05-20', '26', '659174@qq.com');
-INSERT INTO `user` VALUES ('1', '4', 'huige334', '6981658', '1', '2015-05-20', '23', '659174@qq.com');
-INSERT INTO `user` VALUES ('1', '5', 'huigse334', '123456', '1', '2015-05-20', '26', '659174@qq.com');
-INSERT INTO `user` VALUES ('1', '6', 'huige23', '6981658', '1', '2015-05-08', '14', '659174@qq.com');
-INSERT INTO `user` VALUES ('1', '7', 'huige234', '6981658', '1', '2015-05-12', '23', '654@qq.com');
-INSERT INTO `user` VALUES ('1', '9', 'huige432', '6981658', '1', '2015-05-18', '12', '6981658@qq.com');
-INSERT INTO `user` VALUES ('1', '11', 'huige789', '123456', '1', '1997-02-18', '26', '123456@163.com');
+INSERT INTO `user` VALUES ('1', '3', 'huigse334', '123456', '1', '2015-05-20', '26', '659174@qq.com', null);
+INSERT INTO `user` VALUES ('1', '4', 'huige334', '6981658', '1', '2015-05-20', '23', '659174@qq.com', null);
+INSERT INTO `user` VALUES ('1', '5', 'huigse334', '123456', '1', '2015-05-20', '26', '659174@qq.com', null);
+INSERT INTO `user` VALUES ('1', '6', 'huige23', '6981658', '1', '2015-05-08', '14', '659174@qq.com', 'images/persion_pic6\\201506101928336250.jpg');
+INSERT INTO `user` VALUES ('1', '7', 'huige234', '6981658', '1', '2015-05-12', '23', '654@qq.com', null);
+INSERT INTO `user` VALUES ('1', '9', 'huige432', '6981658', '1', '2015-05-18', '12', '6981658@qq.com', null);
+INSERT INTO `user` VALUES ('1', '11', 'huige789', '123456', '1', '1997-02-18', '26', '123456@163.com', null);
