@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 
                
                 <div id ="content">
-                	<ul>
+                	<ul class="note_send">
                 		<s:iterator value="notes" var="note">	                		
 	                	<li>
 	                 	<form action="noteManager!noteGo.action" class="conten_form" method="post" >

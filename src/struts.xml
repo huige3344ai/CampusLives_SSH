@@ -61,7 +61,15 @@
 			<action name="upload" class="userReg"  method="uploadPic">			
 				<result name="upload_success">/page/foreground/person_pic.jsp</result>			
 				<result name="error">/page/foreground/person_pic.jsp</result>	
-			</action>			
+			</action>	
+			
+			<!-- 管理员修改用户类型 -->
+			<action name="exchangeType" class="userReg"  method="exchangeType">	
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="usertp"></interceptor-ref>					
+				<result name="updateabort">/page/foreground/person_admin.jsp</result>	
+				<result name="updatesuccess">/page/foreground/person_admin.jsp</result>	
+			</action>					
 				
 		<!--吴松辉  投诉和建议  -->			
 		<action name="noteManager" class="noteManger" >

@@ -11,9 +11,9 @@ public interface UserService {
 
 	public User updateUser(User user);
 	
+	public User updateUserType(User user);
+	
 	public int uploadPic(int user_id,String photoPath);
-
-	public void deleteUser(User user);
 
 	public List searchUser(String userName);
 	

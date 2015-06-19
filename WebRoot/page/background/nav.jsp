@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  <s:if test="#session.user!=null">                 
                  
 		                    <ul>
-		                    <li><s:property value="#session.user.userName"/>
+		                    <li><a href="page/foreground/person.jsp"><s:property value="#session.user.userName"/></a>
 		                    	<ul class= "clearfix">
 		                    	<li><a href="page/foreground/person_pic.jsp">上传头像</a></li>
 		                    	<li><a href="page/foreground/exchange_msg.jsp">修改信息</a></li>

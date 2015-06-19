@@ -102,10 +102,29 @@ public class LoginAction extends ActionSupport {
 		}else{
 			tissue = "更新失败，请重试！！！";
 			return "updateabort";	
-		}
-		
+		}		
 	  }
-	
+		
+		//更新用户类型
+		public String  exchangeType(){
+		User user_type = null;
+		if(userser.searchUser(user.getUserName()).isEmpty()){
+			tissue = "用户不存在";
+			return "updateabort";
+		}else{	
+			user.setRole(role);
+			user_type = userser.updateUserType(user);							
+			if(user_type==null){
+				tissue = "更新用户信息失败，稍后尝试";	
+				return "updateabort";
+			}else{
+				tissue = "更新用户信息成功";	
+				return "updatesuccess";
+			}		
+		}	
+		
+		
+	  }	
 		//更新密码	
 		public String updateLogin(){	
 			 User num = userser.updatePassword(user);
@@ -124,11 +143,11 @@ public class LoginAction extends ActionSupport {
 		//找回密码
 		public String returnPassword(){																	
 			User num = null;
-			List userEmail = userser.searchUser(user.getUserName());
+			List userEmail = userser.searchUser(user.getUserName());			
 			if(userEmail==null){
 				tissue	= "用户名不存在";
 				jude = false;
-			}else if(!userEmail.get(0).toString().equals(user.getEmail())){
+			}else if(!((User) userEmail.get(0)).getEmail().equals(user.getEmail())){				
 				tissue	= "邮箱不正确";		
 				jude = false;
 			}else{			

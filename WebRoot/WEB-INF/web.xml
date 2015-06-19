@@ -26,9 +26,10 @@
         <filter-name>login</filter-name>
         <url-pattern>/page/foreground/exchange_msg.jsp</url-pattern>
         <url-pattern>/page/foreground/exchange_password.jsp</url-pattern>
-        <url-pattern>/page/foreground/person_pic.jsp</url-pattern>
         <url-pattern>/page/foreground/send_note.jsp</url-pattern>
-        <url-pattern>/page/foreground/person_pic.jsp</url-pattern>        
+        <url-pattern>/page/foreground/person_pic.jsp</url-pattern> 
+        <url-pattern>/page/foreground/person.jsp</url-pattern>
+        <url-pattern>/page/foreground/person_admin.jsp</url-pattern>
     </filter-mapping>
    <!-- end  吴松辉 -->
   <welcome-file-list>

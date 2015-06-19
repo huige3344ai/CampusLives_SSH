@@ -28,13 +28,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<s:form id="signupForm" action="userLogin!login.action" method="post"  namespace="/" theme = "simple">	
 					
 			<div class="row">
-				<label class="field" id="text_user" >用户名</label>
-				<input type="text" class="input-text-user input-click" name="user.userName" id="email">				
+				<label class="field" id="text_user">用户名</label>
+				<div class="input_img"></div>
+				<input type="text" class="input-text-user" name="user.userName" id="email">				
 				<input type="hidden" class="login-error"></input>
 			</div>
 			<div class="row">
 				<label class="field" id="text_password">密码</label>
-				<input type="password" class="input-text-password input-click" name="user.password" id="password" >
+				<div class="pwd_img"></div>
+				<input type="password" class="input-text-password" name="user.password" id="password" >				
 			</div>
 			<div class="row btnArea">
 				<input class="login-btn"  type="submit" value="登录"  style="cursor:auto"></input>				

@@ -1,17 +1,12 @@
 
 package com.zhbit.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.hibernate.Query;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.zhbit.domain.User;
 
@@ -41,19 +36,16 @@ public class UserDaoImpl implements UserDao {
 			query.setString(1, user.getSex());	
 			query.setString(2, user.getEmail());			
 			query.setString(3, user.getUserName());			
-			query.executeUpdate();
-	
+			query.executeUpdate();	
 		return user;
 	}
 
-	public void deleteUser(User user) {
-		// TODO Auto-generated method stub
-		
-	}
 
+
+	@SuppressWarnings("rawtypes")
 	public List searchUser(String userName) {
 		// TODO Auto-generated method stub
-		String hql = "select email from User where userName = ? ";		
+		String hql = "from User where userName = ? ";		
 		Query query = sessionFactory.getCurrentSession().createQuery(hql); 
 		query.setString(0,userName);		
 		List list =  query.list();
@@ -77,8 +69,6 @@ public class UserDaoImpl implements UserDao {
 				Query query = sessionFactory.getCurrentSession().createQuery(hql);
 				query.setString(0, user.getPassword());			
 				query.setString(1, user.getUserName());	
-//				System.out.print("username:"+user.getUserName());
-//				System.out.print("passsword:"+user.getUserName());
 				query.executeUpdate();
 				return user ;
 	
@@ -100,9 +90,19 @@ public class UserDaoImpl implements UserDao {
 			e.printStackTrace();
 			num = 0; 
 		}
-
 		return num ;		
 
+	}
+	
+	//更新用户类型
+	@Override
+	public User updateUserType(User user) {
+		String hql = "update User user  set  user.role.rid = ?   where user.userName =?";  
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setInteger(0, user.getRole().getRid());	
+		query.setString(1, user.getUserName());		
+		query.executeUpdate();
+		return user;
 	}
 	
 
