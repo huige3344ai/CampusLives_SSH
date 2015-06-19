@@ -7,8 +7,11 @@ import javax.annotation.Resource;
 
 import org.hibernate.SessionFactory;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.zhbit.domain.food.Restaurant;
 
+@Transactional
 public class RestaurantDAOImpl implements RestaurantDAO{
 	@Resource
 	private SessionFactory sessionFactory;
@@ -36,6 +39,26 @@ public class RestaurantDAOImpl implements RestaurantDAO{
 		return relist;
 		
 	}
+	
+	
+	@SuppressWarnings("unchecked")
+	
+	public List<Restaurant> finduid(int user_id){
+		
+		String hql = "from Restaurant where u_id = '"+user_id+"'";
+		List<Restaurant> relist;
+		relist = sessionFactory.getCurrentSession().createQuery(hql).list();	
+		return relist;
+	
+	}
+	
+	public void Delete(int r_id){
+		String hql = "delete from Restaurant restaurant where restaurant.num = '"+r_id+"'";
+		sessionFactory.getCurrentSession().createQuery(hql).executeUpdate();
+		
+	}
+	
+	
 	
 
 }

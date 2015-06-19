@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<label>用 户:</label>
 					</td>
 					<td>
-						<s:textfield  name="user.userName" cssstyle="width:160px;height:26px"  theme="simple"/>
+						<s:textfield  name="user.userName" cssstyle="width:160px;height:26px" value="%{#session.user.userName}" readonly="true" theme="simple"/>
 					</td>										
 				</tr>
 				<tr>
@@ -78,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<input class="login-btn"  type="submit" value="确认修改"></input>
 			</div>
 			<div class="row btnArea">
-				<input class="login-btn_cancel"  type="button" value="返还"  onClick="window.location='<%=basePath%>/page/foreground/main.jsp'"></input>
+				<input class="login-btn_cancel"  type="button" value="返还"  onClick="window.location='<%=basePath%>page/foreground/main.jsp'"></input>
 			</div>			
 			<div class="tissue">
 				<s:fielderror></s:fielderror>

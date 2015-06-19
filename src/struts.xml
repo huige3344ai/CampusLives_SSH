@@ -92,7 +92,8 @@
 		<!-- 吴松辉  END -->			
 			<!-- 庄继辉action配置 -->
 			<action name="getdata" class="reAct">
-					<result name="RT_FOOD">/page/foreground/food/more.jsp</result>						
+					<result name="RT_FOOD">/page/foreground/food/more.jsp</result>
+					<result name="Personal_center">/page/foreground/food/Business_nformation_center.jsp</result>						
 			</action>
 			<action name="Rtdata" class="RtAct">
 					<result name="input">/page/foreground/return_password.jsp</result>						
@@ -104,12 +105,33 @@
 				<result name="lostadd">/page/foreground/page/foreground/return_password.jsp</result>						
 			</action>
 			
-			<!-- 爱心活动的配置 -->
+		<!-- 爱心活动的配置 -->
 			<action name="loveActivityAction" class="LoveActivityAction">
-			        <result name="love_activity">/page/foreground/love_activity.jsp</result>
-			        <result name="add_AC_fail">/page/background/error404.jsp</result>  
+			        <result name="to_love_activity">/page/foreground/love_activity.jsp</result>
+			        <result name="to_look_activity">/page/foreground/look_activity.jsp</result>  
+			        <result name="to_apply_activity">/page/foreground/apply_activity.jsp</result> 
+			        <result name="to_check_cancel_apply">/page/foreground/check_cancel_apply.jsp</result>
+			        <result name="to_delete_activity">/page/background/delete_activity.jsp</result>
+			        <result name="to_update_activity">/page/background/update_activity.jsp</result>
+			        
+			        <result name="add_AC_fail">/page/background/error404.jsp</result> 
+			        <result name="add_AC_success">/page/foreground/love_activity.jsp</result>
+			        
+			        <result name="add_AP_fail">/page/background/error404.jsp</result> 
+			        <result name="add_AP_success">/page/foreground/love_activity.jsp</result>    
+			        
+			        <result name="cancel_AP_success">/page/foreground/check_cancel_apply.jsp</result>
+			        <result name="cancel_AP_fail">/page/background/error404.jsp</result> 
+			        
+			        <result name="delete_AC_success">/page/foreground/love_activity.jsp</result>
+			        <result name="delete_AC_fail">/page/background/error404.jsp</result>
+			       
+			        <result name="update_AC_success">/page/foreground/love_activity.jsp</result>
+			        <result name="update_AC_fail">/page/background/error404.jsp</result> 
+			        
 			        
 			</action>
+		<!-- 爱心活动的配置 -->
 			
 			<!-- 肖剑锋Point action配置 -->
 			<action name="add" class="pointAct">

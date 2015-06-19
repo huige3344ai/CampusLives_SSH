@@ -1,4 +1,3 @@
-
 package com.zhbit.services;
 
 import java.util.List;
@@ -30,6 +29,16 @@ public class RestaurantServiceImpl implements RestaurantService{
 		return rd.findid();
 	}
 	
-	
+@Override
+	public List<Restaurant> finduid(int user_id) {
+		// TODO Auto-generated method stub
+		return rd.finduid(user_id);
+	}
+
+	@Override
+	public void Delete(int r_id) {
+		rd.Delete(r_id);
+		
+	}	
 
 }

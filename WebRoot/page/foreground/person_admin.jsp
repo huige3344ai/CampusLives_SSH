@@ -51,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<input class="login-btn"  type="submit" value="确认修改"></input>
 			</div>
 			<div class="row btnArea">
-				<input class="login-btn_cancel"  type="button" value="返还"  onClick="window.location='<%=basePath%>/page/foreground/main.jsp'"></input>
+				<input class="login-btn_cancel"  type="button" value="返还"  onClick="window.location='<%=basePath%>page/foreground/main.jsp'"></input>
 			</div>			
 			<div class="tissue">
 				<s:fielderror></s:fielderror>

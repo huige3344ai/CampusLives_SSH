@@ -1,8 +1,16 @@
  
+<%@page import="com.opensymphony.xwork2.ActionContext"%>
+<%@page import="com.zhbit.domain.User"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib prefix="s" uri="/struts-tags" %>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+ User user=(User)session.getAttribute("user");
+  ActionContext.getContext().getSession().put("user",user);	
+		String username="";
+		username=user.getUserName();
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -38,51 +46,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div> 
  
          <div id="body">
-    	         <div id="nav">
-                       <ul>
-                       		<li>
-                       				<a href="page/foreground/main.jsp">主页 </a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="page/PointView/foreground/PointNavigation.jsp">校园美景</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="page/foreground/food/FoodNetwork.jsp">校园美食</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="checkservlet">失物招领</a>
-                       				
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="LoginServlet">爱心活动</a>
-                       				
-                       		</li>
-                       		
-                        	<li>
-                       				<a href="JudgeIsAdmin">投诉建议</a>
-                       				 
-                       		</li> 
-                       		                           		
-                       		<li>
-                       				
-                       				<a href="page/foreground/regist.jsp" >修改密码</a>
-                       				 
-                       		</li>
-
-                       		
-                       </ul>
-                <div class = "user">
-                        
-                 <%=session.getAttribute("uname")%>,<a href="page/foreground/logout.jsp">注销</a>
-                	                		
-                 </div>   
-                </div>
-     				
-        </div>
+         	<jsp:include page="/page/background/nav.jsp"/>
+     		
+         </div>
          <!-- sssssssssssssssssssssssssssssssssssssss -->
          
          <div class="c_apply">
@@ -91,56 +57,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <form  style="width:600px; height:500px; overflow: scroll; position:absolute; ">
         <table align="center" >
         <thead > <td></td><td><b>删除活动</b></td></thead>
-        
-        		<%--
-        		 request.setCharacterEncoding("utf-8");
-              response.setCharacterEncoding("utf-8");
-             
-	     
-	      String sql="select * from LoveActivity";
-	       Vector V=(Vector)ConnectionOperation2.queryData(sql);//vector
-	       Iterator it=V.iterator();
-	     	int i=1;
-	     	
-	     	ActivityServlet2.is_delete=1;////////////////////////////////
-	     	String w="delete_ac";
-	       while(it.hasNext()){
-	        
-	          Vector v=(Vector)it.next();
-	       		
-        		 --%>
-             <tbody>
-             
-              	 <p> <tr><td >活动号</td>  <td  ><input type="button"   id="ac_no"  value="<%--=v.get(0)--%>"/>--</td>   </tr> </p>
-               	 <p> <tr><td >活动ID</td>  <td ><input type="button"  id="ac_id"  value="<%--=v.get(1)--%>" />--</td>   </tr> </p>
-                 <p> <tr><td>活动名称</td>  <td><input type="button"  id="ac_name"  value="<%--=v.get(2)--%>"/>--</td>   </tr> </p>
-                 <p> <tr><td>活动时间</td>  <td><input type="button"  id="ac_content"  value="<%--=v.get(3)--%>"/>--</td>   </tr> </p>
-                 <p> <tr><td>活动地点</td>  <td><input type="button" id="p_name"  value="<%--=v.get(4)--%>"/>--</td>   </tr> </p>
-                 <p> <tr><td>负责人</td>  <td><input type="button"  id="ac_time"  value="<%--=v.get(5)--%>"/>--</td>   </tr> </p>
-                 <p> <tr><td>负责人电话</td>  <td><input type="button"  id="ac_place"  value="<%--=v.get(6)--%>"/>--</td>   </tr> </p>
-                 <p> <tr><td>活动内容</td>  <td><textarea  name="ac_content" rows="10" cols="50"  id="ac_content" name="ac_content"><%--=v.get(7)--%></textarea></td>   </tr> </p>
-                 
-                    <tr><td ></td> 
-                         <td>
-             		        <a href="ActivityServlet2?AC_NO=<%--=v.get(0)--%>&where=<%--=w--%>">删除</a>
-                             <%-- String return_delete="return_delete"; --%>
-                                <a href="LoginServlet?return_of_delete=<%--=return_delete --%>">返回</a>
-                             <%--
-                             System.out.print("\n path:"+path);
-                             
-                             --%>
-				          ------</td>
-				          <td>
-                         </td>   
-                    </tr> 
                
-            </tr>
-            <%--
-            
-                 	
-	          }
-	          
-	          --%>
+             <tbody>
+               <s:if test="activityList.size()!=0">
+                 <s:iterator value="activityList" var="acList">
+              	  <tr><td >活动ID</td>  <td ><s:property  value="%{#acList.getAcId()}" /></td></tr> 
+              	   <tr><td >活动代号</td>  <td><s:property value="#acList.getAcNo()"/></td></tr> 
+                   <tr><td>活动名称</td>  <td><s:property value="%{#acList.getAcName()}"/></td></tr> 
+                   <tr><td>活动时间</td>  <td><s:property  value="%{#acList.getAcTime()}"/></td></tr> 
+                   <tr><td>活动地点</td>  <td><s:property  value="%{#acList.getAcPlace()}"/></td></tr> 
+                   <tr><td>负责人</td>  <td><s:property value="%{#acList.getPName()}"/></td> </tr> 
+                   <tr><td>负责人电话</td>  <td><s:property  value="%{#acList.getPTel()}"/></td></tr> 
+                   <tr><td>活动内容</td>  <td><textarea  rows="10" cols="50"  id="ac_content" name="ac_content"><s:property value="%{#acList.getAcContent()}"/></textarea></td></tr> 
+                 
+                   <tr><td ></td> 
+                         <td>
+             		        <a href="loveActivityAction!deleteActivity.action?acidForDelete=<s:property  value="%{#acList.getAcId()}" />">删除</a>
+                        
+                             <a href="loveActivityAction!toLoveActivity">返回</a>
+                            
+				         </td>
+				         <td>
+                         </td>   
+                  </tr> 
+                </s:iterator>
+              </s:if>
+           
 	         
           </tbody>
          

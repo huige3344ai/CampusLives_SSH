@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        				
                        		</li>
                        		<li>
-                       				<a href="">爱心活动</a>
+                       				<a href="loveActivityAction!toLoveActivity">爱心活动</a>
                        				
                        		</li>
                        		
@@ -61,6 +61,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                    <ul>
 		                    <li><a href="page/foreground/person.jsp"><s:property value="#session.user.userName"/></a>
 		                    	<ul class= "clearfix">
+		                    	<s:if test="#session.user.role.rid==2">
+		                    	<li><a href="page/foreground/person_admin.jsp">修改用户</a></li>		                    	
+		                    	</s:if>
 		                    	<li><a href="page/foreground/person_pic.jsp">上传头像</a></li>
 		                    	<li><a href="page/foreground/exchange_msg.jsp">修改信息</a></li>
 		                    	<li><a href="page/foreground/exchange_password.jsp">修改密码</a></li>
