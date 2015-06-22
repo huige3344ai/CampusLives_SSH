@@ -24,6 +24,11 @@
 	<mapping resource="com/zhbit/domain/lostandfind/Lost.hbm.xml" />
 	<mapping resource="com/zhbit/domain/food/Comments.hbm.xml" />
 	<mapping resource="com/zhbit/domain/point/Point.hbm.xml" />
+	<mapping resource="com/zhbit/domain/lostandfind/Find.hbm.xml" />
+	<mapping
+			resource="com/zhbit/domain/lostandfind/Findreply.hbm.xml" />
+		<mapping
+			resource="com/zhbit/domain/lostandfind/Lostreply.hbm.xml" />
 
 
 

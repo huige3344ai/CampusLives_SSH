@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        				
                        		</li>
                        		<li>
-                       				<a href="">失物招领</a>
+                       				<a href="page/foreground/lostandfind/find.jsp">失物招领</a>
                        				
                        				
                        		</li>

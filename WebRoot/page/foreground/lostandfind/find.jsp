@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div id="usermessage"> 
         <div id = "headphoto">
         <img src="images/head sculpture.jpg"></div>
-     <center> <%= session.getAttribute("username") %></center>
+     <center> <s:property value="#session.user.userName"/></center>
         <div id ="service">
        
 
@@ -57,13 +57,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="拾到物搜寻" name = "searchfind"/></center>
         </s:form>
         
-       <form action ="page/foreground/lostandfind/searchlost.jsp" method = "post">
+        <s:form action ="lost!lostshow.action" method = "post">
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="失物搜寻" name = "searchlost"/></center>
-        </form>
+        </s:form>
 
-       <form action ="page/foreground/lostandfind/personal.jsp" method = "post">
+       <s:form action ="lost!allshow.action" method = "post">
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="个人发布记录" name = "personal"/></center>
-        </form>
+     <s:hidden name="username" value="%{#session.user.userName}"/>
+        </s:form>
         </fieldset>
         
         </div>
@@ -92,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <br>
 <br>
 <br>
-<br><input type="text" name="find.promulgator" readonly="readonly" value="<%= session.getAttribute("username") %>"/>
+<br><s:hidden name="find.promulgator" value="%{#session.user.userName}"/>
 <center> <input type = "submit" style="width:200px;height:40px;"  value ="递交信息" name = "submit"/></center></s:form>
   </fieldset>
         

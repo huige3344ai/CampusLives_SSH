@@ -1,5 +1,7 @@
+
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %> <!--导入Struts 2 标签库-->
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -36,9 +38,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <div id="contents">               
         <div id="usermessage"> 
         <div id = "headphoto"><img src="images/head sculpture.jpg"></div>
-     <center> <%= session.getAttribute("username") %></center>
+     <center>  <s:property value="#session.user.userName"/></center>
         <div id ="service">
-             <fieldset > 
+           <fieldset > 
        <legend align="center" ><h3>可选服务</h3></legend>
         <form action ="page/foreground/lostandfind/find.jsp" method = "post">
         <center> <input type = "submit" style="width:200px;height:40px;"  value ="拾到物登记" name = "find"/></center>
@@ -48,17 +50,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <center>   <input type = "submit" style="width:200px;height:40px;"  value ="失物登记" name = "lost"/></center>
         </form>
         
-         <form action ="page/foreground/lostandfind/searchfind.jsp" method = "post">
+         <s:form action ="find!findshow.action" method = "post">
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="拾到物搜寻" name = "searchfind"/></center>
-        </form>
+        </s:form>
         
-       <s:form action ="lost!lostshow.action" method = "post">
+        <s:form action ="lost!lostshow.action" method = "post">
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="失物搜寻" name = "searchlost"/></center>
         </s:form>
 
-       <form action ="page/foreground/lostandfind/personal.jsp" method = "post">
+       <s:form action ="lost!allshow.action" method = "post">
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="个人发布记录" name = "personal"/></center>
-        </form>
+     <s:hidden name="username" value="%{#session.user.userName}"/>
+        </s:form>
         </fieldset>
         </div>
         </div><div id="findandlost">
@@ -83,7 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <br>
 <br>
 <br>
-<br><input type="text" name="lost.promulgator" readonly="readonly"  value="<%= session.getAttribute("username") %>"/>
+<br><s:hidden name="lost.promulgator" value="%{#session.user.userName}"/>
 <center> 
 <input type = "submit" style="width:200px;height:40px;"  value ="递交信息" name = "submit"/></center></s:form>
   </fieldset>
