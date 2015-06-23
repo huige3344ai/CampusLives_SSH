@@ -45,7 +45,7 @@
 				</div>
 			</div>
 
-			 <div id="body">
+			 <div id="body" align="center">
          	   <jsp:include page="/page/background/nav.jsp"/>
      		
              </div>
@@ -147,7 +147,7 @@
 
 			<!-- =========================== -->
 
-			<div id="footer">
+			<div id="footer" align="center">
 				<div class="footer_title">
 					<p>
 						Copyright 2014 ZFSOFT All Rights Reserved.

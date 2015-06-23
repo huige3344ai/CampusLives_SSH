@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          	</div>         	
          </div> 
  
-          <div id="body">
+          <div id="body" align="center">
          	<jsp:include page="/page/background/nav.jsp"/>
      
        </div>
@@ -99,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      </div>
               <!--ssssssssssssssssssssssss -->
    
-         <div id="footer">
+         <div id="footer" align="center">
          	<div class="footer_title">
          	<p>Copyright 2014 ZFSOFT All Rights Reserved. 标准版V1.0.0E-mail：888888@gmail.com</p>
          	<br/>
