@@ -79,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									活动id：
 								</td>
 								<td>
-									<input type="text" name="activityApply.acId" value="<%=ac_id%>" />
+									<input style="background: none; border:none; "  type="text" readonly="readonly" name="activityApply.acId" value="<%=ac_id%>" />
 								</td>
 
 							</tr>
@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									活动名：
 								</td>
 								<td>
-									<input type="text" name="activityApply.acName"
+									<input style="background: none; border:none; " type="text" readonly="readonly" name="activityApply.acName"
 										value="<%=ac_name%>" />
 								</td>
 
@@ -99,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									用户id：
 								</td>
 								<td>
-									<input type="text" name="activityApply.UId" value="<%=userid %>" />
+									<input style="background: none; border:none; " style="background: none; border:none; " type="text" readonly="readonly" name="activityApply.UId" value="<%=userid %>" />
 								</td>
 
 							</tr>
@@ -109,7 +109,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									用户姓名：
 								</td>
 								<td>
-									<input type="text" name="activityApply.UName" value="<%=username %>" />
+									<input style="background: none; border:none; " type="text" readonly="readonly" name="activityApply.UName" value="<%=username %>" />
 								</td>
 								
 							</tr>
