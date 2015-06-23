@@ -119,7 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	       <div class="c_div4">
     	         
     	          	 <form >
-        <table >
+        <table cellpadding="20px">
        		 <thead > <td></td><td><b>爱心活动列表</b></td></thead>
              <tbody>
           
