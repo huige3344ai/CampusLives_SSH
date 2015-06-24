@@ -70,11 +70,10 @@
 	
 	<!-- 失物招领配置 --> 
 	<bean id="lafDao" class="com.zhbit.dao.lostandfind.LAFDao" />
-	<bean id="lafService" class="com.zhbit.services.lostandfind.LostServiceImpl" />		
-	<bean id="manageService" class="com.zhbit.services.lostandfind.manageServiseImpl" />	
+	<bean id="lafService" class="com.zhbit.services.lostandfind.LostServiceImpl" />			
 	<bean id="lafact" class="com.zhbit.actions.lostandfind.LostAction" scope="prototype" />
 	<bean id="findact" class="com.zhbit.actions.lostandfind.FindAction" scope="prototype" />
-	<bean id="lafmanage" class="com.zhbit.actions.lostandfind.ManageAction" />
+	<bean id="lafmanageact" class="com.zhbit.actions.lostandfind.ManageAction"  scope="prototype"/>
 	
 	<!-- 肖剑锋Point bean配置 -->
 	<bean id="pointDao" class="com.zhbit.dao.point.PointDaoImpl" />

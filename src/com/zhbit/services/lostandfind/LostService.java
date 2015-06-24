@@ -28,5 +28,7 @@ public interface LostService {
 	public void deleteLost(int id);
 	public void deleteLostreply(int id);
 	public void deleteFindreply(int id);
+	public void deleteLostonereply(int id);
+	public void deleteFindonereply(int id);
 }
 

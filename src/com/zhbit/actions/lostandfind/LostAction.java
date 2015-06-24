@@ -30,6 +30,7 @@ public class LostAction extends ActionSupport{
 	private int lostid;
 	private List<Find> findlist;
 	private String username;
+	private int rid;
 	
 	@Resource
 	private LostService lostser;
@@ -187,5 +188,18 @@ public class LostAction extends ActionSupport{
 		return "deletesuccess";
 		
 	}
-
+	public String lostandfind(){
+		if(rid==2){
+			lostlist=lostser.getLost();
+			return "manage";
+		}
+		else
+			return "lostadd";			
+		}
+	public int getRid() {
+		return rid;
+	}
+	public void setRid(int rid) {
+		this.rid = rid;
+	}
 }

@@ -32,21 +32,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div> 
  
          <div id="body">
-    	         <jsp:include page="/page/background/nav.jsp"/>
+    	   <center>      <jsp:include page="/page/background/nav.jsp"/></center>
    <div id="contents">         
         <div id="usermessage"> 
-        <div id = "headphoto"><img src="images/head sculpture.jpg"></div>
+        <div id = "headphoto"><img src="<s:property value="%{#session.user.imgsrc}"/>"; width:150px; height:150px></div>
      <center> <s:property value="#session.user.userName"/></center>
         <div id ="service">
         
            <fieldset > 
        <legend align="center" ><h3>可选服务</h3></legend>
-        <s:form action ="manage!findshow.action" method = "post">
-        <center> <input type = "submit" style="width:200px;height:40px;"  value ="拾到物登记管理" name = "find"/></center>
+        <s:form action ="manageact!findshow.action" method = "post">
+        <center> <input type = "submit" style="width:200px;height:40px;"  value ="拾到物登记管理" /></center>
         </s:form>
         
-         <s:form action ="manage!lostshow.action" method = "post">
-      <center>   <input type = "submit" style="width:200px;height:40px;"  value ="失物登记管理" name = "lost"/></center>
+         <s:form action ="manageact!lostshow.action" method = "post">
+      <center>   <input type = "submit" style="width:200px;height:40px;"  value ="失物登记管理" /></center>
         </s:form>
         </fieldset>
         
@@ -63,16 +63,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <tr><td width=100>失物名称</td>   <td width=300>物品描述</td>   <td width=100></td><td width=100></td></tr> 
 	<s:iterator value="lostlist" var="lost">
 		
-	<s:form action="" method="post" theme="simple">
+
 	
 	<tr>
 	
 	<td><s:property value="#lost.lostname"/></td>
 	<td><s:property value="#lost.description"/></td>
-	<td><a href="manage!lostcheck.action?lostid=<s:property value="#lost.id"/>">查看</a></td>
-	<td><a href="manage!deletelost.action?lostid=<s:property value="#lost.id"/>">删除</a></td></tr>
+	<td><a href="manageact!lostcheck.action?lostid=<s:property value="#lost.id"/>">查看</a></td>
+	<td><a href="manageact!deletelost.action?lostid=<s:property value="#lost.id"/>">删除</a></td></tr>
 	
-</s:form> 
+
 
 </s:iterator>
 
@@ -93,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
          
          <div id="footer">
-<jsp:include page="/page/background/footer.jsp" />
+<center><jsp:include page="/page/background/footer.jsp" /></center>
          </div>
   </div>
   </body>

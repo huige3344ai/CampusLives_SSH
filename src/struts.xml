@@ -112,7 +112,8 @@
 				<result name="check">/page/foreground/lostandfind/checklost.jsp</result>
 				<result name="alllist">/page/foreground/lostandfind/personal.jsp</result>
 				<result name="revise">/page/foreground/lostandfind/reviselost.jsp</result>	
-				<result name="deletesuccess">/page/foreground/lostandfind/deletesuccess.jsp</result>				
+				<result name="deletesuccess">/page/foreground/lostandfind/deletesuccess.jsp</result>
+				<result name="manage">/page/background/lostandfind/lostmanage.jsp</result>			
 			</action>
 			<action name="find" class="findact" >
 				<result type="redirectAction">
@@ -127,12 +128,12 @@
 				<result name="revise">/page/foreground/lostandfind/revisefind.jsp</result>	
 				<result name="deletesuccess">/page/foreground/lostandfind/deletesuccess.jsp</result>			
 			</action>
-			<action name="manage" class="lafmanage" >
+			<action name="manageact" class="lafmanageact">
 				<result name="lostshow">/page/background/lostandfind/lostmanage.jsp</result>
 				<result name="lostcheck">/page/background/lostandfind/checklost.jsp</result>
 				<result name="deletesuccess">/page/background/lostandfind/deletesuccess.jsp</result>
 				<result name="findshow">/page/background/lostandfind/findmanage.jsp</result>
-				<result name="checkfind">/page/background/lostandfind/checkfind.jsp</result>		
+				<result name="checkfind">/page/background/lostandfind/checkfind.jsp</result>	
 			</action>
 						
 		<!-- 失物招领action配置          end -->
