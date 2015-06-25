@@ -32,22 +32,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div> 
  
          <div id="body">
-    	       <center>   <jsp:include page="/page/background/nav.jsp"/>
-    	       </center>
+    	         <jsp:include page="/page/background/nav.jsp"/>
    <div id="contents">         
         <div id="usermessage"> 
-        <img id = "headphoto" src="<s:property value="%{#session.user.imgsrc}"/>">
+        <div id = "headphoto"><img src="images/head sculpture.jpg"></div>
      <center> <s:property value="#session.user.userName"/></center>
         <div id ="service">
         
            <fieldset > 
        <legend align="center" ><h3>可选服务</h3></legend>
-        <s:form action ="manageact!findshow.action" method = "post">
-        <center> <input type = "submit" style="width:200px;height:40px;"  value ="拾到物登记管理"/></center>
+        <s:form action ="manage!findshow.action" method = "post">
+        <center> <input type = "submit" style="width:200px;height:40px;"  value ="拾到物登记管理" name = "find"/></center>
         </s:form>
         
-         <s:form action ="manageact!lostshow.action" method = "post">
-      <center>   <input type = "submit" style="width:200px;height:40px;"  value ="失物登记管理" /></center>
+         <s:form action ="manage!lostshow.action" method = "post">
+      <center>   <input type = "submit" style="width:200px;height:40px;"  value ="失物登记管理" name = "lost"/></center>
         </s:form>
         </fieldset>
         
@@ -85,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <tr><td width=100>用户</td><td width=400>评论</td> <td width=100></td>  </tr>
                  <tr><td width=100><s:property value="#findreply.username"/></td>
                  <td width=400><s:property value="#findreply.reply"/></td>  
-                 <td><a href="manageact!deletefindreply.action?replyid=<s:property value="#findreply.id"/>">删除</a></td> </tr>
+                 <td><a href="manage!deletefindreply.action?replyid=<s:property value="#findreply.id"/>">删除</a></td> </tr>
 
 </s:iterator>
 
@@ -100,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>    
                 
                 
-               
+                
                 
          </div>       
      				
@@ -109,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
          
          <div id="footer">
-<center><jsp:include page="/page/background/footer.jsp" /></center>
+<jsp:include page="/page/background/footer.jsp" />
          </div>
   </div>
   </body>

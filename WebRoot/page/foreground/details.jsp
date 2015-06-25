@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				                 <div class=main_nav>                
 			                	<div class="suggest_nav_l">
 			                		<div class="suggest_nav_r">
-			                		<a  href="<%=basePath%>page/foreground/main.jsp"><h3>首页</h3></a>
+			                		<a  href="<%=basePath%>page/foreground/suggest_main.jsp"><h3>首页</h3></a>
 			                		</div>
 			                	</div>
 			                </div>	  
@@ -103,12 +103,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			                </form>
 	
 		                </div> 
-                 <div class="tissue" style="height:44px;line-height:44px; width:150px;margin:auto;">
+                 <div class="tissue" style="height:44px;line-height:44px; width:300px;margin:auto;">
                				<ul>
                					<li id="tissue_note"></li>
                				</ul>
                				<s:if test="#session.user==null">
-								<p><s:property value="#session.tissue"/></p>	               				
+								<p style="height:44px;line-height:44px; width:300px;margin:auto; color: red"><s:property value="#session.tissue"/></p>	               				
                				</s:if>
 				 </div> 
                 

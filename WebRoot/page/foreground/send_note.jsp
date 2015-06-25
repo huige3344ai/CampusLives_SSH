@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				                 <div class=main_nav>                
 			                	<div class="suggest_nav_l">
 			                		<div class="suggest_nav_r">
-			                		<a  href="page/foreground/main.jsp"><h3>首页</h3></a>
+			                		<a  href="<%=basePath%>page/foreground/suggest_main.jsp"><h3>首页</h3></a>
 			                		</div>
 			                	</div>
 			                </div>	  

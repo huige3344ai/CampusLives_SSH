@@ -238,9 +238,12 @@ public class LoginAction extends ActionSupport {
 	            }				
 				num  = base64ToImage(base64, parentDir);
 					if(num){				
-						isSuccess = userser.uploadPic(user_id,path_pic);
+						isSuccess = userser.uploadPic(user_id,path_pic);						
+						List user_upload = userser.searchUser(user_pic.getUserName());
 						resultName = "upload_success";	
 						tissue="上传成功";
+						User user = (User)user_upload.get(0);
+						request.getSession().setAttribute("user",user);								
 					}else if(isSuccess==0){
 						tissue="由于网络原因上传失败";
 						resultName = "error";				

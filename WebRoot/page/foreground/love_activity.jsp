@@ -20,7 +20,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                        judge=-1;
 	                        
 	                      }
-    	        	       
+    	        	      
+    	        	      if(user!=null&&judge==2){//若身份编号是2，则为管理员
+    	        	        
+    	        	        isA ="管理员";System.out.print(".............admin .......");
+    	        	      }else{
+    	        	        isA ="普通用户";System.out.print(".............general user ......."+judge);
+    	        	      }
+    	        	      
+    	        	      if(user!=null&&user.getSex().equals("1")){//若sex编号为1，则为男，否则为女
+    	        	        sex="男";
+    	        	      }else{
+    	        	        sex="女";
+    	        	      }   
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -61,37 +73,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	                    <th>登录信息:</th>
     	            		<tr >
     	            	         <td>姓名</td>
-    	                         <td><s:if test="#session.user!=null"><s:property value="#session.user.userName"/></s:if></td>
+    	                         <td><%=username%></td>
     	                   </tr>
     	                   	<tr >
     	                   		
     	            	         <td>身份</td>
-    	                         <td><s:if test="#session.user.role.rid==2">管理员</s:if><s:else>普通用户 </s:else></td>
+    	                         <td><%=isA%></td>
     	                   </tr>
     	                   	<tr >
     	            	        <td>性别</td>
-    	                        <td><s:if test="#session.user.sex==1">男</s:if><s:else>女</s:else></td>
+    	                        <td><%=sex %></td>
     	                   </tr>
     	                   <tr >
     	            	       <td>联系方式</td>
-    	                       <td><s:if test="#session.user!=null"><s:property value="#session.user.email"/></s:if></td>
+    	                       <td><%=contact%></td>
     	                       
     	                       
     	                  </tr>
-    	                   <s:if test="#session.user.role.rid==2">
-    	                      <tr>
+    	                   <tr>
+    	                  <%
+							if(isA.equals("管理员")){
+    	        	       %>
+ 							  <td><a href="page/background/add_activity.jsp"> [增加活动]</a></td>
+    	                       	<td><a href="loveActivityAction!toDeleteActivity.action?"> [删除活动]</a></td></tr>
+    	                       <tr>	<td><a href="loveActivityAction!toUpdateActivity.action"> [修改活动]</a></td>   	        	           		
+    	        	       <% 		
+    	        	         }    	                  
+    	                   %>
     	                 
- 						        <td><a href="page/background/add_activity.jsp"> [增加活动]</a></td>
-    	                        <td><a href="loveActivityAction!toDeleteActivity.action?"> [删除活动]</a></td>
-    	                      </tr>
-    	                   </s:if>
-    	                   <tr>	
-    	                        <s:if test="#session.user.role.rid==2">
-    	                           <td><a href="loveActivityAction!toUpdateActivity.action"> [修改活动]</a></td>
-    	                        </s:if>   	        	           		
-    	                       <td><a href="loveActivityAction!toCheckCancelApply.action?u_id=<%=identity%>"> [查看报名情况]</a></td>
-    	                      
-    	                   </tr>
+    	                      <td><a href="loveActivityAction!toCheckCancelApply.action?u_id=<%=identity%>"> [查看报名情况]</a></td></tr>
     	                  <tr> <td ></td></tr>
     	                  
     	            </table>               
@@ -119,7 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	       <div class="c_div4">
     	         
     	          	 <form >
-        <table cellpadding="20px">
+        <table >
        		 <thead > <td></td><td><b>爱心活动列表</b></td></thead>
              <tbody>
           

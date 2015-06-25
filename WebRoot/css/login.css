@@ -3,6 +3,10 @@
 .loginbody{background:#D6E4FF;}
 body{background:url("../images/login/homebg.png") repeat center top;position:absolute;left:0;top:0;right:0;bottom:0; dispaly:inlie;text-align:center;}
 
+.answer p{	
+	height:44px;line-height:44px; width:150px;margin:auto; color: red
+}
+
 /*°´Å¥*/
 .login-btn,.login-btn_cancel{display:inline;background:url("../images/login/bg.png") repeat-x;width:130px;height:35px;line-height:35px;color:white;font-size:16px;border-radius:3px;border:1px solid #215A8D;margin-right:auto	;}
 .forget_password{display:inline;;width:140px;height:35px;line-height:35px;margin-left:50px }

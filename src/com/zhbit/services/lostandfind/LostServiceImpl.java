@@ -128,13 +128,5 @@ public class LostServiceImpl  implements LostService{
 	public void deleteFindreply(int id){
 		lafdao.deleteFindreply(id);
 	}
-	
-	public void deleteFindonereply(int id){
-		lafdao.deleteFindonereply(id);
-	}
-	
-	public void deleteLostonereply(int id){
-		lafdao.deleteLostonereply(id);
-	}
 }
 

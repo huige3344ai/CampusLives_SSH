@@ -32,21 +32,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div> 
  
          <div id="body">
-    	       <center>  <jsp:include page="/page/background/nav.jsp"/></center>
+    	         <jsp:include page="/page/background/nav.jsp"/>
    <div id="contents">         
         <div id="usermessage"> 
-        <img id = "headphoto" src="<s:property value="%{#session.user.imgsrc}"/>">
+        <div id = "headphoto"><img src="images/head sculpture.jpg"></div>
      <center> <s:property value="#session.user.userName"/></center>
         <div id ="service">
         
            <fieldset > 
        <legend align="center" ><h3>可选服务</h3></legend>
-        <form action ="manageact!findshow.action" method = "post">
-        <center> <input type = "submit" style="width:200px;height:40px;"  value ="拾到物登记管理" /></center>
-        </form>
+        <s:form action ="manage!findshow.action" method = "post">
+        <center> <input type = "submit" style="width:200px;height:40px;"  value ="拾到物登记管理" name = "find"/></center>
+        </s:form>
         
-         <s:form action ="manageact!lostshow.action" method = "post">
-      	<center>   <input type = "submit" style="width:200px;height:40px;"  value ="失物登记管理" /></center>
+         <s:form action ="manage!lostshow.action" method = "post">
+      <center>   <input type = "submit" style="width:200px;height:40px;"  value ="失物登记管理" name = "lost"/></center>
         </s:form>
         </fieldset>
         
@@ -62,15 +62,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <tbody>
                 <tr><td width=100>拾到物名称</td>   <td width=300>物品描述</td>   <td width=100></td><td width=100></td></tr> 
 	<s:iterator value="findlist" var="find">
-			
-	<tr>	
-		<td><s:property value="#find.findname"/></td>
-		<td><s:property value="#find.description"/></td>
-		<td><a href="manageact!findcheck.action?findid=<s:property value="#find.id"/>">查看</a></td>
-		<td><a href="manageact!deletefind.action?findid=<s:property value="#find.id"/>">删除</a></td>
-	</tr>
 		
-	</s:iterator>
+	<s:form action="" method="post" theme="simple">
+	
+	<tr>
+	
+	<td><s:property value="#find.findname"/></td>
+	<td><s:property value="#find.description"/></td>
+	<td><a href="manage!findcheck.action?findid=<s:property value="#find.id"/>">查看</a></td>
+	<td><a href="manage!deletefind.action?findid=<s:property value="#find.id"/>">删除</a></td></tr>
+	
+</s:form> 
+
+</s:iterator>
 
           </tbody>
          </table>
@@ -80,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>    
                 
                 
-        
+                
                 
          </div>       
      				
@@ -89,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
          
          <div id="footer">
-<center><jsp:include page="/page/background/footer.jsp" /></center>
+<jsp:include page="/page/background/footer.jsp" />
          </div>
   </div>
   </body>

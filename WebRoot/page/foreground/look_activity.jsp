@@ -72,17 +72,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <thead > <td></td><td><b><%=ac_name %></b></td></thead>
         			
              <tbody >
-              	  <tr><td>活动ID</td>  <td><input type="button" style="background: none; border:none; " id="ac_id" value="<%=ac_id %>" /></td>   </tr> 
-               	  <tr><td>活动代号</td>  <td><input type="button" style="background: none; border:none; "  value="<%=ac_no %>" /></td>   </tr> 
-               	  <tr><td>活动名称</td>  <td><input type="button"  style="background: none; border:none; " value="<%=ac_name %>" /></td>   </tr> 
-               	  <tr><td>活动地点</td>  <td><input type="button"  style="background: none; border:none; " value="<%=ac_place %>" /></td>   </tr> 
-               	  <tr><td>活动时间</td>  <td><input type="button"  style="background: none; border:none; " value="<%=ac_time %>" /></td>   </tr> 
-               	 <tr><td>活动负责人</td>  <td><input type="button" style="background: none; border:none; " value="<%=p_name %>" /></td>   </tr> 
-               	 <tr><td>负责人电话</td>  <td><input type="button"  style="background: none; border:none; " value="<%=p_tel %>" /></td>   </tr> 
+              	  <tr><td>活动ID</td>  <td><input type="button"   id="ac_id" value="<%=ac_id %>" /></td>   </tr> 
+               	  <tr><td>活动代号</td>  <td><input type="button"   value="<%=ac_no %>" /></td>   </tr> 
+               	  <tr><td>活动名称</td>  <td><input type="button"   value="<%=ac_name %>" /></td>   </tr> 
+               	  <tr><td>活动地点</td>  <td><input type="button"   value="<%=ac_place %>" /></td>   </tr> 
+               	  <tr><td>活动时间</td>  <td><input type="button"   value="<%=ac_time %>" /></td>   </tr> 
+               	 <tr><td>活动负责人</td>  <td><input type="button"  value="<%=p_name %>" /></td>   </tr> 
+               	 <tr><td>负责人电话</td>  <td><input type="button"   value="<%=p_tel %>" /></td>   </tr> 
                	 
                	  <tr>
                	  <td colspan="2">
-               	    <textarea rows="10" cols="50" disabled="disabled"> 
+               	    <textarea rows="10" cols="50" > 
                	       <%=ac_content%>
                	    </textarea>
                	  </td>
