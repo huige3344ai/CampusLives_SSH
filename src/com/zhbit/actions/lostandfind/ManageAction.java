@@ -12,7 +12,8 @@ import com.zhbit.domain.lostandfind.Find;
 import com.zhbit.domain.lostandfind.Findreply;
 import com.zhbit.domain.lostandfind.Lost;
 import com.zhbit.domain.lostandfind.Lostreply;
-import com.zhbit.services.lostandfind.manageServise;
+import com.zhbit.services.lostandfind.LostService;
+
 
 
 public class ManageAction extends ActionSupport{
@@ -30,40 +31,49 @@ public class ManageAction extends ActionSupport{
 	private int replyid;
 	
 	@Resource
-	private manageServise mser;
+	private LostService lostser;
 	
+
+
+	@Override
+	public void validate() {
+		// TODO Auto-generated method stub
+		super.validate();
+	}
+
 	public String lostshow(){
-		lostlist=mser.getLost();
+		System.out.print("++++++++++");
+		lostlist=lostser.getLost();
 		return "lostshow";
 	}
 	
 	public String lostcheck(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		request.getSession().setAttribute("lostid",lostid);
-		lostlist=mser.getoneLost(lostid);
-		setLostreplylist(mser.getLostreply(lostid));
+		lostlist=lostser.getoneLost(lostid);
+		setLostreplylist(lostser.getLostreply(lostid));
 		return "lostcheck";		
 	}
 	
 	public String deletelost(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		request.getSession().setAttribute("lostid",lostid);
-		mser.deleteLost(lostid);
-		mser.deleteLostreply(lostid);
+		lostser.deleteLost(lostid);
+		lostser.deleteLostreply(lostid);
 		return "deletesuccess";
 		
 	}
 	public String deletelostreply(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		request.getSession().setAttribute("replyid",replyid);
-		mser.deleteLostonereply(replyid);
+		lostser.deleteLostonereply(replyid);
 		return "deletesuccess";
 		
 	}
 	
 	
 	public String findshow(){
-		findlist=mser.getFind();
+		findlist=lostser.getFind();
 		return "findshow";
 			
 	}
@@ -71,30 +81,26 @@ public class ManageAction extends ActionSupport{
 	public String findcheck(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		request.getSession().setAttribute("findid",findid);
-		findlist=mser.getoneFind(findid);
-		setFindreplylist(mser.getFindreply(findid));
+		findlist=lostser.getoneFind(findid);
+		setFindreplylist(lostser.getFindreply(findid));
 		return "checkfind";		
 	}
 	
 	public String deletefind(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		request.getSession().setAttribute("findid",findid);
-		mser.deleteFind(findid);
-		mser.deleteFindreply(findid);
+		lostser.deleteFind(findid);
+		lostser.deleteFindreply(findid);
 		return "deletesuccess";
 		
 	}
 	public String deletefindreply(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		request.getSession().setAttribute("replyid",replyid);
-		mser.deleteFindonereply(replyid);
+		lostser.deleteFindonereply(replyid);
 		return "deletesuccess";
 		
 	}
-	public String execute() throws Exception{
-		return "lostshow";
-	}
-	
 
 	public Lost getLost() {
 		return lost;
