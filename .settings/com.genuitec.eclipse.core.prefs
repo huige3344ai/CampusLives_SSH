@@ -1,4 +1,5 @@
+#Thu Jun 25 15:55:38 CST 2015
 eclipse.preferences.version=1
-validator.Checked=WebRoot/js/jquery.min.js,WebRoot/js/point/jquery.js
+validator.Checked=/
 validator.Revalidate=true
 validator.Unchecked=
