@@ -1,3 +1,4 @@
+
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %> <!--导入Struts 2 标签库-->
 <%
@@ -32,14 +33,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div> 
  
          <div id="body">
-    	          <jsp:include page="/page/background/nav.jsp"/>
- <div id="contents">               
+    	       <center>  <jsp:include page="/page/background/nav.jsp"/>  </center>
+    	            <div id="contents">     
         <div id="usermessage"> 
              <img id = "headphoto" src="<s:property value="%{#session.user.imgsrc}"/>">
      <center>  <s:property value="#session.user.userName"/></center>
         <div id ="service">
         
-                                  <fieldset > 
+             <fieldset > 
        <legend align="center" ><h3>可选服务</h3></legend>
         <form action ="page/foreground/lostandfind/find.jsp" method = "post">
         <center> <input type = "submit" style="width:200px;height:40px;"  value ="拾到物登记" name = "find"/></center>
@@ -62,30 +63,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <s:hidden name="username" value="%{#session.user.userName}"/>
         </s:form>
         </fieldset>
+        
         </div>
         </div><div id="findandlost">
          <br>
            <br>
           <fieldset >
-<legend align="center" ><h2>失物登记记录</h2></legend>
+<legend align="center" ><h2>拾到物详细信息</h2></legend>
 
-        <table align="center" border="1">
+<table align="center" border="1">
+
+        
            <tbody>
-               <tr><td width=100>失物名称</td>   <td width=300>物品描述</td>   <td width=100>发布者</td><td width=100></td></tr> 
-	<s:iterator value="lostlist" var="lost">
-		
-	<s:form action="lost!lostcheck.action" method="post" theme="simple">
-	
+           <s:iterator value="findlist" var="find">
+                <tr><td width=100>拾到物名称</td><td width=500><s:property value="#find.findname"/></td>   </tr>
+                 <tr><td width=100>拾到者姓名</td><td width=500><s:property value="#find.findername"/></td>   </tr>
+                  <tr><td width=100>拾到物描述</td><td width=500><s:property value="#find.description"/></td>   </tr>
+                   <tr><td width=100>拾到者电话</td><td width=500><s:property value="#find.tel"/></td>   </tr>
+                    <tr><td width=100>拾到者地址</td><td width=500><s:property value="#find.address"/></td>   </tr>
+					<tr><td width=100>发布人</td><td width=500><s:property value="#find.promulgator"/></td>   </tr>
+</s:iterator>
 
-	<tr>
-	<s:hidden name="lostid" value="%{#lost.id}"/>
-	
-	<td ><s:property value="#lost.lostname"/></td>
-	<td ><s:property value="#lost.description"/></td>
-	<td ><s:property value="#lost.promulgator"/></td>
-	<td><s:submit style="width:100px;" value="查看"/></td></tr>
-	
-</s:form> 
+          </tbody>
+         </table>
+</fieldset>
+
+  <fieldset >
+  <legend align="center" ><h2>评论</h2></legend>
+  <table align="center" border="2">
+
+        
+           <tbody>
+           <s:iterator value="findreplylist" var="findreply">
+                <tr><td width=100>用户</td><td width=500>评论</td>   </tr>
+                 <tr><td width=100><s:property value="#findreply.username"/></td><td width=500><s:property value="#findreply.reply"/></td>   </tr>
 
 </s:iterator>
 
@@ -93,6 +104,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </table>
 
   </fieldset>
+  
+  
+  
+    <fieldset >
+    <legend align="center" ><h2>用户评论</h2></legend>
+    
+      <s:form action="find" method="post" theme="simple">
+     <table align="center" border="3">
+    <tbody>
+
+                 <tr><td width=100>用户</td><td width=500>评论</td></tr>
+         	      <s:hidden name="findreply.username" value="%{#session.user.userName}"/>
+         	       <s:hidden name="findreply.findid" value="%{#session.findid}"/>
+                 <tr><td width=100><s:property value="#session.user.userName"/>
+                </td>
+          
+                 <td width=500><input type = "text" name="findreply.reply"  style="width: 100%; height: 100px"   /></td>
+                 
+                
+             	  </tr>
+          
+   
+    </tbody>
+    </table>
+    <center> <input type = "submit" style="width:200px;height:40px;"  value ="发表评论" name = "submit"/></center>
+    </s:form>
+    </fieldset>
+  
+        
+        
+        
+        
+        
         
         </div>    
                 
@@ -106,7 +150,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
          
          <div id="footer">
-<jsp:include page="/page/background/footer.jsp" />
+<center><jsp:include page="/page/background/footer.jsp" /></center>
          </div>
   </div>
   </body>

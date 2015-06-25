@@ -32,50 +32,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div> 
  
          <div id="body">
-    	         <div id="nav">
-                       <ul>
-                       		<li>
-                       				<a href="#">主页 </a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="#">校园美景</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="#">校园美食</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="#">失物招领</a>
-                       				
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="#">爱心活动</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="#">修改密码</a>
-                       				 
-                       		</li>
-                       		
-                        	<li>
-                       				<a href="#">投诉建议</a>
-                       				 
-                       		</li>                      		
-                       		
-                       		
-                       </ul>
-              
-                </div>
- <div id="contents">               
+    	         <jsp:include page="/page/background/nav.jsp"/>
+   <div id="contents">         
         <div id="usermessage"> 
-        <div id = "headphoto"><img src="images/head sculpture.jpg"></div>
-     <center> <%= session.getAttribute("username") %></center>
+             <img id = "headphoto" src="<s:property value="%{#session.user.imgsrc}"/>">
+     <center> <s:property value="#session.user.userName"/></center>
         <div id ="service">
-        
-                         <fieldset > 
+                     <fieldset > 
        <legend align="center" ><h3>可选服务</h3></legend>
         <form action ="page/foreground/lostandfind/find.jsp" method = "post">
         <center> <input type = "submit" style="width:200px;height:40px;"  value ="拾到物登记" name = "find"/></center>
@@ -85,17 +48,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <center>   <input type = "submit" style="width:200px;height:40px;"  value ="失物登记" name = "lost"/></center>
         </form>
         
-         <form action ="page/foreground/lostandfind/searchfind.jsp" method = "post">
+         <s:form action ="find!findshow.action" method = "post">
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="拾到物搜寻" name = "searchfind"/></center>
-        </form>
+        </s:form>
         
-       <form action ="page/foreground/lostandfind/searchlost.jsp" method = "post">
+        <s:form action ="lost!lostshow.action" method = "post">
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="失物搜寻" name = "searchlost"/></center>
-        </form>
+        </s:form>
 
-       <form action ="page/foreground/lostandfind/personal.jsp" method = "post">
+       <s:form action ="lost!allshow.action" method = "post">
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="个人发布记录" name = "personal"/></center>
-        </form>
+     <s:hidden name="username" value="%{#session.user.userName}"/>
+        </s:form>
         </fieldset>
         </div>
         </div><div id="findandlost">
@@ -108,19 +72,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         
            <tbody>
-                <tr><td width=40>编号</td><td width=100>拾到物名称</td>   <td width=260>物品描述</td>   <td width=100>发布者</td><td width=100></td></tr> 
+                <tr><td width=100>拾到物名称</td>   <td width=300>物品描述</td>   <td width=100>发布者</td><td width=100></td></tr> 
 	<s:iterator value="findlist" var="find">
 		
-	<s:form action="" theme="simple">
+	<s:form action="find!findcheck.action" method="post" theme="simple">
 	
-
 	<tr>
-	<td><s:textfield name="findid" label="编号" style="width:40px;" value="%{#find.id}" readonly="true"/></td>
 	
-	<td ><s:property value="#find.findname"/></td>
-	<td ><s:property value="#find.description"/></td>
-	<td ><s:property value="#find.promulgator"/></td>
-	<td><s:submit value="查看回复"/></td></tr>
+	<s:hidden name="findid" value="%{#find.id}"/>
+	
+	<td><s:property value="#find.findname"/></td>
+	<td><s:property value="#find.description"/></td>
+	<td><s:property value="#find.promulgator"/></td>
+	<td><s:submit style="width:100px;" value="查看"/></td></tr>
 	
 </s:form> 
 

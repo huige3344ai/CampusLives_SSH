@@ -32,14 +32,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div> 
  
          <div id="body">
-    	  <jsp:include page="/page/background/nav.jsp"/>
- <div id="contents">               
+    	        <center> <jsp:include page="/page/background/nav.jsp"/></center>
+   <div id="contents">         
         <div id="usermessage"> 
-
-             <img id = "headphoto" src="<s:property value="%{#session.user.imgsrc}"/>">
-     <center>  <s:property value="#session.user.userName"/></center>
+          <img id = "headphoto" src="<s:property value="%{#session.user.imgsrc}"/>">
+     <center> <s:property value="#session.user.userName"/></center>
         <div id ="service">
-             <fieldset > 
+                     <fieldset > 
        <legend align="center" ><h3>可选服务</h3></legend>
         <form action ="page/foreground/lostandfind/find.jsp" method = "post">
         <center> <input type = "submit" style="width:200px;height:40px;"  value ="拾到物登记" name = "find"/></center>
@@ -49,54 +48,74 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <center>   <input type = "submit" style="width:200px;height:40px;"  value ="失物登记" name = "lost"/></center>
         </form>
         
-         <form action ="page/foreground/lostandfind/searchfind.jsp" method = "post">
+         <s:form action ="find!findshow.action" method = "post">
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="拾到物搜寻" name = "searchfind"/></center>
-        </form>
+        </s:form>
         
-       <s:form action ="lost!lostshow.action" method = "post">
+        <s:form action ="lost!lostshow.action" method = "post">
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="失物搜寻" name = "searchlost"/></center>
         </s:form>
 
-       <form action ="page/foreground/lostandfind/personal.jsp" method = "post">
+       <s:form action ="lost!allshow.action" method = "post">
      <center>  <input type = "submit" style="width:200px;height:40px;"  value ="个人发布记录" name = "personal"/></center>
-        </form>
+     <s:hidden name="username" value="%{#session.user.userName}"/>
+        </s:form>
         </fieldset>
         </div>
         </div><div id="findandlost">
-               <br>
+         <br>
            <br>
           <fieldset >
-<legend align="center" ><h2>失物登记</h2></legend>
-<s:form action ="lost!addlost.action" method="post"> 
-<h3>失物名称：<input type = "text" name="lost.lostname" style="width:300px;height:30px;"/> </h3>
-<br>
-<br>
-<h3>失者姓名：<input type = "text" name="lost.lostername" style="width:300px;height:30px;"/> </h3>
-<br>
-<br>
-<h3>失物详细信息：（不超过100字）<input type="text" name="lost.description"  style="width: 100%; height: 100px"/></h3>
-<br>
-<br>
-<h3>失者地址：<input type = "text" name="lost.address" style="width:100%;height:30px;"/> </h3>
-<br>
-<br>
-<h3>失者电话：<input type = "text" name="lost.tel" style="width:300px;height:30px;"/> </h3>
-<br>
-<br>
-<br>
-<br><input type="text" name="lost.promulgator" readonly="readonly"  value="<%= session.getAttribute("username") %>"/>
-<center> 
-<input type = "submit" style="width:200px;height:40px;"  value ="递交信息" name = "submit"/></center></s:form>
+<legend align="center" ><h2>个人登记管理</h2></legend>
+
+<table align="center" border="1">
+
+        
+           <tbody>
+                <tr><td width=100>拾到物名称</td>   <td width=300>物品描述</td>   <td width=100></td><td width=100></td></tr> 
+	<s:iterator value="findlist" var="find">
+		
+	<s:form action="" method="post" theme="simple">
+	
+	<tr>
+	
+	<td><s:property value="#find.findname"/></td>
+	<td><a href="find!findcheck.action?findid=<s:property value="#find.id"/>"><s:property value="#find.description"/></a></td>
+	<td><a href="find!findrevise.action?findid=<s:property value="#find.id"/>">修改</a></td>
+	<td><a href="find!deletefind.action?findid=<s:property value="#find.id"/>">删除</a></td></tr>
+	
+</s:form> 
+
+</s:iterator>
+
+          </tbody>
+         </table>
+         
+         
+         <table align="center" border="2">
+
+        
+           <tbody>
+                <tr><td width=100>失物名称</td>   <td width=300>物品描述</td>   <td width=100></td><td width=100></td></tr> 
+	<s:iterator value="lostlist" var="lost">
+		
+	<s:form action="" method="post" theme="simple">
+	
+	<tr>
+	
+	<td><s:property value="#lost.lostname"/></td>
+	<td><a href="lost!lostcheck.action?lostid=<s:property value="#lost.id"/>"><s:property value="#lost.description"/></a></td>
+	<td><a href="lost!lostrevise.action?lostid=<s:property value="#lost.id"/>">修改</a></td>
+	<td><a href="lost!deletelost.action?lostid=<s:property value="#lost.id"/>">删除</a></td></tr>
+	
+</s:form> 
+
+</s:iterator>
+
+          </tbody>
+         </table>
+
   </fieldset>
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         </div>    
                 
@@ -110,7 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
          
          <div id="footer">
-<jsp:include page="/page/background/footer.jsp" />
+<center><jsp:include page="/page/background/footer.jsp" /></center>
          </div>
   </div>
   </body>
