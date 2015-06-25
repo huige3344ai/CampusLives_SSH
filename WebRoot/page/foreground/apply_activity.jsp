@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          	<strong><span>校园生活服务网站</span></strong>
          	</div>         	
          </div> 
-      <div id="body" align="center">
+      <div id="body">
          	<jsp:include page="/page/background/nav.jsp"/>
      
        </div>
@@ -79,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									活动id：
 								</td>
 								<td>
-									<input style="background: none; border:none; "  type="text" readonly="readonly" name="activityApply.acId" value="<%=ac_id%>" />
+									<input type="text" name="activityApply.acId" value="<%=ac_id%>" />
 								</td>
 
 							</tr>
@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									活动名：
 								</td>
 								<td>
-									<input style="background: none; border:none; " type="text" readonly="readonly" name="activityApply.acName"
+									<input type="text" name="activityApply.acName"
 										value="<%=ac_name%>" />
 								</td>
 
@@ -99,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									用户id：
 								</td>
 								<td>
-									<input style="background: none; border:none; " style="background: none; border:none; " type="text" readonly="readonly" name="activityApply.UId" value="<%=userid %>" />
+									<input type="text" name="activityApply.UId" value="<%=userid %>" />
 								</td>
 
 							</tr>
@@ -109,7 +109,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									用户姓名：
 								</td>
 								<td>
-									<input style="background: none; border:none; " type="text" readonly="readonly" name="activityApply.UName" value="<%=username %>" />
+									<input type="text" name="activityApply.UName" value="<%=username %>" />
 								</td>
 								
 							</tr>
@@ -140,7 +140,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	     </div>
               <!--ssssssssssssssssssssssss -->
   
-         <div id="footer" align="center">
+         <div id="footer">
          	<div class="footer_title">
          	<p>Copyright 2014 ZFSOFT All Rights Reserved. 标准版V1.0.0E-mail：888888@gmail.com</p>
          	<br/>

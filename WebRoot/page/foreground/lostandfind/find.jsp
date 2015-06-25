@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
  <div id="contents">               
         <div id="usermessage"> 
-<img   id = "headphoto"  src="<s:property value="%{#session.user.imgsrc}"/>">
+        <img id = "headphoto" src="<s:property value="%{#session.user.imgsrc}"/>">
 
      <center> <s:property value="#session.user.userName"/></center>
         <div id ="service">
