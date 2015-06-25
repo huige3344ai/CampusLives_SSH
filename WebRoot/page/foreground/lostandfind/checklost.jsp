@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	       <center>  <jsp:include page="/page/background/nav.jsp"/>  </center>
     	            <div id="contents">     
         <div id="usermessage"> 
-        <div id = "headphoto"><img src="<s:property value="%{#session.user.imgsrc}"/>"; width:150px; height:150px></div>
+       <img   id = "headphoto"  src="<s:property value="%{#session.user.imgsrc}"/>">
      <center>  <s:property value="#session.user.userName"/></center>
         <div id ="service">
         
