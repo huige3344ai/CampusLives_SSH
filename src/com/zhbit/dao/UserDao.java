@@ -28,5 +28,5 @@ public interface UserDao {
 	
 	public User updatePassword(User user);
 
-	
+	public User searchUser(int userid);
 }

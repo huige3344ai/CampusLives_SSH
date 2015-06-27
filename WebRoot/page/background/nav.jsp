@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        				
                        		</li>
                        		<li>
-                       				<a href="page/foreground/food/FoodNetwork.jsp">校园美食</a>
+                       				<a href="Rtdata!Rt_FoodNetwork.action">校园美食</a>
                        				
                        		</li>
                        		<li>
@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        		
                        </ul>  
                 </div>
-                 <div class = "user">
+                 <div class = "user" id="user_setting">
                  <s:if test="#session.user!=null">                 
                  
 		                    <ul>

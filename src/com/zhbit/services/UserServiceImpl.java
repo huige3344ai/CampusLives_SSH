@@ -54,4 +54,10 @@ public class UserServiceImpl implements UserService {
 		return userdao.uploadPic(user_id, photoPath);
 	}
 
+	@Override
+	public User searchUser(int userid) {
+		// TODO Auto-generated method stub
+		return userdao.searchUser(userid);
+	}
+
 }

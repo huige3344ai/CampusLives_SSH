@@ -105,5 +105,13 @@ public class UserDaoImpl implements UserDao {
 
 	}
 	
+	public User searchUser(int userid) {
+		// TODO Auto-generated method stub
+		String hql = "from User where id = ? ";		
+		Query query = sessionFactory.getCurrentSession().createQuery(hql); 
+		query.setInteger(0,userid);		
+		User user =  (User) query.list().get(0);
+		return user;
+	}
 
 }

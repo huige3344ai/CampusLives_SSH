@@ -7,7 +7,11 @@ import javax.annotation.Resource;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.zhbit.domain.Role;
+import com.zhbit.domain.User;
 import com.zhbit.domain.food.Comments;
+import com.zhbit.domain.food.Restaurant;
 
 @Transactional
 public class FoodDAOImpl implements FoodDAO{
@@ -48,6 +52,15 @@ public class FoodDAOImpl implements FoodDAO{
 	}
 	
 
+	public Role searchUser(int urid) {
+		// TODO Auto-generated method stub
+		String hql = "from Role where rid = ? ";		
+		Query query = sessionFactory.getCurrentSession().createQuery(hql); 
+		query.setInteger(0,urid);		
+		Role user =  (Role) query.list().get(0);
+		return user;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Comments> findComment(int r_id,int user_id){
 		String hql = "from Comments where r_id ='"+r_id+"'and commenter='"+user_id+"'";
@@ -56,6 +69,17 @@ public class FoodDAOImpl implements FoodDAO{
 		 ctlist= query.list();
 		return ctlist;
 	}
+	//«Û∆¿∑÷avg
+	public double selectAVG(int num){
+		double avg;
+		String hql = "select avg(score) from Comments where r_id = '"+num+"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		avg= (Double) query.uniqueResult();
+		return avg;
+
+		
+	}
+	
 	
 
 }

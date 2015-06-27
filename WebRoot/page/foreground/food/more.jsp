@@ -51,52 +51,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          	<strong><span>校园生活服务网站</span></strong>
          	</div> 
     			</div>
-    	         <div id="nav">
-                       <ul>
-                       		<li>
-                       				<a href="page/foreground/main.jsp">主页 </a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="page/PointView/foreground/PointNavigation.jsp">校园美景</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="page/foreground/food/FoodNetwork.jsp">校园美食</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="checkservlet">失物招领</a>
-                       				
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="LoginServlet">爱心活动</a>
-                       				
-                       		</li>
-                       		
-                        	<li>
-                       				<a href="JudgeIsAdmin">投诉建议</a>
-                       				 
-                       		</li> 
-                       		                           		
-                       		<li>
-                       				
-                       				<a href="page/foreground/regist.jsp" >修改密码</a>
-                       				 
-                       		</li>
 
-                       		
-                       </ul>
-                <div class = "user">
-                        
-                 <%=session.getAttribute("uname")%>,<a href="page/foreground/logout.jsp">注销</a>
-                	                		
-                 </div>   
-                </div> 	
  
          	
     	</div>   
+    	        <div id="nav_food">
+    				<jsp:include page="/page/background/nav.jsp"/>  			
+    			</div>
     	
     	<div id="header">
     	
@@ -174,23 +135,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<TABLE align=center border=0  bordercolor=#cccccc cellSpacing=0 cellPadding=16  rules="rows"
 									style="width:770px;"
 								>
+									<s:if test = "totalPages<=0" >
+									<tr style = "height:200px" >
+									<td>
+									<img  style = "width:100%;height:100%"src="images/food/comments.png">
+									</td>
+									</tr>
+									</s:if>
 
-
-									<s:iterator value = "ctlist" id = "ct">
+									<s:iterator value = "#session.ctlist" id = "ct">
+										
+										<s:action name="getdata!returnUser">
+										<s:param name = "commenter" value = "%{#ct.user.id}"></s:param>
 								
-								
+										</s:action>
+										<s:iterator value = "#request.u" id = "u"> 
 									<tr style="vertical-align:top" >
 									<td style = "width:130px;background:#F3F3F3">
-									 <img src="images/head_pic/default.jpeg" style = "width:100%"></img>
-									 <p class = "p">用户名:</p>
-									 <p class = "p">权限:</p>
-									 <p class = "p">发表日期:</p>
+									 <img src="<s:property value = "#u.imgsrc"/>" style = "width:100%"></img>
+									 <p class = "p">用户名:<FONT color=#006400><s:property value = "#u.userName"/></FONT></p>
+									 
+									 <p class = "p">权限:<FONT color=#006400><s:property value = "rname"/></FONT></p>
+
+									 
+									
+									
+									 <p class = "p">发表日期:<br><FONT color=#006400>
+									 <s:date name="#ct.CDate" format = "MM-dd HH:mm"/></FONT>
+									 </p>
 									 </td>
 									<td>
-									<s:property value = "comment"/></td>
+									<s:property value = "#ct.comment"/></td>
 									
 									</tr>
-									
+								 </s:iterator>
 								</s:iterator>
 								
 
@@ -205,7 +183,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<a class="button white small" href="getdata!ChangePage.action?pageNo=<s:property value = "pageNo+1"/>">下一页</a>
 									<a class="button white small"href="getdata!ChangePage.action?pageNo=<s:property value = "totalPages"/>">末页</a>
 									</s:if>
+									<s:if test = "totalPages>0" >
 									(<s:property value = "pageNo"/>/<s:property value = "totalPages"/>)
+									</s:if>
+		
 							</div>
 							
         	        		<form action="getdata!savecomment.action" method="post" class="basic-grey" namespace="/" id = "myform_food" >

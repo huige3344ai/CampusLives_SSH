@@ -10,7 +10,6 @@ import com.zhbit.domain.User;
  * Restaurant entity. @author MyEclipse Persistence Tools
  */
 
-
 public class Restaurant implements java.io.Serializable {
 
 	// Fields
@@ -21,6 +20,11 @@ public class Restaurant implements java.io.Serializable {
 	private String images;
 	private Float price;
 	private Timestamp RDate;
+	private String currency;
+	private String style;
+	private String servicetime;
+	private String character_;
+	private String dishes_;
 	private Set commentses = new HashSet(0);
 
 	// Constructors
@@ -30,21 +34,29 @@ public class Restaurant implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Restaurant(User user, String rname, String images, Timestamp RDate) {
+	public Restaurant(User user, String rname, String images, Timestamp RDate,
+			String style) {
 		this.user = user;
 		this.rname = rname;
 		this.images = images;
 		this.RDate = RDate;
+		this.style = style;
 	}
 
 	/** full constructor */
 	public Restaurant(User user, String rname, String images, Float price,
-			Timestamp RDate, Set commentses) {
+			Timestamp RDate, String currency, String style, String servicetime,
+			String character, String dishes, Set commentses) {
 		this.user = user;
 		this.rname = rname;
 		this.images = images;
 		this.price = price;
 		this.RDate = RDate;
+		this.currency = currency;
+		this.style = style;
+		this.servicetime = servicetime;
+		this.character_ = character;
+		this.dishes_ = dishes;
 		this.commentses = commentses;
 	}
 
@@ -98,12 +110,53 @@ public class Restaurant implements java.io.Serializable {
 		this.RDate = RDate;
 	}
 
+	public String getCurrency() {
+		return this.currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
+	public String getStyle() {
+		return this.style;
+	}
+
+	public void setStyle(String style) {
+		this.style = style;
+	}
+
+	public String getServicetime() {
+		return this.servicetime;
+	}
+
+	public void setServicetime(String servicetime) {
+		this.servicetime = servicetime;
+	}
+
+
 	public Set getCommentses() {
 		return this.commentses;
 	}
 
 	public void setCommentses(Set commentses) {
 		this.commentses = commentses;
+	}
+
+	public String getCharacter_() {
+		return character_;
+	}
+
+	public void setCharacter_(String character_) {
+		this.character_ = character_;
+	}
+
+	public String getDishes_() {
+		return dishes_;
+	}
+
+	public void setDishes_(String dishes_) {
+		this.dishes_ = dishes_;
 	}
 
 }

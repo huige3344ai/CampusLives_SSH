@@ -54,53 +54,12 @@ int num=0;
          	<strong><span>校园生活服务网站</span></strong>
          	</div> 
     			</div>
-    	         <div id="nav">
-                       <ul>
-                       		<li>
-                       				<a href="page/foreground/main.jsp">主页 </a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="page/PointView/foreground/PointNavigation.jsp">校园美景</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="page/foreground/food/FoodNetwork.jsp">校园美食</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="checkservlet">失物招领</a>
-                       				
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="LoginServlet">爱心活动</a>
-                       				
-                       		</li>
-                       		
-                        	<li>
-                       				<a href="JudgeIsAdmin">投诉建议</a>
-                       				 
-                       		</li> 
-                       		                           		
-                       		<li>
-                       				
-                       				<a href="page/foreground/regist.jsp" >修改密码</a>
-                       				 
-                       		</li>
-
-                       		
-                       </ul>
-                <div class = "user">
-                        
-                 <%=session.getAttribute("uname")%>,<a href="page/foreground/logout.jsp">注销</a>
-                	                		
-                 </div>   
-                </div>
  
          	
     	</div>   
-    	
+    			<div>
+    				<jsp:include page="/page/background/nav.jsp"/>  			
+    			</div>    	
     	             
     	<div id="header">
     	         	
@@ -152,7 +111,7 @@ int num=0;
             	
             	
             	<ul class="pricing_table">
-            	<s:action name="getdata" namespace="/"></s:action> 
+            	
             	<s:iterator value = "#request.relist" id = "re" status = "r">
 				
 				
@@ -162,7 +121,7 @@ int num=0;
 			<div class="price">
 				<div class="price_figure">
 					
-			<span class="price_number"><img style="width:200px; height:150px;" src="<s:property value = "#re.images"/>"></img></span>
+			<span class="price_number"><img style="width:100%; height:150px;" src="<s:property value = "#re.images"/>"></img></span>
 				</div>
 			</div>
 			<ul class="features">
@@ -194,7 +153,21 @@ int num=0;
 			</ul>
 	<script src="prefixfree.min.js" type="text/javascript"></script>
             	
-         
+         	
+            </div>
+            <div style = "width:800px;margin:0 auto;background:#F3F3F3;height:30pxc;text-align:right">
+             <s:if test="pageNo>1">
+             <a href="Rtdata!ChangePage.action?pageNo=1"><< </a> 
+            <a href = "Rtdata!ChangePage.action?pageNo=<s:property value = "pageNo-1"/>">< </a>
+            </s:if>
+           
+           
+            <s:if test="pageNo<totalPages">
+            <a href = "Rtdata!ChangePage.action?pageNo=<s:property value = "pageNo+1"/>">> </a> 
+            	<a href="Rtdata!ChangePage.action?pageNo=<s:property value = "totalPages"/>">>></a>
+            </s:if>
+            
+            
             </div>
         </div>
       <div id="footer">

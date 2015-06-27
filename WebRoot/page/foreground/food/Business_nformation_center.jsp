@@ -7,6 +7,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
+	<style type="text/css">
+<!--
+a:link {
+ text-decoration: none;
+}
+a:visited {
+ text-decoration: none;
+}
+a:hover {
+ text-decoration: none;
+}
+a:active {
+ text-decoration: none;
+}
+-->
+</style>
   <head>
     <base href="<%=basePath%>">
     
@@ -29,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <span class="scroll"></span>
             <p class="head">
                 Campus life services
-                <a href="#">Back to The home page</a>
+                <a href="/page">Back to The home page</a>
             </p>
             <h1>Personal center</h1>
             
@@ -38,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <h2>Store information</h2>
            <table class="zebra">
     <thead>
-    <tr>
+   <a href="page/foreground/food/Upload.jsp">Create a new store</a><br><br>
         <th>#</th>        
         <th>The store name</th>
         <th>Creation date</th>
@@ -67,9 +83,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td><s:property value = "#re.rname"/></td>
         <td><s:date name="#re.RDate" format = "yyyy-MM-dd HH:mm"/></td>
         <td><s:property value = "#re.price"/></td>
-        <td><a href= "#">编辑</a></td>
-        <td><a href= "getdata!Delete_Messages.action?num=<s:property value = "#re.num"/>">删除</a></td>
-        <td><a href= "#">详情</a></td>
+        <td><a class = "head a" href= "getdata!Rt_Update_Messages?num=<s:property value = "#re.num"/>"><FONT color=#006400 >编辑</FONT></a></td>
+        <td><a class = "head a" href= "getdata!Delete_Messages.action?num=<s:property value = "#re.num"/>"><FONT color=#006400 >删除</FONT></a></td>
+        <td><a class = "head a" href= "getdata!Rt_Restaurant?num=<s:property value = "#re.num"/>"><FONT color=#006400 >详情</FONT></a></td>
     </tr>        
  	</s:iterator>
 </table>

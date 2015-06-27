@@ -1,5 +1,7 @@
 package com.zhbit.domain.food;
 
+import java.sql.Timestamp;
+
 import com.zhbit.domain.User;
 
 /**
@@ -15,6 +17,7 @@ public class Comments implements java.io.Serializable {
 	private User user;
 	private String comment;
 	private Float score;
+	private Timestamp CDate;
 
 	// Constructors
 
@@ -23,18 +26,20 @@ public class Comments implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Comments(Restaurant restaurant, User user) {
+	public Comments(Restaurant restaurant, User user, Timestamp CDate) {
 		this.restaurant = restaurant;
 		this.user = user;
+		this.CDate = CDate;
 	}
 
 	/** full constructor */
 	public Comments(Restaurant restaurant, User user, String comment,
-			Float score) {
+			Float score, Timestamp CDate) {
 		this.restaurant = restaurant;
 		this.user = user;
 		this.comment = comment;
 		this.score = score;
+		this.CDate = CDate;
 	}
 
 	// Property accessors
@@ -77,6 +82,14 @@ public class Comments implements java.io.Serializable {
 
 	public void setScore(Float score) {
 		this.score = score;
+	}
+
+	public Timestamp getCDate() {
+		return this.CDate;
+	}
+
+	public void setCDate(Timestamp CDate) {
+		this.CDate = CDate;
 	}
 
 }

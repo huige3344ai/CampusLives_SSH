@@ -5,7 +5,9 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import com.zhbit.dao.FoodDAO;
+import com.zhbit.domain.Role;
 import com.zhbit.domain.food.Comments;
+import com.zhbit.domain.food.Restaurant;
 
 public class FoodServiceImpl implements FoodService{
 	@Resource
@@ -31,7 +33,7 @@ public class FoodServiceImpl implements FoodService{
 
 	@Override
 	public List<Comments> findByPage(int pageNo, int pageSize, int r_id) {
-		// TODO Auto-generated method stub
+		
 		return fd.findByPage(pageNo, pageSize, r_id);
 	}
 
@@ -39,6 +41,18 @@ public class FoodServiceImpl implements FoodService{
 	public List<Comments> findComment(int r_id, int user_id) {
 		
 		return fd.findComment(r_id, user_id);
+	}
+
+	@Override
+	public Role searchUser(int urid) {
+		
+		return fd.searchUser(urid);
+	}
+
+	@Override
+	public double selectAVG(int num) {
+		
+		return fd.selectAVG(num);
 	}
 
 }

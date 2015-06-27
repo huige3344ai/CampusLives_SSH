@@ -33,13 +33,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </p>
             <h1>Personal center</h1>
             
-            <h2>Store information</h2>
+            <h2>Create a new store</h2>
    
 
-			<s:form action = "getdata!Upload" name = "myform1" method = "post" enctype = "multipart/form-data" namespace = "/">
-				<s:file name = "file" label = "附件"></s:file><br><br>
-				<s:submit value = "确认上传"/>
-			</s:form>
+			<s:form  action = "getdata" method = "post" theme="simple" namespace="/" name = "myform">
+         	<img id="imghead" width=200 height=200 border=0 src="images/food/Upload_default.png"> <br>
+            <s:file name = "file"></s:file><br><br>
+          	店名：<s:textfield name="re.rname"></s:textfield><br><br>       	
+          	支持货币:&nbsp;&nbsp;<s:select list = "{'￥￥','$$','￥$' }" name ="re.currency" value = "re.currency"/><br><br>	
+			菜市风格：<s:select list = "{'中国','日本','法国','澳洲','美国','巴西','韩国'}" name ="re.style" /><br><br>
+			服务时段：<s:select list = "{'早餐','午餐','晚餐','全天'}" name ="re.servicetime"/><br><br>
+			餐厅性质：<s:select list = "{'自助餐','餐厅','吧'}" name ="re.character_"/><br><br>	
+          	招牌菜式：<s:textfield name="re.dishes_"></s:textfield><br><br>
+          	
+          	<s:submit method = "save_Restaurant"></s:submit>
+        <!--  <a class="button white " href="">Submit</a> -->
+         </s:form>
          
 
         </div>
