@@ -31,22 +31,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="login-error"></div>
 			<div class="row">
 				<label class="field" id="text_user">用户名</label>
+				<div class="input_img"></div>
 				<input type="text" class="input-text-user input-click"  name="user.userName" id="email" />				
 			</div>
 			
 			<div class="row">
 				<label class="field" id="text_password_old" >邮箱验证</label>
+				<div class="pwd_img"><img src="images/login/email.png" style="top: 2px;"></img></div>
 				<input type="text" class="input-text-password input-click" name="user.email" id="password_old" />
 			</div>
 			
 						
 			<div class="row">
 				<label class="field" id="text_password" >新密码</label>
+				<div class="pwd_img"></div>
 				<input type="password" class="input-text-password input-click" name="user.password" id="password" />
 			</div>
 			
 			<div class="row">
 				<label class="field" id="text_password_1" >新密码</label>
+				<div class="pwd_img"></div>
 				<input type="password" class="input-text-password input-click" name="newpassword" id="password_1" />
 			</div>			
 			<div class="row btnArea">

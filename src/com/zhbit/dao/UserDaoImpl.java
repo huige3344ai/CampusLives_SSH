@@ -53,7 +53,7 @@ public class UserDaoImpl implements UserDao {
 
 	public List searchUser(String userName) {
 		// TODO Auto-generated method stub
-		String hql = "select email from User where userName = ? ";		
+		String hql = "from User where userName = ? ";		
 		Query query = sessionFactory.getCurrentSession().createQuery(hql); 
 		query.setString(0,userName);		
 		List list =  query.list();

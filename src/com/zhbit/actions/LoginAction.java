@@ -14,7 +14,6 @@ import java.util.Random;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 import sun.misc.BASE64Decoder;
@@ -76,6 +75,7 @@ public class LoginAction extends ActionSupport {
 	
 
 		//登录校验
+		@SuppressWarnings("rawtypes")
 		public  String  login(){
 			List us  =  userser.searchUser_only(user.getUserName(), user.getPassword());		
 			HttpServletRequest request = ServletActionContext.getRequest();		
@@ -111,7 +111,12 @@ public class LoginAction extends ActionSupport {
 		if(userser.searchUser(user.getUserName()).isEmpty()){
 			tissue = "用户不存在";
 			return "updateabort";
-		}else{	
+		}else{
+			user_type = (User) userser.searchUser(user.getUserName()).get(0);
+			if(user_type.getRole().getRid()==2){
+				tissue = "管理员信息不允许修改";	
+				return "updateabort";					
+			}else{
 			user.setRole(role);
 			user_type = userser.updateUserType(user);							
 			if(user_type==null){
@@ -120,7 +125,9 @@ public class LoginAction extends ActionSupport {
 			}else{
 				tissue = "更新用户信息成功";	
 				return "updatesuccess";
-			}		
+			}
+			
+			}
 		}	
 		
 		
@@ -141,6 +148,7 @@ public class LoginAction extends ActionSupport {
 
 		
 		//找回密码
+		@SuppressWarnings("rawtypes")
 		public String returnPassword(){																	
 			User num = null;
 			List userEmail = userser.searchUser(user.getUserName());			
@@ -204,6 +212,7 @@ public class LoginAction extends ActionSupport {
 	    }
 	    
 		//上传头像
+		@SuppressWarnings("rawtypes")
 		public String uploadPic() throws IOException {
 			HttpServletRequest request = ServletActionContext.getRequest();
 			int position  ;//获取"."的位置
