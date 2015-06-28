@@ -13,7 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">    
     <title>修改用户信息</title>
-
   <link rel="stylesheet" href="css/login.css" type="text/css"></link>
   
   <script type="text/javascript" src="js/main_regist.js"></script>    
@@ -25,55 +24,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="loginbox-title">
 				<h3>修改用户信息</h3>
 			</div>
-			<%
-			User user = (User)session.getAttribute("user");			
-			 %>
-					 
-			<form id="signupForm" action="userManager!exchangeMsg.action" method="post">
+		<s:if test="#session.user.role.rid==2">					 
+			<form id="signupForm" action="exchangeType" method="post">
 			<div class="login-error"></div>
-				<input type="hidden" name="user.id"  value="<%=user.getId()%>"/>
 			<table id="register_table" cellspacing=0 cellspacing=0>
 				<tr>
 					<td>
 						<label>用 户:</label>
 					</td>
 					<td>
-						<s:textfield  name="user.userName" cssstyle="width:160px;height:26px" value="%{#session.user.userName}" readonly="true" theme="simple"/>
+						<s:textfield  name="user.userName" cssstyle="width:160px;height:26px"  theme="simple"/>
 					</td>										
 				</tr>
+				
 				<tr>
 					<td>
-						<label>年 龄:</label>
+					<label >类型:</label>			
 					</td>
 					<td>
-						<s:textfield  name="user.age"  cssstyle="width:160px;height:26px;" value="%{#session.user.age}" theme="simple" />
-					</td>										
-				</tr>
-				<tr>
-					<td>
-						<label>性 别:</label>
+					<input type="radio" name="role.rid" value="1" checked="checked">普通用户
+					<input type="radio" name="role.rid" value="3">商家					
 					</td>
-					<td>
-					<s:if test="#session.user.sex==0">
-					<input type="radio" name="user.sex" value="0" checked="checked">女
-					<input type="radio" name="user.sex" value="1">男
-					</s:if>
-					<s:else>
-					<input type="radio" name="user.sex" value="0" >女
-					<input type="radio" name="user.sex" value="1"checked="checked">男					
-					</s:else>
-					</td>
-				</tr>				
-				<tr>
-					<td>
-						<label>邮 箱:</label>
-					</td>
-					<td>
-						<s:textfield name="user.email" cssstyle="width:160px;height:26px" value="%{#session.user.email}" theme="simple" ></s:textfield>	
-				    </td>										
-				</tr>				
+				</tr>								
 			</table>			
-					
 			<div class="row btnArea">
 				<input class="login-btn"  type="submit" value="确认修改"></input>
 			</div>
@@ -85,6 +58,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<p id = "tissue"><s:property value="tissue"></s:property></p>		
 			</div>
 			</form>
+	</s:if>	
+	<s:else>
+				<div class="tissue">
+				<p>您不是管理员无法修改他人类型！！！</p>
+				</div>		
+	</s:else>				
 		</div>
 
 	</div>

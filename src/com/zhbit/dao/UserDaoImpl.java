@@ -113,5 +113,16 @@ public class UserDaoImpl implements UserDao {
 		User user =  (User) query.list().get(0);
 		return user;
 	}
+	
+	//更新用户类型
+	@Override
+	public User updateUserType(User user) {
+		String hql = "update User user  set  user.role.rid = ?   where user.userName =?";  
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setInteger(0, user.getRole().getRid());	
+		query.setString(1, user.getUserName());		
+		query.executeUpdate();
+		return user;
+	}
 
 }

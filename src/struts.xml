@@ -89,16 +89,23 @@
 				<result name="error">/page/background/error.jsp</result>
 				<result name="login">/page/foreground/login.jsp</result>	
 		</action>		
-		<!-- 吴松辉  END -->			
-			<!-- 庄继辉action配置 -->
+		<!-- 吴松辉  END -->	
+				
+		<!--庄继辉  action配置 -->
 			<action name="getdata" class="reAct">
 					<result name="RT_FOOD">/page/foreground/food/more.jsp</result>
-					<result name="Personal_center">/page/foreground/food/Business_nformation_center.jsp</result>						
+					<result name="Personal_center">/page/foreground/food/Business_nformation_center.jsp</result>
+					<result name="Rt_Update_Messages">/page/foreground/food/alter.jsp</result>
+					<result name="Alter_Success">/page/foreground/food/alter_success.jsp</result>
+					<result name="Save_Success">/page/foreground/food/alter_success.jsp</result>
+					<result name="Save_Fail">/page/foreground/food/FoodNetwork.jsp</result>
+										
 			</action>
 			<action name="Rtdata" class="RtAct">
-					<result name="input">/page/foreground/return_password.jsp</result>						
+					<result name="FoodNetwork">/page/foreground/food/FoodNetwork.jsp</result>						
 			</action>
-			
+		<!--庄继辉   END -->	
+		
 			<!-- 失物招领action配置 -->
 			<action name="lost" class="lafact" >
 				<result type="redirectAction">
