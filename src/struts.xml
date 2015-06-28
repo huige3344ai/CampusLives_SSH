@@ -98,16 +98,70 @@
 			
 			<!-- 失物招领action配置 -->
 			<action name="lost" class="lafact" >
-				<result name="success">/page/foreground/page/foreground/register.jsp</result>
-				<result name="lostadd">/page/foreground/page/foreground/return_password.jsp</result>						
+				<result type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">lost</param>
+				<param name="method">lostcheck2</param>
+				</result>
+				<result name="lostsuccess">/page/foreground/lostandfind/lostsuccess.jsp</result>
+				<result name="lostadd">/page/foreground/lostandfind/lost.jsp</result>	
+				<result name="list">/page/foreground/lostandfind/searchlost.jsp</result>
+				<result name="check">/page/foreground/lostandfind/checklost.jsp</result>
+				<result name="alllist">/page/foreground/lostandfind/personal.jsp</result>
+				<result name="revise">/page/foreground/lostandfind/reviselost.jsp</result>	
+				<result name="deletesuccess">/page/foreground/lostandfind/deletesuccess.jsp</result>				
 			</action>
+			<action name="find" class="findact" >
+				<result type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">find</param>
+				<param name="method">findcheck2</param>
+				</result>
+				<result name="findsuccess">/page/foreground/lostandfind/findsuccess.jsp</result>
+				<result name="lostadd">/page/foreground/lostandfind/find.jsp</result>
+				<result name="list">/page/foreground/lostandfind/searchfind.jsp</result>
+				<result name="check">/page/foreground/lostandfind/checkfind.jsp</result>
+				<result name="revise">/page/foreground/lostandfind/revisefind.jsp</result>	
+				<result name="deletesuccess">/page/foreground/lostandfind/deletesuccess.jsp</result>			
+			</action>
+			<action name="manage" class="lafmanage" >
+				<result name="lostshow">/page/background/lostandfind/lostmanage.jsp</result>
+				<result name="lostcheck">/page/background/lostandfind/checklost.jsp</result>
+				<result name="deletesuccess">/page/background/lostandfind/deletesuccess.jsp</result>
+				<result name="findshow">/page/background/lostandfind/findmanage.jsp</result>
+				<result name="checkfind">/page/background/lostandfind/checkfind.jsp</result>		
+			</action>
+						
+		<!-- 失物招领action配置          end -->
+
 			
-			<!-- 爱心活动的配置 -->
+		<!-- 爱心活动的配置 -->
 			<action name="loveActivityAction" class="LoveActivityAction">
-			        <result name="love_activity">/page/foreground/love_activity.jsp</result>
-			        <result name="add_AC_fail">/page/background/error404.jsp</result>  
+			        <result name="to_love_activity">/page/foreground/love_activity.jsp</result>
+			        <result name="to_look_activity">/page/foreground/look_activity.jsp</result>  
+			        <result name="to_apply_activity">/page/foreground/apply_activity.jsp</result> 
+			        <result name="to_check_cancel_apply">/page/foreground/check_cancel_apply.jsp</result>
+			        <result name="to_delete_activity">/page/background/delete_activity.jsp</result>
+			        <result name="to_update_activity">/page/background/update_activity.jsp</result>
+			        
+			        <result name="add_AC_fail">/page/background/error404.jsp</result> 
+			        <result name="add_AC_success">/page/foreground/love_activity.jsp</result>
+			        
+			        <result name="add_AP_fail">/page/background/error404.jsp</result> 
+			        <result name="add_AP_success">/page/foreground/love_activity.jsp</result>    
+			        
+			        <result name="cancel_AP_success">/page/foreground/check_cancel_apply.jsp</result>
+			        <result name="cancel_AP_fail">/page/background/error404.jsp</result> 
+			        
+			        <result name="delete_AC_success">/page/foreground/love_activity.jsp</result>
+			        <result name="delete_AC_fail">/page/background/error404.jsp</result>
+			       
+			        <result name="update_AC_success">/page/foreground/love_activity.jsp</result>
+			        <result name="update_AC_fail">/page/background/error404.jsp</result> 
+			        
 			        
 			</action>
+		<!-- 爱心活动的配置 -->
 			
 			<!-- 肖剑锋Point action配置 -->
 			<action name="add" class="pointAct">

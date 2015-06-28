@@ -29,12 +29,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        				
                        		</li>
                        		<li>
-                       				<a href="">失物招领</a>
+                       				<a href="page/foreground/lostandfind/find.jsp">失物招领</a>
                        				
                        				
                        		</li>
                        		<li>
-                       				<a href="">爱心活动</a>
+                       				<a href="loveActivityAction!toLoveActivity">爱心活动</a>
                        				
                        		</li>
                        		
@@ -59,11 +59,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  <s:if test="#session.user!=null">                 
                  
 		                    <ul>
-		                    <li><s:property value="#session.user.userName"/>
+		                    <li><a href="page/foreground/person.jsp"><s:property value="#session.user.userName"/></a>
 		                    	<ul class= "clearfix">
+		                    	<s:if test="#session.user.role.rid==2">
+		                    	<li><a href="page/foreground/person_admin.jsp">修改用户</a></li>		                    	
+		                    	</s:if>
 		                    	<li><a href="page/foreground/person_pic.jsp">上传头像</a></li>
 		                    	<li><a href="page/foreground/exchange_msg.jsp">修改信息</a></li>
 		                    	<li><a href="page/foreground/exchange_password.jsp">修改密码</a></li>
+		                    	<!--肖剑锋景观跳转修改  -->
+		                    	<s:if test="#session.user.role.rid==2">
+		                    	<li><a href="add!getPoints.action">景观修改</a></li>
+		                    	</s:if>
+		                    	<!--END -->
 		                    	<li><a href="userOut!loginOut.action" >退出登录</a></li>                   	
 		                    	</ul>
 		                    </li>	

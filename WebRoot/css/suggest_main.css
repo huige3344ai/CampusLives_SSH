@@ -36,9 +36,10 @@ body{background:url("../images/login/homebg.png") repeat center top;position:abs
 #details{height:auto;}
 #content{height:600px;}
 
-#content{margin-left:auto;margin-right:auto}
-#content li{margin-bottom:20px;margin-top:10px;text-align: left;}
-
+#content{clear: both;}
+#content li{width:700px;height:48px;text-align:left;line-height:22px;float:left;line-height: 48px;}
+#content li a:active, #content li a:focus{ outline:none;}
+.note_table{float:left;}
 
 .fix-layout{
 	position:fixed;
@@ -150,9 +151,9 @@ body{background:url("../images/login/homebg.png") repeat center top;position:abs
 .content_note_user{width:auto;height:44px;display: inline;position:relative;margin-left: 20px;}
 .content_note_time{width:auto;height:44px;display: inline;margin-right:20px;}
 
-.page{display: inline;position: absolute; bottom:50px;}
-.pageno{position: absolute;width: 400px;right:-20px; text-align: left;}
-.page_a{width: 400px; position: absolute; display: block;height: 25px;}
+.page{display:inline;position:absolute;bottom:50px;width:800px;height:22px;left:0;}
+.pageno{position: absolute;width: 400px; text-align: left;left:20px;}
+.page_a{width:400px; display:block;height: 25px;margin-left:400px;}
 .pre_a,.next_a{width:100px;height: 25px;float: right;}
 
 .note_button{background:none;border:none;}
