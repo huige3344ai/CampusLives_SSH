@@ -111,7 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
          
          <div id="footer">
-<center><jsp:include page="/page/background/footer.jsp" /></center>
+ <center> <jsp:include page="/page/background/footer.jsp" /></center>
          </div>
   </div>
   </body>
