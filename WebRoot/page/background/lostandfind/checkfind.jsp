@@ -1,4 +1,3 @@
-
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %> <!--导入Struts 2 标签库-->
 <%

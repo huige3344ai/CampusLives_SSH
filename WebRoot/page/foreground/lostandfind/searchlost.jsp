@@ -32,10 +32,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div> 
  
          <div id="body">
-    	          <jsp:include page="/page/background/nav.jsp"/>
+    	         <center> <jsp:include page="/page/background/nav.jsp"/></center>
  <div id="contents">               
         <div id="usermessage"> 
-             <img id = "headphoto" src="<s:property value="%{#session.user.imgsrc}"/>">
+<img   id = "headphoto"  src="<s:property value="%{#session.user.imgsrc}"/>">
      <center>  <s:property value="#session.user.userName"/></center>
         <div id ="service">
         
@@ -106,7 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
          
          <div id="footer">
-<jsp:include page="/page/background/footer.jsp" />
+<center><jsp:include page="/page/background/footer.jsp" /></center>
          </div>
   </div>
   </body>
