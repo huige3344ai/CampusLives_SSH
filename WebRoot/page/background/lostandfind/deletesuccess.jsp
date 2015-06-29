@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <legend align="center" ><h1>删除成功</h1></legend>
   <h3>请按“返回”键返回界面</h3>
          <s:form action ="manage!lostshow.action" method = "post">
-      <center>   <input type = "submit" style="width:200px;height:40px;"  value ="返回页面" name = "lost"/></center>
+      <center>   <input type = "submit" style="width:200px;height:40px;"  value ="返回页面"/></center>
         </s:form>
     	</fieldset>
   </body>

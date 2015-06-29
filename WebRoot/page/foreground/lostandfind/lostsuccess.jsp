@@ -24,6 +24,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <h3>失物详细信息：  <s:property value="lost.description" /><br></h3>
               <h3>失者地址： <s:property value="lost.address" /><br></h3>
                    <h3>失者电话： <s:property value="lost.tel" /><br></h3>
+           <s:form action ="lost!lostshow.action" method = "post">
+     <center>  <input type = "submit" style="width:200px;height:40px;"  value ="返回页面" /></center>
+        </s:form>
                 
     	</fieldset>
   </body>
