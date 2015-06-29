@@ -235,7 +235,7 @@ public class LoginAction extends ActionSupport {
 				if(extendstion.equalsIgnoreCase("png")||extendstion.equalsIgnoreCase("jpeg")||extendstion.equalsIgnoreCase("jpg")){
 				base64 = base64.substring(22);	
 				targetName = generateFileName(fileFileName);
-				path_pic = "images\\upload\\"+user_id+"\\"+targetName;					
+				path_pic = "images/upload/"+user_id+"/"+targetName;					
 				File parentDir = new File(realpath+"/"+user_id,targetName);
 				 //  先创建文件所在的目录
 				parentDir.getParentFile().mkdirs();

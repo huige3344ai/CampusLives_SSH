@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<p><span class="fr"><a href="page/foreground/exchange_password.jsp" class="lnk">修改</a></span> 定期修改密码保护帐号安全</p>
 				</li>
 				<li>
-				<h3><i class="ico ico-email"></i>登录邮箱</h3>
+				<h3><i class="ico ico-email"></i>邮箱修改</h3>
 				<p><span class="fr"><a href="page/foreground/exchange_msg.jsp" class="lnk">修改</a></span> <s:property value="%{#session.user.email}"></s:property></p>
 				</li>				
 				
@@ -67,31 +67,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<ul class="entry-list">
 				<li>
 				<a href="get!getPoints.action" target="_blank">
-				<img src="">
 				<p>校园美景</p>
 				</a>
 				</li>
 				<li>
 				<a href="Rtdata!Rt_FoodNetwork.action" target="_blank">
-				<img src="">
 				<p>校园美食</p>
 				</a>
 				</li>
 				<li>
-				<a href="" target="_blank">
-				<img src="">
+				<a href="loveActivityAction!toLoveActivity" target="_blank">
 				<p>爱心活动</p>
 				</a>
 				</li>
 				<li>
 				<a href="lost!lostandfind.action?rid=<s:property value="#session.user.role.rid"/>" target="_blank">
-				<img src="">
 				<p>失物招领</p>
 				</a>
 				</li>
 				<li  style="width: 100px;">
-				<a href="" target="_blank">
-				<img src="">
+				<a href="goTo!goToSuggestion.action" target="_blank">
 				<p>投诉和建议</p>
 				</a>
 				</li>
@@ -105,14 +100,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table class="zebra" style="float: left;">
 			    <thead>
 			    <tr>       
-
 			        <th>我的店铺</th> 			              
 			    </tr>
 			    </thead>
 			    <tfoot>
 			    <tr>			   
 			        <s:if test="#session.user.role.rid==3">
-			        <td><a href="#">淘宝店铺</a></td> 
+			        <td width="340px;" style="text-align: left;" ><a href="getdata!Rt_Myrestaurants.action">欢迎您，点击可以进入商家详情</a></td> 
 			        </s:if>
 			        <s:else>
 			        <td>您还不是商家，联系管理员开通吧！</td>
