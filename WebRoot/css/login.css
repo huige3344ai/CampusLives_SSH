@@ -3,6 +3,10 @@
 .loginbody{background:#D6E4FF;}
 body{background:url("../images/login/homebg.png") repeat center top;position:absolute;left:0;top:0;right:0;bottom:0; dispaly:inlie;text-align:center;}
 
+.answer p{	
+	height:44px;line-height:44px; width:150px;margin:auto; color: red
+}
+
 /*∞¥≈•*/
 .login-btn,.login-btn_cancel{display:inline;background:url("../images/login/bg.png") repeat-x;width:130px;height:35px;line-height:35px;color:white;font-size:16px;border-radius:3px;border:1px solid #215A8D;margin-right:auto	;}
 .forget_password{display:inline;;width:140px;height:35px;line-height:35px;margin-left:50px }
@@ -11,8 +15,8 @@ body{background:url("../images/login/homebg.png") repeat center top;position:abs
 .loginbox .logo-a,.not-box .logo-a{height:150px; text-align:center;}
 .loginbox .loginbox-title{background:#FFFFFF;height:70px;border-radius:3px 3px 0 0;}
 .loginbox .loginbox-title .logo{padding:12px 20px;}
-.loginbox .loginbox-title h3{color:#666666;padding:0 20px; line-height:50px;font-size:16px;border-bottom:1px solid #F2F2F2;}
-.loginbox .login-content{border:1px solid #CCCCCC;border-radius:3px;padding-bottom:20px;margin-top:120px;}
+.loginbox .loginbox-title h3{color:#666666;padding:0 20px; line-height:50px;font-size:16px;border-bottom:1px solid #F2F2F2;text-align: left;margin-left: 20px;}
+.loginbox .login-content{border:1px solid #CCCCCC;border-radius:3px;padding-bottom:20px;margin-top:40px;}
 .loginbox .login-content .text{width:330px;margin:0 auto;line-height:25px;}
 .loginbox .login-content .text h5{font-size:14px;}
 .loginbox .login-content{background:#FFFFFF;height:auto!important;min-height:100px;height:100px;font-size:14px;}
@@ -24,16 +28,16 @@ body{background:url("../images/login/homebg.png") repeat center top;position:abs
 
 
 
-.loginbox .login-content .row .field,.field2{position:absolute;left:60px;top:20px;height:35px;line-height:35px;pointer-events:none;}
+.loginbox .login-content .row .field,.field2{position:absolute;left:48px;top:20px;height:35px;line-height:35px;pointer-events:none;}
 .loginbox .login-content .tips{padding:5px 0;height:25px;font-size:14px;}
 .loginbox .login-content .tips input{margin-right:5px;}
 .loginbox .login-content .btnArea{padding:0;margin:15px auto 5px auto;}
 .loginbox .login-content .row .noPic{background-image:none;padding:0 15px;width:300px;height:34px;line-height:34px;}
-.loginbox .login-content .tissue{width:260px;color:red; margin:0 auto;}
+.loginbox .login-content .tissue{width:260px;color:red; padding-top:8px;margin: 0 auto;text-align:center;}
 .errorMessage{width240px;;line-height:20px;list-style:none;text-align: left;margin-bottom: 5px;}
 
 .go-regist{text-align:center;height:80px;line-height:80px;}
-.btnArea .abtn{font-size:14px;padding:0 20px;}
+.btnArea .abtn{font-size:14px;padding:0 20px;margin-right: 20px;}
 a.link,.go-regist a,.loginbox label a{color:#006DA7; cursor:pointer; line-height:25px;}
 .login-error{display:none;width:330px;margin:0 auto;color:red;}
 .loginbox .autosuggest{position:absolute;left:0;top:54px;z-index:1000;}
@@ -53,8 +57,9 @@ a.link,.go-regist a,.loginbox label a{color:#006DA7; cursor:pointer; line-height
 
 
 /*  ‰»ÎøÚ */
-
-.input-text-user{border:#D8D8D8 1px solid;border-radius:3px;width:290px;padding-left:40px;height:32px;line-height:32px;background:white url(../images/login/img.png) no-repeat 0px top;}
-.input-text-password{border:#D8D8D8 1px solid;border-radius:3px;width:290px;padding-left:40px;height:32px;line-height:32px;background:white url(../images/login/img.png) no-repeat 0px -50px;}
+.input-text-user{border:#D8D8D8 1px solid;width:250px;height:32px;line-height:32px;outline:#D8D8D8;-webkit-box-shadow: 0 0 0px 1000px white inset;}
+.input_img{background:white url(../images/login/img.png) no-repeat 0px top;width:38px;height:32px;border:#D8D8D8 1px solid;position:absolute;left:0px;}
+.input-text-password{border:#D8D8D8 1px solid;width:250px;height:32px;line-height:32px;outline: none;-webkit-box-shadow: 0 0 0px 1000px white inset;}
+.pwd_img{background:white url(../images/login/img.png) no-repeat 0px -50px;width:38px;height:32px;border:#D8D8D8 1px solid;position:absolute;left:0px;}
 .input-text-user.error{background:#FFD2D2 url("../images/login/img.png") no-repeat 0px top;border-width:3px;}
 .input-text-password.error{background:#FFD2D2 url("../images/login/img.png") no-repeat 0px -50px;border-width:3px;}

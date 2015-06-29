@@ -53,7 +53,7 @@ public class UserDaoImpl implements UserDao {
 
 	public List searchUser(String userName) {
 		// TODO Auto-generated method stub
-		String hql = "select email from User where userName = ? ";		
+		String hql = "from User where userName = ? ";		
 		Query query = sessionFactory.getCurrentSession().createQuery(hql); 
 		query.setString(0,userName);		
 		List list =  query.list();
@@ -111,6 +111,17 @@ public class UserDaoImpl implements UserDao {
 		Query query = sessionFactory.getCurrentSession().createQuery(hql); 
 		query.setInteger(0,userid);		
 		User user =  (User) query.list().get(0);
+		return user;
+	}
+	
+	//更新用户类型
+	@Override
+	public User updateUserType(User user) {
+		String hql = "update User user  set  user.role.rid = ?   where user.userName =?";  
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setInteger(0, user.getRole().getRid());	
+		query.setString(1, user.getUserName());		
+		query.executeUpdate();
 		return user;
 	}
 

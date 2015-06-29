@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        				
                        		</li>
                        		<li>
-                       				<a href="page/foreground/lostandfind/find.jsp">失物招领</a>
+                       				<a href="lost!lostandfind.action?rid=<s:property value="#session.user.role.rid"/>">失物招领</a>
                        				
                        				
                        		</li>

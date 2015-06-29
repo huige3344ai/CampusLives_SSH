@@ -1,12 +1,7 @@
-<<<<<<< Upstream, based on dev
-=======
-#Thu Jun 25 15:55:38 CST 2015
->>>>>>> 10fa94a 回滚修复版本
+=\=\=\=\=\=\=
+<<<<<<<=Upstream, based on dev
+>>>>>>>=10fa94a \u00E5\u009B\u009E\u00E6\u00BB\u009A\u00E4\u00BF\u00AE\u00E5\u00A4\u008D\u00E7\u0089\u0088\u00E6\u009C\u00AC
 eclipse.preferences.version=1
-<<<<<<< Upstream, based on dev
-validator.Checked=WebRoot/js/jquery.min.js
-=======
-validator.Checked=/
->>>>>>> 10fa94a 回滚修复版本
+validator.Checked=WebRoot/js/jquery.min.js,/
 validator.Revalidate=true
 validator.Unchecked=

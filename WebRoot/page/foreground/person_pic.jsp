@@ -77,13 +77,13 @@ $(window).load(function() {
     <input type="button" id="btnCrop"  class="Btnsty_peyton" value="裁切"/>
     <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+"  />
     <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" />
-    <input type="button"  class="Btnsty_peyton" value="返还" onClick="window.location='<%=basePath%>page/foreground/main.jsp'"/>
+    <input type="button"  class="Btnsty_peyton" value="返还" onClick="window.location='<%=basePath%>page/foreground/person.jsp'"/>
   
     </div> 
  	<div class="tissue">
  		<s:fielderror></s:fielderror>
  		<span><s:property value="tissue"/></span><br/>
- 		<strong id="show_tissue" >默认图片仅供参考，请选择本地图片（.jpeg .png .jpg）上传</strong>		
+ 		<strong id="show_tissue" >注：默认图片仅供参考，请选择本地图片（.jpeg .png .jpg）上传，点击返还按钮将返还个人信息页面，查看头像</strong>		
  	</div>
   <div class="cropped">
  

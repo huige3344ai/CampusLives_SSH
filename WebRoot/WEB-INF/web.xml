@@ -17,7 +17,7 @@
     <filter-name>struts2</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  <!-- 吴松辉   部分网站过滤器 -->
+ <!-- 吴松辉   部分网站过滤器 -->
       <filter>
         <filter-name>login</filter-name>
         <filter-class>com.zhbit.actions.LoginCheck</filter-class>
@@ -26,9 +26,16 @@
         <filter-name>login</filter-name>
         <url-pattern>/page/foreground/exchange_msg.jsp</url-pattern>
         <url-pattern>/page/foreground/exchange_password.jsp</url-pattern>
-        <url-pattern>/page/foreground/person_pic.jsp</url-pattern>
         <url-pattern>/page/foreground/send_note.jsp</url-pattern>
-        <url-pattern>/page/foreground/person_pic.jsp</url-pattern>        
+        <url-pattern>/page/foreground/person_pic.jsp</url-pattern> 
+        <url-pattern>/page/foreground/person.jsp</url-pattern>
+        <url-pattern>/page/foreground/person_admin.jsp</url-pattern>
+        
+        <url-pattern>/page/foreground/food/alter.jsp</url-pattern>
+        <url-pattern>/page/foreground/food/Uoload.jsp</url-pattern>
+        <url-pattern>/page/foreground/food/alter_success.jsp</url-pattern>
+        <url-pattern>/page/foreground/food/Business_nformation_center.jsp</url-pattern>
+              
     </filter-mapping>
    <!-- end  吴松辉 -->
   <welcome-file-list>

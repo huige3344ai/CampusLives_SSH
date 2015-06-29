@@ -22,4 +22,7 @@ public interface UserService {
 	public User updatePassword(User user);
 
 	public User searchUser(int userid);
+	
+	public User updateUserType(User user);
+
 }

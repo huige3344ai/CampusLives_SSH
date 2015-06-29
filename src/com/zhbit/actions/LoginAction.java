@@ -14,7 +14,6 @@ import java.util.Random;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 import sun.misc.BASE64Decoder;
@@ -76,6 +75,7 @@ public class LoginAction extends ActionSupport {
 	
 
 		//登录校验
+		@SuppressWarnings("rawtypes")
 		public  String  login(){
 			List us  =  userser.searchUser_only(user.getUserName(), user.getPassword());		
 			HttpServletRequest request = ServletActionContext.getRequest();		
@@ -95,17 +95,44 @@ public class LoginAction extends ActionSupport {
 		public String  exchangeMsg(){
 		HttpServletRequest request = ServletActionContext.getRequest();		
 		User user_ex = userser.updateUser(user);
-		if(user_ex!=null){	
+		if(user_ex!=null){
+			user_ex =  (User)userser.searchUser(user_ex.getUserName()).get(0);
 			request.getSession().setAttribute("user",user_ex);
 			tissue = "更新用户信息成功";
 			return "updatesuccess";	
 		}else{
 			tissue = "更新失败，请重试！！！";
 			return "updateabort";	
-		}
-		
+		}		
 	  }
-	
+		
+		//更新用户类型
+		public String  exchangeType(){
+		User user_type = null;
+		if(userser.searchUser(user.getUserName()).isEmpty()){
+			tissue = "用户不存在";
+			return "updateabort";
+		}else{
+			user_type = (User) userser.searchUser(user.getUserName()).get(0);
+			if(user_type.getRole().getRid()==2){
+				tissue = "管理员信息不允许修改";	
+				return "updateabort";					
+			}else{
+			user.setRole(role);
+			user_type = userser.updateUserType(user);							
+			if(user_type==null){
+				tissue = "更新用户信息失败，稍后尝试";	
+				return "updateabort";
+			}else{
+				tissue = "更新用户信息成功";	
+				return "updatesuccess";
+			}
+			
+			}
+		}	
+		
+		
+	  }	
 		//更新密码	
 		public String updateLogin(){	
 			 User num = userser.updatePassword(user);
@@ -122,13 +149,14 @@ public class LoginAction extends ActionSupport {
 
 		
 		//找回密码
+		@SuppressWarnings("rawtypes")
 		public String returnPassword(){																	
 			User num = null;
-			List userEmail = userser.searchUser(user.getUserName());
+			List userEmail = userser.searchUser(user.getUserName());			
 			if(userEmail==null){
 				tissue	= "用户名不存在";
 				jude = false;
-			}else if(!userEmail.get(0).toString().equals(user.getEmail())){
+			}else if(!((User) userEmail.get(0)).getEmail().equals(user.getEmail())){				
 				tissue	= "邮箱不正确";		
 				jude = false;
 			}else{			
@@ -185,6 +213,7 @@ public class LoginAction extends ActionSupport {
 	    }
 	    
 		//上传头像
+		@SuppressWarnings("rawtypes")
 		public String uploadPic() throws IOException {
 			HttpServletRequest request = ServletActionContext.getRequest();
 			int position  ;//获取"."的位置
@@ -206,7 +235,7 @@ public class LoginAction extends ActionSupport {
 				if(extendstion.equalsIgnoreCase("png")||extendstion.equalsIgnoreCase("jpeg")||extendstion.equalsIgnoreCase("jpg")){
 				base64 = base64.substring(22);	
 				targetName = generateFileName(fileFileName);
-				path_pic = "images\\upload\\"+user_id+"\\"+targetName;					
+				path_pic = "images/upload/"+user_id+"/"+targetName;					
 				File parentDir = new File(realpath+"/"+user_id,targetName);
 				 //  先创建文件所在的目录
 				parentDir.getParentFile().mkdirs();
@@ -219,9 +248,12 @@ public class LoginAction extends ActionSupport {
 	            }				
 				num  = base64ToImage(base64, parentDir);
 					if(num){				
-						isSuccess = userser.uploadPic(user_id,path_pic);
+						isSuccess = userser.uploadPic(user_id,path_pic);						
+						List user_upload = userser.searchUser(user_pic.getUserName());
 						resultName = "upload_success";	
 						tissue="上传成功";
+						User user = (User)user_upload.get(0);
+						request.getSession().setAttribute("user",user);								
 					}else if(isSuccess==0){
 						tissue="由于网络原因上传失败";
 						resultName = "error";				

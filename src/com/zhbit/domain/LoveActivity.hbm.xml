@@ -10,6 +10,9 @@
             <column name="ac_id" />
             <generator class="native"></generator>
         </id>
+         <property name="acNo" type="java.lang.String">
+            <column name="ac_no" length="20" />
+        </property>
         <property name="acName" type="java.lang.String">
             <column name="ac_name" length="100" />
         </property>

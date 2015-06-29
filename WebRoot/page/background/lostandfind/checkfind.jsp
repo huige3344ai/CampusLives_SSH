@@ -1,4 +1,3 @@
-
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %> <!--导入Struts 2 标签库-->
 <%
@@ -37,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	       </center>
    <div id="contents">         
         <div id="usermessage"> 
-        <img id = "headphoto" src="<s:property value="%{#session.user.imgsrc}"/>">
+<img   id = "headphoto"  src="<s:property value="%{#session.user.imgsrc}"/>">
      <center> <s:property value="#session.user.userName"/></center>
         <div id ="service">
         

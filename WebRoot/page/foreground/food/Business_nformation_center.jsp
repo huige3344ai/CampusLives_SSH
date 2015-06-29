@@ -45,7 +45,7 @@ a:active {
             <span class="scroll"></span>
             <p class="head">
                 Campus life services
-                <a href="/page">Back to The home page</a>
+                <a href="page/foreground/main.jsp">Back to The home page</a>
             </p>
             <h1>Personal center</h1>
             

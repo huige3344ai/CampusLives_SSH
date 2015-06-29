@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -28,17 +30,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          	
          	<div class="header_title" >
          	<strong><span>校园生活服务网站</span></strong>
-         	</div>         	
+         	</div> 
          </div> 
- 
          <div id="bdys">
-			<jsp:include page="/page/background/nav.jsp"/>
+		                    	       
+			<jsp:include page="/page/background/nav.jsp"/>					                    	
 			
 		<div class="banner">
+		
 			  <div id="ifocus">
 		  <div id="ifocus_pic">
-		    <div style="left: 0px; top: -240px;" id="ifocus_piclist">
-		 
+		    <div style="left: 0px; top: -240px;" id="ifocus_piclist">		 
 		<ul >
 		 <li><a href="#"><img src="images/aab629a0a6c5e13df6f8b51879056bca.jpg"></img></a></li>
 		 <li><a href="#"><img src="images/aab629a0a6c5e13df6f8b51879056bca.jpg"></img></a></li>
@@ -154,7 +156,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				</ul>
 			</div>	
-			<div class="title_2"><h3>爱心活动</h3><span><a href="http://www.zhbit.com/meitiguanzhu/" target="_self">more+</a></span></div>
+			<div class="title_2"><h3>爱心活动</h3><span><a href="loveActivityAction!toLoveActivity" target="_self">more+</a></span></div>
 						<!------------首页新闻列表标签----------------->
 			<div class="news_list">
 				<ul>
@@ -197,9 +199,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    </div>         
 	  </div>
 	</div>
+
          <div id="footer">
 			<jsp:include page="/page/background/footer.jsp" />
          </div>
-
+</div>
   </body>		
 </html>

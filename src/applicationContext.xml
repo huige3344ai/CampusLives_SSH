@@ -21,6 +21,8 @@
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="txManager" />
+
+
 	<!-- 吴松辉 -->
 	<!--吴松辉 用户 -->
 
@@ -71,7 +73,7 @@
 	<bean id="lafService" class="com.zhbit.services.lostandfind.LostServiceImpl" />			
 	<bean id="lafact" class="com.zhbit.actions.lostandfind.LostAction" scope="prototype" />
 	<bean id="findact" class="com.zhbit.actions.lostandfind.FindAction" scope="prototype" />
-	<bean id="lafmanage" class="com.zhbit.actions.lostandfind.ManageAction" />
+	<bean id="lafmanageact" class="com.zhbit.actions.lostandfind.ManageAction"  scope="prototype"/>
 	
 	<!-- 肖剑锋Point bean配置 -->
 	<bean id="pointDao" class="com.zhbit.dao.point.PointDaoImpl" />
