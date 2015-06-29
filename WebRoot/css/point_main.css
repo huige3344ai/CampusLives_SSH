@@ -26,8 +26,8 @@ a:hover { text-decoration:underline; }
 	
 #contents{width:900px;height:700px;}
 
-#leftbody{width:25%;height:700px;float:left;background-color:#F5F5DC}
-#point{width:75%;height: 700px;float:right;display:inline;}
+#leftbody{width:20%;height:700px;float:left;background-color:#F5F5DC}
+#point{width:70%;height: 700px;float:right;display:inline;}
 #po{width:900px;height:auto;margin:0px auto;position:absolute;}
 #po_a{width:270px;height:240px;display:inline;}
 #po_b{width:270px;height:auto;display:inline;}
