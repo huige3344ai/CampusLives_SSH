@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td><s:date name="#session.user.birthday" format="yyyy-MM-dd" ></s:date></td>               
         <td><s:property value="%{#session.user.email}"></s:property></td>
         <s:if test="#session.user.role.rid==3">
-        <td><a href="#">淘宝店铺</a></td> 
+        <td><a href="getdata!Rt_Myrestaurants.action">商家信息</a></td> 
         </s:if>  
 
 

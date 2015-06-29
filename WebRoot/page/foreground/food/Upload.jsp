@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <h2>Create a new store</h2>
    
 
-			<s:form  action = "getdata" method = "post" theme="simple" namespace="/" name = "myform">
+			<s:form  action = "getdata" method = "post" theme="simple" namespace="/" name = "myform" enctype="multipart/form-data">
          	<img id="imghead" width=200 height=200 border=0 src="images/food/Upload_default.png"> <br>
             <s:file name = "file"></s:file><br><br>
           	店名：<s:textfield name="re.rname"></s:textfield><br><br>       	
