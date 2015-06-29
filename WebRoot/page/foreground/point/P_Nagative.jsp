@@ -36,9 +36,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          	</div>         	
 		</div> 
  
-		<div id="body">
+		<div id="body" >
+		<center>
 			<jsp:include page="/page/background/nav.jsp"/>
-			<div id="contents">               
+		
+			<div id="contents" align="left">               
 				
 					<div class="slide-main" id="touchMain">
 						<a class="prev" href="javascript:;" stat="prev1001">	
@@ -66,8 +68,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      				
 			</div>
 			
-	
-         </div>
+		</center>
+		</div>
             
          
 			<div id="footer" align="center">
