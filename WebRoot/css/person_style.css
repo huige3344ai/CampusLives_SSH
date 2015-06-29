@@ -3,7 +3,7 @@
             padding:0;
         }
         body{
-        
+        	
             font-family: Georgia, serif;
             font-size: 20px;
             font-style: italic;
@@ -12,6 +12,8 @@
             letter-spacing: normal;
             background: #f0f0f0;
         }
+        
+        li{;list-style: none;}
         #content{
             background-color:#fff;
             width:750px;
@@ -64,7 +66,7 @@
             margin-top: 10px;
             text-align: left;
         }
-        #content h2{
+        #content  h2{
             font-family:"Trebuchet MS",sans-serif;
             font-size:34px;
             font-style:normal;
@@ -87,7 +89,8 @@
 }
 .persion_talbe{
 	position: relative;
-	float: left;
+	width: 800px;
+	height: 900px;
 	
 }
 .zebra tbody tr:nth-child(even) {
@@ -151,3 +154,63 @@
     -webkit-border-radius: 0 0 6px 6px
     border-radius: 0 0 6px 6px
 }
+
+a,h1,h2,h3,h4,h5,h6,p,i{margin:0;padding:0}
+fieldset,img{border:0}
+.ico{display:inline-block;*display:inline;font-size:0;line-height:0;vertical-align:middle;*zoom:1}
+.clearfix{zoom:1}
+
+.aside{background:#fcfcfc;border:1px solid #ddd;width:278px}
+
+.grid-1 .article{margin-left: 340px;margin-top: 110px;position: absolute;}
+.grid-1 .aside{float:left;width:280px}
+.grid-2 .aside{float:left;width:230px}
+.grid-2 .article{float:right;width:300px;}
+
+.u-info{padding:15px 19px}
+.operation-list{padding-top:10px}
+.entry-list{overflow:hidden;width: auto;}
+.entry-list li{margin-right: 40px;}
+.safety-rating{padding:0 100px 0 0}
+.progress-bar{background:#f6f5f5;border:1px solid #ddd;border-radius:2px;height:6px;margin-bottom:6px;position:relative;width:345px}
+.rating-results{padding-top:30px}.tips{background:#f8f8f8;border:1px solid #e7e7e7;color:#999;padding:0 5px}
+.operation-list li{color:#999;padding:5px 0}
+
+.entry-list li{float:left;padding:10px 0;text-align:center;width:80px}
+
+.rating-results p{padding:6px 40px 6px 0}
+.log-record p{margin-top:10px}
+.operation-list li h3{font-size:14px;text-align: left;font-size:16px}
+.operation-list li p{padding:5px 0 0 37px;font-size:14px;text-align: left;}
+.lnk{color:#66a7e8}
+.fr{float:right}
+.entry-list li a{color:#999;display:block}
+.article .art-mod{padding-bottom:30px}
+
+.u-info .u-main{overflow:hidden}
+.u-info .avatar{_display:inline;float:left;height:110px;margin-right:15px;position:relative;width:110px}
+.u-info .avatar-img{display:block;height:110px;width:110px}
+.u-info .change{background:#000;bottom:0;color:#fff;display:none;height:25px;left:0;line-height:25px;opacity:0.4;position:absolute;text-align:center;width:110px;filter:alpha(opacity=40)}
+.u-info .txt{line-height:26px;overflow:hidden;padding-top:10px;zoom:1}
+.u-info .u-detail{font-size:14px;padding-top:10px}.progress-bar .per{background:#f23012;border:1px solid #e4251c;border-radius:2px;box-shadow:1px 1px 1px #fc5a41 inset;height:6px;left:0;overflow:hidden;position:absolute;top:-1px;z-index:99}
+.u-info .change:hover{color:#1eb009}
+.u-info .avatar-hover .change{display:block}
+.u-info .avatar-img img{height:109px;width:109px}
+.u-info .txt h2{color:#444;font-size:14px;font-family:"Microsoft Yahei";font-weight:400}
+.u-info .u-detail h3{color:#444;padding-bottom:3px}
+.operation-list li .ico{height:32px;vertical-align:-11px;width:32px;background: url("../images/login/uc-ico.png") no-repeat;}
+.operation-list li .ico-psw{background-position:0 0;}
+
+.progress-bar .per-o{background-color:#fe8e03;border-color:#ff9032;box-shadow:1px 1px 1px #f8ae3a inset}
+.progress-bar .per-g{background-color:#58ce28;border-color:#5dc027;box-shadow:1px 1px 1px #79d951 inset}
+.safety .btn-1{margin:19px 0 0}
+.aside-mod{border-top:1px solid #ddd;padding:20px}
+.aside-mod .aside-hd h2{color:#444;font-size:20px}
+.aside-mod .aside-hd h2,.article .art-hd h2{float:left;font-family:"Microsoft Yahei";font-weight:400}
+
+.article .art-hd h2{color:#666;font-size:24px}
+.operation-list li .ico-email{background-position:0 -32px}
+.operation-list li .ico-guard{background:url( no-repeat}
+.safety-rating h3 .num{color:#ffaa3d;font-size:30px;font-family:"Microsoft Yahei";vertical-align:-3px}
+
+

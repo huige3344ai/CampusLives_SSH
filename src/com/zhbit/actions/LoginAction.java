@@ -95,7 +95,8 @@ public class LoginAction extends ActionSupport {
 		public String  exchangeMsg(){
 		HttpServletRequest request = ServletActionContext.getRequest();		
 		User user_ex = userser.updateUser(user);
-		if(user_ex!=null){	
+		if(user_ex!=null){
+			user_ex =  (User)userser.searchUser(user_ex.getUserName()).get(0);
 			request.getSession().setAttribute("user",user_ex);
 			tissue = "更新用户信息成功";
 			return "updatesuccess";	
