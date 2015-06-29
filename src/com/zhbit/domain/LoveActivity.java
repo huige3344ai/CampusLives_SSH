@@ -7,14 +7,15 @@ package com.zhbit.domain;
 public class LoveActivity implements java.io.Serializable {
 
 	// Fields
-
-	private Short acId;
-	private String acName;
-	private String acTime;
-	private String acPlace;
-	private String PName;
-	private String PTel;
-	private String acContent;
+	
+	private Short acId;//活动ID，自增
+	private String acNo;//活动代码
+	private String acName;//活动名称
+	private String acTime;//活动时间
+	private String acPlace;//活动地点
+	private String PName;//负责人名字
+	private String PTel;//负责人电话
+	private String acContent;//活动内容
 
 	// Constructors
 
@@ -43,6 +44,13 @@ public class LoveActivity implements java.io.Serializable {
 		this.acId = acId;
 	}
 
+	public String getAcNo() {
+		return this.acNo;
+	}
+
+	public void setAcNo(String acNo) {
+		this.acNo = acNo;
+	}
 	public String getAcName() {
 		return this.acName;
 	}

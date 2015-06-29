@@ -1,16 +1,25 @@
 @CHARSET "UTF-8";
 .c_apply{
 width:594px;
-height:500px;
+height:680px;
 float:left;
 top:150px;
 left:400px;
 position: absolute;
-background:#c0d9d9;
-
-
+/*background:#c0d9d9;*/
+background:url("../images/a/backg.png") no-repeat;
 }
-   
+  
+ .c_apply2{
+width:594px;
+height:510px;
+float:left;
+top:150px;
+left:400px;
+position: absolute;
+/*background:#c0d9d9;*/
+background:url("../images/a/huodong3.png") no-repeat;
+}
    
    
 
@@ -35,13 +44,8 @@ a:hover { text-decoration:underline; }
 .header_title span,strong{color:white;}
 
 
-#nav{width:900px;height:40px;float:left;top:-42px;margin-left:220px;line-height:40px;     text-align:center;font:18px ;position:absolute;}
-#nav ul{width:900px;overflow:hidden;float:left;}
-#nav ul li{width:100px;height:40px;float:left;position:relative;line-height:40px;  text-align:center;}	
-#nav ul li a{/*  一级导航 */width:80px;height:20px;color:black;}		
-#nav ul li a:hover{background:white;}	
+ 	
 	
-.user{width:100px;height:40px;float:right;margin-top:-40px;}
 #body{width:100%;height:750px;position:absolute;left:0px;top:100px;}
 
 #footer{width:100%;height:50px;position:absolute;bottom:0px;}

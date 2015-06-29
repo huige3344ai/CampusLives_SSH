@@ -8,12 +8,12 @@ public class ActivityApply implements java.io.Serializable {
 
 	// Fields
 
-	private Short apNo;
-	private Short acId;
-	private String acName;
-	private Integer UId;
-	private String UName;
-	private String UTel;
+	private Short apNo;//申请号，short类型，自增
+	private Short acId;//活动ID
+	private String acName;//活动名称
+	private Integer UId;//申请人ID
+	private String UName;//申请人姓名
+	private String UTel;//申请人电话
 
 	// Constructors
 

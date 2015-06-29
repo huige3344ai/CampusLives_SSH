@@ -20,14 +20,7 @@ a:hover { text-decoration:underline; }
 .header_title{height:20px;width:160px;display:inline	line-height:20px;margin-left:50px;padding-top:0px;}
 .header_title span,strong{color:white;}
 
-
-#nav{width:900px;height:40px;float:left;top:-42px;margin-left:220px;line-height:40px;     text-align:center;font:18px ;position:absolute;}
-#nav ul{width:900px;overflow:hidden;float:left;}
-#nav ul li{width:100px;height:40px;float:left;position:relative;line-height:40px;  text-align:center;}	
-#nav ul li a{/*  Ò»¼¶µ¼º½ */width:80px;height:20px;color:black;}		
-#nav ul li a:hover{background:white;}	
-	
-.user{width:100px;height:40px;float:right;margin-top:-40px;}
+ 	
 #body{width:100%;height:750px;position:absolute;left:0px;top:100px;}
 
 #footer{width:100%;height:50px;position:absolute;bottom:0px;}
@@ -38,24 +31,7 @@ a:hover { text-decoration:underline; }
 
 
 
-/* 
-#container{
-width:1560px;
-height:946px;
-background:url("../image/main_background.png") repeat-x;
-position:absolute;
-}
 
-
-
-#header{
-width:100%;
-height:100px;
-position:absolute;
-top:0px;
-}
-
-*/
 
 #body1{
 width:100%;
@@ -66,13 +42,13 @@ top:100px;
 }
 
 .c_div1{
-width:294px;
-height:200px;
-border:2px solid ;
-background:white;
+width:335px;
+height:290px;
+
+background:url("../images/a/loginInfo.png") no-repeat ;
 position:absolute;
 top:150px;
-left:250px;
+left:220px;
 }
 
 
@@ -81,28 +57,31 @@ left:250px;
 width:5px;
 height:600px;
 background:red;
+
 position:absolute;
 top:100px;
 left:640px;
 }
 
 .c_div3{
-width:294px;
-height:200px;
+width:335px;
+height:290px;
 top:450px;
-left:250px;
+left:220px;
 position: absolute;
-
+background:url("../images/a/loginInfo.png") no-repeat ;
 }
        #middle_b{
 			
 				
 			background: none repeat scroll 0% 0% #FFF;
 			overflow:hidden;
-			border: 2px dashed #CCC;
-			width: 100%;
-			border-left:10px solid #cdc;
-		    border-right:10px solid #cdc;
+			border:0px #CCC;
+			width: 83%;
+			margin-left:40px;
+			margin-top:40px;
+			/*border-left:20px solid #cdc;
+	    border-right:10px solid #cdc;*/
 				
 		}
 		
@@ -121,27 +100,15 @@ position: absolute;
 			}
 
 .c_div4{
-width:394px;
-height:500px;
+width:594px;
+height:526px;
 float:left;
 top:150px;
-left:750px;
+left:680px;
 position: absolute;
-background:#c0d9d9;
-
+background:url("../images/a/huodong.png") no-repeat;
+overflow: scroll;
 }
-   
+ 
+  
 
-
-
-/*
-#footer{
-width:100%;
-height:136px;
-position:absolute;
-bottom:0px;
-
-background:url("../image/footer.png") repeat-x;
-}
-
-*/

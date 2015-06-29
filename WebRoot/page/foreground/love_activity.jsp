@@ -1,11 +1,26 @@
+<%@page import="com.opensymphony.xwork2.ActionContext"%>
 <%@page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@page import="com.zhbit.domain.ActivityApply"%>
 <%@page import="com.zhbit.domain.LoveActivity"%>
-
+<%@page import="com.zhbit.domain.User"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+ String isA ="",contact="",sex="",username="";
+                     int judge,identity=-1;
+                     User user=(User)session.getAttribute("user");
+                     ActionContext.getContext().getSession().put("user",user);	
+	                      if(user!=null){ 
+	                         username=user.getUserName();
+	                        judge= user.getRole().getRid();//获取身份角色编号
+	                        identity=user.getId();//获取身份id
+	                        contact=user.getEmail();//获取联系方式
+	                      }else{
+	                        judge=-1;
+	                        
+	                      }
+    	        	       
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -13,12 +28,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>校园服务网站</title>
+    <title>爱心活动</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/main_ac.css">
 	<script src="js/LoveActivity.js" type="text/javascript"></script>
   </head>
   <body>
+  
   <div id="container" >
         <div id="header">
          	
@@ -32,99 +48,53 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div> 
           
          
-    	         <div id="body">
-    	         <div id="nav">
-                       <ul>
-                       		<li>
-                       				<a href="page/foreground/main.jsp">主页 </a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="page/PointView/foreground/PointNavigation.jsp">校园美景</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="page/foreground/food/FoodNetwork.jsp">校园美食</a>
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="checkservlet">失物招领</a>
-                       				
-                       				
-                       		</li>
-                       		<li>
-                       				<a href="LoginServlet">爱心活动</a>
-                       				
-                       		</li>
-                       		
-                        	<li>
-                       				<a href="JudgeIsAdmin">投诉建议</a>
-                       				 
-                       		</li> 
-                       		                           		
-                       		<li>
-                       				
-                       				<a href="page/foreground/regist.jsp" >修改密码</a>
-                       				 
-                       		</li>
-
-                       		
-                       </ul>
-                <div class = "user">
-                        
-                 <%=session.getAttribute("uname")%>,<a href="page/foreground/logout.jsp">注销</a>
-                	                		
-                 </div>   
-                </div>
-     				
-         </div>
+    	    <div id="body" align="center">
+         	 <jsp:include page="/page/background/nav.jsp"/>
+     		
+            </div>
          
-           <div id="body1">      
+           <div id="body1"> 
+           <s:if test="#session.user!=null">     
                 <!-- //////////////////////////////////// --> 
     	        <div class="c_div1">
     	        <br>
-    	        
+    	        <br>   
     	            <table align="center">
     	                    <th>登录信息:</th>
     	            		<tr >
     	            	         <td>姓名</td>
-    	                         <td><%=session.getAttribute("uname")%></td>
+    	                         <td><s:if test="#session.user!=null"><s:property value="#session.user.userName"/></s:if></td>
     	                   </tr>
     	                   	<tr >
-    	                   		<%-- int judge = Integer.parseInt(session.getAttribute("isAdmin").toString());
-    	                   		String isA = null;
-    	        	              if(judge==1){
-    	        	           		isA ="管理员";
-    	        	               }else{
-    	        	                isA ="普通用户";
-    	        	               }
-    	        	            --%>
+    	                   		
     	            	         <td>身份</td>
-    	                         <td><%--=isA--%></td>
+    	                         <td><s:if test="#session.user.role.rid==2">管理员</s:if><s:else>普通用户 </s:else></td>
     	                   </tr>
     	                   	<tr >
     	            	        <td>性别</td>
-    	                        <td></td>
+    	                        <td><s:if test="#session.user.sex==1">男</s:if><s:else>女</s:else></td>
     	                   </tr>
     	                   <tr >
     	            	       <td>联系方式</td>
-    	                       <td></td>
+    	                       <td><s:if test="#session.user!=null"><s:property value="#session.user.email"/></s:if></td>
     	                       
     	                       
     	                  </tr>
-    	                   <tr>
-    	                  <%--
-							if(judge==1){
-    	        	       --%>
- 							  <td><a href="page/background/add_activity.jsp"> [增加活动]</a></td>
-    	                       	<td><a href="page/background/delete_activity.jsp"> [删除活动]</a></td></tr>
-    	                       <tr>	<td><a href="page/background/alter_activity.jsp"> [修改活动]</a></td>   	        	           		
-    	        	       <%--   		
-    	        	               }    	                  
-    	                   --%>
+    	                   <s:if test="#session.user.role.rid==2">
+    	                      <tr>
     	                 
-    	                      <td><a href="page/foreground/check_cancel_apply.jsp"> [查看报名情况]</a></td></tr>
-    	                  <tr> <td ><a href="#"><input type="hidden" value="[活动管理]" accesskey='<jsp:element name="table"></jsp:element>'/> </a></td></tr>
+ 						        <td><a href="page/background/add_activity.jsp"><img style="width:100px; height:38px;" src="images/a/add.png" /></a></td>
+    	                        <td><a href="loveActivityAction!toDeleteActivity.action?"><img style="width:100px; height:38px;" src="images/a/delete.png" /></a></td>
+    	                      </tr>
+    	                   </s:if>
+    	                   <tr>	
+    	                        <s:if test="#session.user.role.rid==2">
+    	                           <td><a href="loveActivityAction!toUpdateActivity.action"><img style="width:100px; height:38px;" src="images/a/update.png" /></a></td>
+    	                        </s:if>   	        	           		
+    	                       <td><a href="loveActivityAction!toCheckCancelApply.action?u_id=<%=identity%>"><img style="width:100px; height:38px;" src="images/a/check.png" /></a></td>
+    	                      
+    	                   </tr>
+    	                  <tr> <td ></td></tr>
     	                  
     	            </table>               
     	        </div>
@@ -147,11 +117,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	                      </div>
     	              </div>
     	       </div>
-    	       
-    	       <div class="c_div4">
+    	       <%--<div style=" background: url('../images');">
+    	       --%><div class="c_div4">
     	         
     	          	 <form >
-        <table >
+        <table cellpadding="15px" style=" margin-left: 80px;">
        		 <thead > <td></td><td><b>爱心活动列表</b></td></thead>
              <tbody>
           
@@ -163,17 +133,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    
     	       	<s:iterator value="activityList" var="acList">
     	       	<tr>
-    	       	     <td><label><s:property value="%{#acList.getAcId()}" /></label></td>
+    	       	     <td  ><span ><s:property value="%{#acList.getAcId()}" /></span></td>
     	       		 <td> 
-    	       			       <a title="查看活动详情" style=" text-decoration: none;" href="<s:url action="loveActivityAction">
-    	       			                                                <s:param name="loveActivity.acId" value="%{#acList.getAcId()}" />
+    	       			       <a title="查看活动详情" style=" text-decoration: none;" href="<s:url action="loveActivityAction!toLookActivity?">
+    	       			                                                 <s:param name="loveActivity.acId" value="%{#acList.getAcId()}" />
+    	       			                                                 <s:param name="loveActivity.acNo" value="%{#acList.getAcNo()}" />
+    	       			                                                 <s:param name="loveActivity.acName" value="%{#acList.getAcName()}" />
+    	       			                                                 <s:param name="loveActivity.acTime" value="%{#acList.getAcTime()}" />
+    	       			                                                 <s:param name="loveActivity.acPlace" value="%{#acList.getAcPlace()}" />
+    	       			                                                 <s:param name="loveActivity.acContent" value="%{#acList.getAcContent()}" />
+    	       			                                                 <s:param name="loveActivity.PName" value="%{#acList.getPName()}" />
+    	       			                                                 <s:param name="loveActivity.PTel" value="%{#acList.getPTel()}" />
+    	       			                                                 
     	       			                                                </s:url>">
     	       			           <s:property value="%{#acList.getAcName()}" />
     	       			       </a>
     	       	    </td>
-    	       			       <!--<td><input type="hidden" name="loveActivity.acContent" /></td> -->
+    	       	
     	       			       
-    	       		<td align="center"><a title="报名活动" href="page/foreground/apply_activity.jsp?v1=<%--=v.get(1).toString()%>&v2=<%=v.get(2).toString()--%>"><label >+</label></a>
+    	       		<td align="center"><a title="报名活动"  href="<s:url action="loveActivityAction!toApplyActivity?">
+    	       			                                                <s:param name="loveActivity.acId" value="%{#acList.getAcId()}" />
+    	       			                                                <s:param name="loveActivity.acName" value="%{#acList.getAcName()}" />
+    	       			                                                 
+    	       			                                         </s:url>">
+    	       			                  <label ><img  width="30px" height="30px" src="images/a/jiahao.png"/></label>
+    	       			                </a>
                    </td>
                       
                 </tr> 
@@ -189,14 +173,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </table>
      </form>
     	          
-    	    </div>
-         </div>
-         
+    </div>
+    <!-- 背景图片 -->
+    </s:if>
+    <s:else>
+                     <div align="center"> <h1> 请您先登录，谢谢。</h1>
+                     </div>
+    </s:else>
+   </div>
+  
             
         
         
         
-         <div id="footer">
+         <div id="footer" align="center">
          	<div class="footer_title">
          	<p>Copyright 2014 ZFSOFT All Rights Reserved. 标准版V1.0.0E-mail：888888@gmail.com</p>
          	<br/>
