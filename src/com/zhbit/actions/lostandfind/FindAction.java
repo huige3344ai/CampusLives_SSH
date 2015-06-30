@@ -32,6 +32,7 @@ public class FindAction extends ActionSupport{
 	private List<Findreply> findreplylist;
 	private Findreply findreply;
 	private int findid;
+	private int rid;
 	
 	
 	@Resource
@@ -110,6 +111,9 @@ public class FindAction extends ActionSupport{
 		request.getSession().setAttribute("findid",findid);
 		findlist=lostser.getoneFind(findid);
 		setFindreplylist(lostser.getFindreply(findid));
+		if(rid==2){
+			return "mcheck";
+		}else
 		return "check";		
 	}
 	
@@ -177,5 +181,11 @@ public class FindAction extends ActionSupport{
 		lostser.deleteFindreply(findid);
 		return "deletesuccess";
 		
+	}
+	public int getRid() {
+		return rid;
+	}
+	public void setRid(int rid) {
+		this.rid = rid;
 	}
 }

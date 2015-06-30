@@ -43,7 +43,7 @@ public class NoteDaoImpl implements NoteDao {
 		List<Note> notes = null;
 		try {
 			notes = new ArrayList<Note>();
-			String hql = "from Note";  
+			String hql = "from Note order by nid desc";  
 			Query query = sessionFactory.getCurrentSession().createQuery(hql); 
 			query.setFirstResult((pageNo-1)*pageSize);
 			query.setMaxResults(pageSize);

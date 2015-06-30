@@ -125,7 +125,8 @@
 				<result name="alllist">/page/foreground/lostandfind/personal.jsp</result>
 				<result name="revise">/page/foreground/lostandfind/reviselost.jsp</result>	
 				<result name="deletesuccess">/page/foreground/lostandfind/deletesuccess.jsp</result>
-				<result name="manage">/page/background/lostandfind/lostmanage.jsp</result>			
+				<result name="manage">/page/background/lostandfind/lostmanage.jsp</result>	
+				<result name="mcheck">/page/background/lostandfind/checklost.jsp</result>	
 			</action>
 			<action name="find" class="findact" >
 				<result type="redirectAction">
@@ -138,7 +139,8 @@
 				<result name="list">/page/foreground/lostandfind/searchfind.jsp</result>
 				<result name="check">/page/foreground/lostandfind/checkfind.jsp</result>
 				<result name="revise">/page/foreground/lostandfind/revisefind.jsp</result>	
-				<result name="deletesuccess">/page/foreground/lostandfind/deletesuccess.jsp</result>			
+				<result name="deletesuccess">/page/foreground/lostandfind/deletesuccess.jsp</result>
+				<result name="mcheck">/page/background/lostandfind/checkfind.jsp</result>			
 			</action>
 			<action name="manageact" class="lafmanageact">
 				<result name="lostshow">/page/background/lostandfind/lostmanage.jsp</result>

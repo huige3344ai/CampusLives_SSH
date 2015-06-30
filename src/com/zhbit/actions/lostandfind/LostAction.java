@@ -129,6 +129,9 @@ public class LostAction extends ActionSupport{
 		request.getSession().setAttribute("lostid",lostid);
 		lostlist=lostser.getoneLost(lostid);
 		setLostreplylist(lostser.getLostreply(lostid));
+		if(rid==2){
+			return "mcheck";
+		}else
 		return "check";		
 	}
 	

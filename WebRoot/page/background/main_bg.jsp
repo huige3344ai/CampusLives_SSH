@@ -101,7 +101,7 @@ int num=0;
 		  <div class="main_left">
 	  	 	 <div class="title_1">
 	  	    <h3>爱心活动</h3>
-	  	    <span><a href="get!getPoints.action" target="_self">more+</a></span>
+	  	    <span><a href="loveActivityAction!toLoveActivity" target="_self">more+</a></span>
 	  	  </div>
 
 			<!------------首页新闻列表标签(可以选择性获取自己的内容)----------------->
@@ -150,13 +150,13 @@ int num=0;
 								
 				<s:iterator value="#request.lostlist" id="lost" >
 				<li>				
-				<a href="lost!lostcheck.action?lostid=<s:property value="#lost.id"/>"><s:property value="#lost.lostname"/></a>
+				<a href="lost!lostcheck.action?lostid=<s:property value="#lost.id"/>&rid=<s:property value="#session.user.role.rid"/>"><s:property value="#lost.lostname"/></a>
 				 <span>2015-7-3</span>
 				</li>
 				</s:iterator>	
 				<s:iterator value="#request.findlist" id="find" >
 				<li>				
-				<a href="find!findcheck.action?findid=<s:property value="#find.id"/>"><s:property value="#find.findname"/></a>
+				<a href="find!findcheck.action?findid=<s:property value="#find.id"/>&rid=<s:property value="#session.user.role.rid"/>"><s:property value="#find.findname"/></a>
 				<span>2015-7-3</span>
 				</li>
 				</s:iterator>	
