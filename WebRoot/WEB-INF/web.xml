@@ -35,6 +35,11 @@
         <url-pattern>/page/foreground/food/Uoload.jsp</url-pattern>
         <url-pattern>/page/foreground/food/alter_success.jsp</url-pattern>
         <url-pattern>/page/foreground/food/Business_nformation_center.jsp</url-pattern>
+        
+        <url-pattern>/page/foreground/lostandfind/lost.jsp</url-pattern>
+        <url-pattern>/page/background/lostandfind/lostmanage.jsp</url-pattern>
+        <url-pattern>/page/foreground/lostandfind/find.jsp</url-pattern>
+        
               
     </filter-mapping>
    <!-- end  吴松辉 -->

@@ -17,6 +17,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 
+import com.opensymphony.xwork2.ActionSupport;
 import com.zhbit.domain.Role;
 import com.zhbit.domain.User;
 import com.zhbit.domain.food.Comments;
@@ -49,7 +50,7 @@ public class RestaurantAction {
 		private String targetName;//保存文件名称属性
 		private String dir;//保存文件路径属性
 		String path_pic = null;//图片相对路径;
-
+		
 		User u;
 		String com;	//评论
 		String  score; //用户评分
@@ -68,23 +69,19 @@ public class RestaurantAction {
 			user=(User) request.getSession().getAttribute("user");
 			re.setUser(user);
 			uploadPic();
+			if(path_pic!=null){
 			re.setImages(path_pic);
-			if(rs.saveRestaurant(re)!=null)
+			rs.saveRestaurant(re);
 			return "Save_Success";
-			else
-			return "Save_Fail";	
-
+			}else{
+			request.setAttribute("nopic_msg","文件为空，或者网络原因上传失败！！！");
+			return "Save_Fail";
+			}
 		}
 
 
-		
 
 
-
-
-		
-
-		
 		public String Rt_Restaurant(){
 			HttpServletRequest request = ServletActionContext.getRequest();
 			re = rs.findid(num);

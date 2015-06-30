@@ -88,7 +88,12 @@
 				<result name="answer" type="redirect">/page/foreground/details.jsp</result>
 				<result name="error">/page/background/error.jsp</result>
 				<result name="login">/page/foreground/login.jsp</result>	
-		</action>		
+		</action>
+		<action name="mainAction" class="mainPage">
+			<result name="repage">/page/background/main_bg.jsp</result>
+			<result name="input">/page/background/main_bg.jsp</result>
+		</action>
+				
 		<!-- 吴松辉  END -->	
 				
 		<!--庄继辉  action配置 -->
@@ -98,7 +103,7 @@
 					<result name="Rt_Update_Messages">/page/foreground/food/alter.jsp</result>
 					<result name="Alter_Success">/page/foreground/food/alter_success.jsp</result>
 					<result name="Save_Success">/page/foreground/food/alter_success.jsp</result>
-					<result name="Save_Fail">/page/foreground/food/FoodNetwork.jsp</result>
+					<result name="Save_Fail">/page/foreground/food/Upload.jsp</result>
 										
 			</action>
 			<action name="Rtdata" class="RtAct">

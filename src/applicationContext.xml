@@ -35,6 +35,10 @@
 	<bean id="noteDao" class="com.zhbit.dao.NoteDaoImpl" />
 	<bean id="noteService" class="com.zhbit.services.NoteServiceImpl" />	
 	<bean id="noteManger" class="com.zhbit.actions.NotaManagerAction" scope="prototype"/>
+	
+	<!-- 吴松辉 主页 -->
+	<bean id="mainPage" class="com.zhbit.actions.MainNewsAction" scope="prototype"/>
+	
 	<!-- 吴松辉 END -->
 	
 	<!-- 庄继辉bean配置：不许说话不许动 -->

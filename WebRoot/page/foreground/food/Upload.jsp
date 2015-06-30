@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <span class="scroll"></span>
             <p class="head">
                 Campus life services
-                <a href="#">Back to The home page</a>
+                <a href="page/foreground/main.jsp">Back to The home page</a>
             </p>
             <h1>Personal center</h1>
             
@@ -49,8 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           	<s:submit method = "save_Restaurant"></s:submit>
         <!--  <a class="button white " href="">Submit</a> -->
          </s:form>
-         
-
+         		<p align="center" style="color:red;"><s:property value="#request.nopic_msg"/></p>				
         </div>
 
     </body>
