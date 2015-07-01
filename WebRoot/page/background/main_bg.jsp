@@ -134,7 +134,7 @@ int num=0;
 				<s:iterator value="#request.relist" id="restaurant">
 				
 			 		<%++num;%>		
-					<li><a href="getdata!Rt_Restaurant?num=<s:property value = "#restaurant.num"/>"><s:property value="#restaurant.Rname"/></a><span><s:date name="#restaurant.RDate" format = "yyyy-M-d"/></span></li>				
+					<li><a href="getdata!Rt_Restaurant?num=<s:property value = "#restaurant.num"/>"><s:property value="#restaurant.Rname"/></a><span><s:date name="#restaurant.RDate" format = "yyyy-MM-dd" /></span></li>				
 
 				</s:iterator>
 
@@ -151,13 +151,13 @@ int num=0;
 				<s:iterator value="#request.lostlist" id="lost" >
 				<li>				
 				<a href="lost!lostcheck.action?lostid=<s:property value="#lost.id"/>&rid=<s:property value="#session.user.role.rid"/>"><s:property value="#lost.lostname"/></a>
-				 <span>2015-7-3</span>
+				 <span>2015-07-03</span>
 				</li>
 				</s:iterator>	
 				<s:iterator value="#request.findlist" id="find" >
 				<li>				
 				<a href="find!findcheck.action?findid=<s:property value="#find.id"/>&rid=<s:property value="#session.user.role.rid"/>"><s:property value="#find.findname"/></a>
-				<span>2015-7-3</span>
+				<span>2015-07-03</span>
 				</li>
 				</s:iterator>	
 
@@ -169,7 +169,7 @@ int num=0;
 			<div class="news_list">
 				<ul>
 				<s:iterator value="#request.pointlist" id="point" >
-				<li><a href="search!getSPoint.action?pid=<s:property value="#point.pid"/>" ><s:property value="#point.pname"/></a><span>2015-6-9</span></li>
+				<li><a href="search!getSPoint.action?pid=<s:property value="#point.pid"/>" ><s:property value="#point.pname"/></a><span>2015-06-09</span></li>
 				</s:iterator>
 				
 				</ul>
