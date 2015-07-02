@@ -57,10 +57,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<legend>景观添加界面</legend>
 							<div>
 								<s:form action="/add!add.action" method= "post" >
-								<s:textfield name="point.pname" style="font-size:12px;width: 200px;"label="景观名称" />
-								<s:textfield name="point.pinformation" style="font-size:12px;width:400px;height:400px;"label="景观简介" />
-								<s:textfield name="point.pimages" style="font-size:12px;width: 200px;"label="景观图片链接地址" />
-								<s:textfield name="point.pimages2" style="font-size:12px;width: 200px;"label="景观图片链接地址" />
+								<s:textfield name="point.pname" style="font-size:12px;width: 200px;" label="景观名称" />
+								<s:textfield name="point.pinformation" style="font-size:12px;width:400px;height:400px;" label="景观简介" />
+								<s:textfield name="point.pimages" style="font-size:12px;width: 200px;" label="景观图片链接地址" />
+								<s:textfield name="point.pimages2" style="font-size:12px;width: 200px;" label="景观图片链接地址" />
 								<s:submit value=" 添加 " />
 								</s:form>
 							</div>
